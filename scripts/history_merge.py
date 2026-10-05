@@ -53,7 +53,7 @@ def main():
     for l in labels:
         l["origin"] = ORIGIN.get(l["hash"], "generator") if l["label"] == "ASSET" else None
     out = {"status": "drafted by two AI labellers; reviewed by the AI assistant (two rounds, see overrides); "
-                     "awaiting author sign-off",
+                     "signed off by the author 2026-10-05",
            "overrides": applied, "labels": labels}
     (RES / "history_labels.json").write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding="utf-8")
     asset = [l for l in labels if l["label"] == "ASSET"]
