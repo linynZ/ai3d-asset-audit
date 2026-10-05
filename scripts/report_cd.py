@@ -75,7 +75,11 @@ def main():
         if v in ("CONTRADICTED", "PARTLY"):
             row["revised_later"], row["revised_evidence"] = REVISED.get(i, (None, "not yet checked"))
         final.append(row)
-    (RES / "claims.json").write_text(json.dumps(final, indent=1, ensure_ascii=False), encoding="utf-8")
+    status = ("extracted by two AI agents; judged by the AI assistant (judge 1) and an independent AI agent "
+              "(judge 2); disagreements resolved by the assistant under written rules; reviewed and signed off by "
+              "the author 2026-10-05")
+    (RES / "claims.json").write_text(json.dumps({"status": status, "claims": final}, indent=1, ensure_ascii=False),
+                                     encoding="utf-8")
 
     testable = [r for r in final if r["verdict"] in ("CONFIRMED", "CONTRADICTED", "PARTLY")]
     wrong = [r for r in testable if r["verdict"] in ("CONTRADICTED", "PARTLY")]
@@ -99,6 +103,7 @@ def main():
     }
     if (RES / "defects.json").exists():
         d = json.loads((RES / "defects.json").read_text(encoding="utf-8"))
+        d = d["defects"] if isinstance(d, dict) else d
         rep["D"] = {"defects": len(d),
                     "present_in_final_build": [x["id"] for x in d if x.get("present_in_final_build") is True],
                     "visible_on_screen": {str(k): v for k, v in Counter(str(x.get("visible_on_screen")) for x in d).items()},

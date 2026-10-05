@@ -1,645 +1,648 @@
-[
+{
+ "status": "reconstructed from git by an AI agent, reviewed by the AI assistant, signed off by the author 2026-10-05",
+ "defects": [
   {
-    "id": "D01",
-    "title": "NPCs face away from the player (UniGLTF Z reversal; compensated by yaw 180)",
-    "introduced": {
-      "hash": "c21ea44",
-      "datetime": "2026-06-22T06:32:31+08:00"
+   "id": "D01",
+   "title": "NPCs face away from the player (UniGLTF Z reversal; compensated by yaw 180)",
+   "introduced": {
+    "hash": "c21ea44",
+    "datetime": "2026-06-22T06:32:31+08:00"
+   },
+   "first_observed": {
+    "ref": "commit f3da6c2 (message body)",
+    "datetime": "2026-06-23T04:13:16+08:00",
+    "channel": "developer play-test",
+    "quote": "The historian showed its back once the player approached: NPCController.FaceTarget points the NPC's +Z at the player, but Hunyuan front-view exports face -Z."
+   },
+   "fix_chain": [
+    {
+     "hash": "f3da6c2",
+     "datetime": "2026-06-23T04:13:16+08:00",
+     "subject": "fix(editor): default Face Yaw to 180 — Hunyuan exports face -Z, NPC turns +Z to player"
     },
-    "first_observed": {
-      "ref": "commit f3da6c2 (message body)",
-      "datetime": "2026-06-23T04:13:16+08:00",
-      "channel": "developer play-test",
-      "quote": "The historian showed its back once the player approached: NPCController.FaceTarget points the NPC's +Z at the player, but Hunyuan front-view exports face -Z."
+    {
+     "hash": "953f004",
+     "datetime": "2026-06-23T04:50:30+08:00",
+     "subject": "feat(npc): historian + artisan drop-in prefabs (URP/Lit, 1.7m, yaw 180) + GLB import metas"
     },
-    "fix_chain": [
-      {
-        "hash": "f3da6c2",
-        "datetime": "2026-06-23T04:13:16+08:00",
-        "subject": "fix(editor): default Face Yaw to 180 — Hunyuan exports face -Z, NPC turns +Z to player"
-      },
-      {
-        "hash": "953f004",
-        "datetime": "2026-06-23T04:50:30+08:00",
-        "subject": "feat(npc): historian + artisan drop-in prefabs (URP/Lit, 1.7m, yaw 180) + GLB import metas"
-      },
-      {
-        "hash": "c1ff678",
-        "datetime": "2026-06-23T05:25:41+08:00",
-        "subject": "feat(npc): guardian drop-in prefab (URP/Lit, ~1.7m, yaw 180) + GLB import meta"
-      },
-      {
-        "hash": "40f7193",
-        "datetime": "2026-07-06T06:37:06+08:00",
-        "subject": "feat(rome): Rome NPC prefabs x3 built via NPCModelSetupTool (user-verified in play)"
-      }
-    ],
-    "fixed": {
-      "hash": "f3da6c2",
-      "datetime": "2026-06-23T04:13:16+08:00"
+    {
+     "hash": "c1ff678",
+     "datetime": "2026-06-23T05:25:41+08:00",
+     "subject": "feat(npc): guardian drop-in prefab (URP/Lit, ~1.7m, yaw 180) + GLB import meta"
     },
-    "elapsed_hours": {
-      "to_observe": 21.68,
-      "to_fix": 0.0
-    },
-    "first_explanation": {
-      "quote": "Hunyuan front-view exports face -Z",
-      "source": "commit f3da6c2 message (repeated in 2658169 docs and 2de7310 spec as '混元正视导出朝 -Z')",
-      "later_contradicted": true,
-      "contradicted_by": "this audit (2026-10-05): GLB fronts face +Z as glTF specifies; UniGLTF reverseAxis default (Z) maps them to Unity -Z, so the cause is the importer convention, not the generator"
-    },
-    "present_in_final_build": false,
-    "visible_on_screen": {
-      "value": true,
-      "why": "an NPC showing its back while talking to the player is plainly visible; fixed before any committed prefab"
-    },
-    "notes": "Introduced = first commit with a generated GLB plus the NPC tool whose Face Yaw defaulted to 0 (c21ea44); the face-away prefab was only ever built in the working copy and never committed (first committed prefab 953f004 already has yaw 180). c21ea44 already offered a Face Yaw slider 'if the model faces away' (anticipated, default 0). Channel: the message does not literally say 'user', but it describes an in-play observation and the assistant cannot run Play in this setup; treated as developer play-test. fix_chain after f3da6c2 = applications of the compensation to each era's prefabs (not separate fixes). Final build: all 24 GLB prefabs at 87fdd16 carry Model localRotation y=180 (verified in prefab YAML)."
+    {
+     "hash": "40f7193",
+     "datetime": "2026-07-06T06:37:06+08:00",
+     "subject": "feat(rome): Rome NPC prefabs x3 built via NPCModelSetupTool (user-verified in play)"
+    }
+   ],
+   "fixed": {
+    "hash": "f3da6c2",
+    "datetime": "2026-06-23T04:13:16+08:00"
+   },
+   "elapsed_hours": {
+    "to_observe": 21.68,
+    "to_fix": 0.0
+   },
+   "first_explanation": {
+    "quote": "Hunyuan front-view exports face -Z",
+    "source": "commit f3da6c2 message (repeated in 2658169 docs and 2de7310 spec as '混元正视导出朝 -Z')",
+    "later_contradicted": true,
+    "contradicted_by": "this audit (2026-10-05): GLB fronts face +Z as glTF specifies; UniGLTF reverseAxis default (Z) maps them to Unity -Z, so the cause is the importer convention, not the generator"
+   },
+   "present_in_final_build": false,
+   "visible_on_screen": {
+    "value": true,
+    "why": "an NPC showing its back while talking to the player is plainly visible; fixed before any committed prefab"
+   },
+   "notes": "Introduced = first commit with a generated GLB plus the NPC tool whose Face Yaw defaulted to 0 (c21ea44); the face-away prefab was only ever built in the working copy and never committed (first committed prefab 953f004 already has yaw 180). c21ea44 already offered a Face Yaw slider 'if the model faces away' (anticipated, default 0). Channel: the message does not literally say 'user', but it describes an in-play observation and the assistant cannot run Play in this setup; treated as developer play-test. fix_chain after f3da6c2 = applications of the compensation to each era's prefabs (not separate fixes). Final build: all 24 GLB prefabs at 87fdd16 carry Model localRotation y=180 (verified in prefab YAML)."
   },
   {
-    "id": "D02",
-    "title": "Generated assets arrive unit-scaled (~1 m) and must be rescaled (1.7 m NPC / 10 m boss / 0.6 m companion tools)",
-    "introduced": {
-      "hash": "c21ea44",
-      "datetime": "2026-06-22T06:32:31+08:00"
+   "id": "D02",
+   "title": "Generated assets arrive unit-scaled (~1 m) and must be rescaled (1.7 m NPC / 10 m boss / 0.6 m companion tools)",
+   "introduced": {
+    "hash": "c21ea44",
+    "datetime": "2026-06-22T06:32:31+08:00"
+   },
+   "first_observed": {
+    "ref": "commit c21ea44 (message body + code comment)",
+    "datetime": "2026-06-22T06:32:31+08:00",
+    "channel": "import-time inspection",
+    "quote": "scales it to a real human height (default 1.7m — AI meshes export unit-normalised at ~1.15m) ... Grounds by actual renderer bounds (AI pivots are not at the feet)."
+   },
+   "fix_chain": [
+    {
+     "hash": "c21ea44",
+     "datetime": "2026-06-22T06:32:31+08:00",
+     "subject": "feat(editor): NPC model auto height-normalize + geometry-ground + face-yaw; add historian GLB"
     },
-    "first_observed": {
-      "ref": "commit c21ea44 (message body + code comment)",
-      "datetime": "2026-06-22T06:32:31+08:00",
-      "channel": "import-time inspection",
-      "quote": "scales it to a real human height (default 1.7m — AI meshes export unit-normalised at ~1.15m) ... Grounds by actual renderer bounds (AI pivots are not at the feet)."
+    {
+     "hash": "953f004",
+     "datetime": "2026-06-23T04:50:30+08:00",
+     "subject": "feat(npc): historian + artisan drop-in prefabs (URP/Lit, 1.7m, yaw 180) + GLB import metas"
     },
-    "fix_chain": [
-      {
-        "hash": "c21ea44",
-        "datetime": "2026-06-22T06:32:31+08:00",
-        "subject": "feat(editor): NPC model auto height-normalize + geometry-ground + face-yaw; add historian GLB"
-      },
-      {
-        "hash": "953f004",
-        "datetime": "2026-06-23T04:50:30+08:00",
-        "subject": "feat(npc): historian + artisan drop-in prefabs (URP/Lit, 1.7m, yaw 180) + GLB import metas"
-      },
-      {
-        "hash": "c1ff678",
-        "datetime": "2026-06-23T05:25:41+08:00",
-        "subject": "feat(npc): guardian drop-in prefab (URP/Lit, ~1.7m, yaw 180) + GLB import meta"
-      },
-      {
-        "hash": "40f7193",
-        "datetime": "2026-07-06T06:37:06+08:00",
-        "subject": "feat(rome): Rome NPC prefabs x3 built via NPCModelSetupTool (user-verified in play)"
-      },
-      {
-        "hash": "61f3e91",
-        "datetime": "2026-07-09T07:26:08+08:00",
-        "subject": "feat(finale): boss trueform FBX set (rigged, 4 animations) + bake tool"
-      },
-      {
-        "hash": "c217b9b",
-        "datetime": "2026-07-15T15:08:10+08:00",
-        "subject": "feat(tools): Build Xuanji 3D Body bake menu (bounds-centre pivot, 0.6m body length)"
-      }
-    ],
-    "fixed": {
-      "hash": "c21ea44",
-      "datetime": "2026-06-22T06:32:31+08:00"
+    {
+     "hash": "c1ff678",
+     "datetime": "2026-06-23T05:25:41+08:00",
+     "subject": "feat(npc): guardian drop-in prefab (URP/Lit, ~1.7m, yaw 180) + GLB import meta"
     },
-    "elapsed_hours": {
-      "to_observe": 0.0,
-      "to_fix": 0.0
+    {
+     "hash": "40f7193",
+     "datetime": "2026-07-06T06:37:06+08:00",
+     "subject": "feat(rome): Rome NPC prefabs x3 built via NPCModelSetupTool (user-verified in play)"
     },
-    "first_explanation": {
-      "quote": "AI meshes export unit-normalised at ~1.15m",
-      "source": "commit c21ea44 message; 2658169 docs say 'AI 网格是 ~1.1 单位归一化件'",
-      "later_contradicted": false,
-      "contradicted_by": "Partly: this audit measures the largest extent 0.895–1.151 (median 1.082), so 'normalised' holds but '~1.15 m' is the upper end; and real-world size cannot be recovered from the file at all (must come from design)."
+    {
+     "hash": "61f3e91",
+     "datetime": "2026-07-09T07:26:08+08:00",
+     "subject": "feat(finale): boss trueform FBX set (rigged, 4 animations) + bake tool"
     },
-    "present_in_final_build": false,
-    "visible_on_screen": {
-      "value": true,
-      "why": "a ~1 m adult NPC or 1 m colossus would be obvious; compensated in the same commit that brought in the first asset, so the wrong size never reached a committed prefab"
-    },
-    "notes": "Compensation written ahead of need, in the same commit as the first generated asset (elapsed 0 h both ways). fix_chain lists the compensation tool and its per-asset applications; these are not repairs after a symptom. Final build: all 24 GLB prefab Model nodes are scaled (1.48–3.57 x), boss 4.85 x, companion 0.54 x (verified in prefab YAML)."
+    {
+     "hash": "c217b9b",
+     "datetime": "2026-07-15T15:08:10+08:00",
+     "subject": "feat(tools): Build Xuanji 3D Body bake menu (bounds-centre pivot, 0.6m body length)"
+    }
+   ],
+   "fixed": {
+    "hash": "c21ea44",
+    "datetime": "2026-06-22T06:32:31+08:00"
+   },
+   "elapsed_hours": {
+    "to_observe": 0.0,
+    "to_fix": 0.0
+   },
+   "first_explanation": {
+    "quote": "AI meshes export unit-normalised at ~1.15m",
+    "source": "commit c21ea44 message; 2658169 docs say 'AI 网格是 ~1.1 单位归一化件'",
+    "later_contradicted": false,
+    "contradicted_by": "Partly: this audit measures the largest extent 0.895–1.151 (median 1.082), so 'normalised' holds but '~1.15 m' is the upper end; and real-world size cannot be recovered from the file at all (must come from design)."
+   },
+   "present_in_final_build": false,
+   "visible_on_screen": {
+    "value": true,
+    "why": "a ~1 m adult NPC or 1 m colossus would be obvious; compensated in the same commit that brought in the first asset, so the wrong size never reached a committed prefab"
+   },
+   "notes": "Compensation written ahead of need, in the same commit as the first generated asset (elapsed 0 h both ways). fix_chain lists the compensation tool and its per-asset applications; these are not repairs after a symptom. Final build: all 24 GLB prefab Model nodes are scaled (1.48–3.57 x), boss 4.85 x, companion 0.54 x (verified in prefab YAML)."
   },
   {
-    "id": "D03",
-    "title": "24 GLB base-colour maps stored uncompressed (ARGB32 4096², full mips, 85.3 MiB each; 2,048 MiB = 69.6 % of build texture data)",
-    "introduced": {
-      "hash": "c21ea44",
-      "datetime": "2026-06-22T06:32:31+08:00"
-    },
-    "first_observed": {
-      "ref": "DESIGN/ProjectAudit_2026-07-15.md §3.2 and P1-1 (committed in b91ad03)",
-      "datetime": "2026-07-15T14:22:49+08:00",
-      "channel": "build (external AI audit report)",
-      "quote": "24 个 GLB 角色/道具在构建报告中各贡献约 89 MB 未压缩资源 (... 'NPC/道具 GLB 单体构建贡献低于 12 MB')"
-    },
-    "fix_chain": [],
-    "fixed": null,
-    "elapsed_hours": {
-      "to_observe": 559.84,
-      "to_fix": null
-    },
-    "first_explanation": {
-      "quote": "发布前将 GLB 处理链固定为“源模型 → 贴图降采样/合并 → 可发布 Prefab”，避免直接把超大内嵌纹理 GLB作为最终资产。 / 方案：GLB 在 Blender/导出链中把角色贴图降至 1024 ... 开启 GPU 纹理压缩",
-      "source": "DESIGN/ProjectAudit_2026-07-15.md (external AI audit, adopted in commit b91ad03)",
-      "later_contradicted": null,
-      "contradicted_by": "Not contradicted, but incomplete: it blames oversized embedded textures; this audit locates the mechanism in UniGLTF creating embedded textures with LoadImage, bypassing Unity's texture importer (so no platform compression is applied)."
-    },
-    "present_in_final_build": true,
-    "visible_on_screen": {
-      "value": false,
-      "why": "texture format affects memory and build size (3.36 GiB build), not the image on screen"
-    },
-    "notes": "SURPRISE: the paper's statement 'None of this appears in the game's commit history' is not exact — an external AI audit report committed on 2026-07-15 (b91ad03) recorded ~89 MB uncompressed per GLB and proposed compression (task 1 '压缩 GLB 角色与道具'); b91ad03 adopted other fixes but explicitly not this one, and no later commit acts on it. It did not mention CPU-readable copies or the dropped normal/MR maps. Introduced: the GLB is stored this way as soon as UniGLTF imports it (first GLB c21ea44); it enters Resources, hence every build, with the first prefab 953f004 (2026-06-23); the first build ever was made after bd3e7e3 (2026-07-03). UniGLTF itself was only vendored into the repo at ed13679 (2026-06-27); before that it lived untracked in the working copy (the GLB .meta in 953f004 already names a ScriptedImporter). to_observe measured from c21ea44 (from 953f004 it is 537.54 h). Final build: build_textures.json, 24 x 4096² format 5 (ARGB32), 13 mips, 89,478,484 B each."
+   "id": "D03",
+   "title": "24 GLB base-colour maps stored uncompressed (ARGB32 4096², full mips, 85.3 MiB each; 2,048 MiB = 69.6 % of build texture data)",
+   "introduced": {
+    "hash": "c21ea44",
+    "datetime": "2026-06-22T06:32:31+08:00"
+   },
+   "first_observed": {
+    "ref": "DESIGN/ProjectAudit_2026-07-15.md §3.2 and P1-1 (committed in b91ad03)",
+    "datetime": "2026-07-15T14:22:49+08:00",
+    "channel": "build (external AI audit report)",
+    "quote": "24 个 GLB 角色/道具在构建报告中各贡献约 89 MB 未压缩资源 (... 'NPC/道具 GLB 单体构建贡献低于 12 MB')"
+   },
+   "fix_chain": [],
+   "fixed": null,
+   "elapsed_hours": {
+    "to_observe": 559.84,
+    "to_fix": null
+   },
+   "first_explanation": {
+    "quote": "发布前将 GLB 处理链固定为“源模型 → 贴图降采样/合并 → 可发布 Prefab”，避免直接把超大内嵌纹理 GLB作为最终资产。 / 方案：GLB 在 Blender/导出链中把角色贴图降至 1024 ... 开启 GPU 纹理压缩",
+    "source": "DESIGN/ProjectAudit_2026-07-15.md (external AI audit, adopted in commit b91ad03)",
+    "later_contradicted": null,
+    "contradicted_by": "Not contradicted, but incomplete: it blames oversized embedded textures; this audit locates the mechanism in UniGLTF creating embedded textures with LoadImage, bypassing Unity's texture importer (so no platform compression is applied)."
+   },
+   "present_in_final_build": true,
+   "visible_on_screen": {
+    "value": false,
+    "why": "texture format affects memory and build size (3.36 GiB build), not the image on screen"
+   },
+   "notes": "SURPRISE: the paper's statement 'None of this appears in the game's commit history' is not exact — an external AI audit report committed on 2026-07-15 (b91ad03) recorded ~89 MB uncompressed per GLB and proposed compression (task 1 '压缩 GLB 角色与道具'); b91ad03 adopted other fixes but explicitly not this one, and no later commit acts on it. It did not mention CPU-readable copies or the dropped normal/MR maps. Introduced: the GLB is stored this way as soon as UniGLTF imports it (first GLB c21ea44); it enters Resources, hence every build, with the first prefab 953f004 (2026-06-23); the first build ever was made after bd3e7e3 (2026-07-03). UniGLTF itself was only vendored into the repo at ed13679 (2026-06-27); before that it lived untracked in the working copy (the GLB .meta in 953f004 already names a ScriptedImporter). to_observe measured from c21ea44 (from 953f004 it is 537.54 h). Final build: build_textures.json, 24 x 4096² format 5 (ARGB32), 13 mips, 89,478,484 B each."
   },
   {
-    "id": "D04",
-    "title": "Normal and metallic-roughness maps not referenced by the converted URP/Lit materials (dropped)",
-    "introduced": {
-      "hash": "c21ea44",
-      "datetime": "2026-06-22T06:32:31+08:00"
-    },
-    "first_observed": {
-      "ref": "this audit",
-      "datetime": "2026-10-05T00:00:00+08:00",
-      "channel": "this audit",
-      "quote": "Each of the 24 assets kept one texture, its base colour: the import tool's material conversion copied the main texture and left the normal and metallic-roughness slots empty."
-    },
-    "fix_chain": [],
-    "fixed": null,
-    "elapsed_hours": {
-      "to_observe": 2513.46,
-      "to_fix": null
-    },
-    "first_explanation": null,
-    "present_in_final_build": true,
-    "visible_on_screen": {
-      "value": false,
-      "why": "the loss of fine surface relief is not obviously a defect on screen (Hunyuan base colour already carries baked shading); no symptom was ever reported"
-    },
-    "notes": "Mechanism: NPCModelSetupTool converts by copying mainTexture (TexProps _MainTex/_BaseMap/...) only — code present since ffe082d, applied to generated GLBs from c21ea44 (default ToonOutline, then URP/Lit from 2594401); first committed converted materials 953f004. 2594401 says URP/Lit 'carries the base-color texture correctly' and 2658169 records '3 贴图' per GLB, so both facts were written down on 2026-06-23 without anyone noting the other two maps were left out. Final build: all 28 NPC/prop material assets at 87fdd16 have _BumpMap and _MetallicGlossMap fileID 0 (companion xuanji_body.mat does have a normal map; its MR map was 'dropped by design' in 37e5b4e — a deliberate choice, not this defect). Datetime of the audit is the date only (2026-10-05, time set to 00:00 +08:00), so to_observe is approximate."
+   "id": "D04",
+   "title": "Normal and metallic-roughness maps not referenced by the converted URP/Lit materials (dropped)",
+   "introduced": {
+    "hash": "c21ea44",
+    "datetime": "2026-06-22T06:32:31+08:00"
+   },
+   "first_observed": {
+    "ref": "this audit",
+    "datetime": "2026-10-05T00:00:00+08:00",
+    "channel": "this audit",
+    "quote": "Each of the 24 assets kept one texture, its base colour: the import tool's material conversion copied the main texture and left the normal and metallic-roughness slots empty."
+   },
+   "fix_chain": [],
+   "fixed": null,
+   "elapsed_hours": {
+    "to_observe": 2513.46,
+    "to_fix": null
+   },
+   "first_explanation": null,
+   "present_in_final_build": true,
+   "visible_on_screen": {
+    "value": false,
+    "why": "the loss of fine surface relief is not obviously a defect on screen (Hunyuan base colour already carries baked shading); no symptom was ever reported"
+   },
+   "notes": "Mechanism: NPCModelSetupTool converts by copying mainTexture (TexProps _MainTex/_BaseMap/...) only — code present since ffe082d, applied to generated GLBs from c21ea44 (default ToonOutline, then URP/Lit from 2594401); first committed converted materials 953f004. 2594401 says URP/Lit 'carries the base-color texture correctly' and 2658169 records '3 贴图' per GLB, so both facts were written down on 2026-06-23 without anyone noting the other two maps were left out. Final build: all 28 NPC/prop material assets at 87fdd16 have _BumpMap and _MetallicGlossMap fileID 0 (companion xuanji_body.mat does have a normal map; its MR map was 'dropped by design' in 37e5b4e — a deliberate choice, not this defect). Datetime of the audit is the date only (2026-10-05, time set to 00:00 +08:00), so to_observe is approximate."
   },
   {
-    "id": "D05",
-    "title": "21 of 24 GLB base maps flagged CPU-readable in the build (second copy in system memory)",
-    "introduced": {
-      "hash": "c21ea44",
-      "datetime": "2026-06-22T06:32:31+08:00"
-    },
-    "first_observed": {
-      "ref": "this audit",
-      "datetime": "2026-10-05T00:00:00+08:00",
-      "channel": "this audit",
-      "quote": "21 of the 24 are also flagged CPU-readable, which keeps a second copy in system memory."
-    },
-    "fix_chain": [],
-    "fixed": null,
-    "elapsed_hours": {
-      "to_observe": 2513.46,
-      "to_fix": null
-    },
-    "first_explanation": null,
-    "present_in_final_build": true,
-    "visible_on_screen": {
-      "value": false,
-      "why": "memory only; nothing on screen"
-    },
-    "notes": "Same origin as D03 (UniGLTF embedded textures). The 2026-07-15 external audit noted size but not readability. Why 3 of the 24 are not readable (stream_size>0) was not established; the mapping from build path_id to asset was not resolved here. Introduced/datetime caveats as for D03/D04."
+   "id": "D05",
+   "title": "21 of 24 GLB base maps flagged CPU-readable in the build (second copy in system memory)",
+   "introduced": {
+    "hash": "c21ea44",
+    "datetime": "2026-06-22T06:32:31+08:00"
+   },
+   "first_observed": {
+    "ref": "this audit",
+    "datetime": "2026-10-05T00:00:00+08:00",
+    "channel": "this audit",
+    "quote": "21 of the 24 are also flagged CPU-readable, which keeps a second copy in system memory."
+   },
+   "fix_chain": [],
+   "fixed": null,
+   "elapsed_hours": {
+    "to_observe": 2513.46,
+    "to_fix": null
+   },
+   "first_explanation": null,
+   "present_in_final_build": true,
+   "visible_on_screen": {
+    "value": false,
+    "why": "memory only; nothing on screen"
+   },
+   "notes": "Same origin as D03 (UniGLTF embedded textures). The 2026-07-15 external audit noted size but not readability. Why 3 of the 24 are not readable (stream_size>0) was not established; the mapping from build path_id to asset was not resolved here. Introduced/datetime caveats as for D03/D04."
   },
   {
-    "id": "D06",
-    "title": "Shipped companion mesh is torn (seam-split simplification: 44,316 boundary edges, 2,433 components)",
-    "introduced": {
-      "hash": "37e5b4e",
-      "datetime": "2026-07-15T15:07:28+08:00"
-    },
-    "first_observed": {
-      "ref": "this audit",
-      "datetime": "2026-10-05T00:00:00+08:00",
-      "channel": "this audit",
-      "quote": "Simplified from the seam-split buffer (as shipped) the surface is cracked and the orange background shows through"
-    },
-    "fix_chain": [],
-    "fixed": null,
-    "elapsed_hours": {
-      "to_observe": 1952.88,
-      "to_fix": null
-    },
-    "first_explanation": null,
-    "present_in_final_build": true,
-    "visible_on_screen": {
-      "value": "unclear",
-      "why": "cracks are hairline and best seen up close; the 0.6 m companion hovers near the player at all times, but the developer's play check (a870939 'user Play-verified') did not record them"
-    },
-    "notes": "Introduced: 37e5b4e committed the 82,829-triangle OBJ; it entered the game with the baked prefab a870939 (15:43:38, 'user Play-verified'). xuanji_body.obj is unchanged from 37e5b4e to 87fdd16 (git log on the file). No commit, comment or doc ever describes cracks/holes. A related but different claim — the spec 2de7310 / plan / tools/decimate_xuanji.py comment 'converged — UV seam islands are the hard floor' (105,820 faces) — explains the triangle count, not the tear, and is contradicted by this audit (82,829 = 497,850 x 0.55^3, the loop ran out of rounds)."
+   "id": "D06",
+   "title": "Shipped companion mesh is torn (seam-split simplification: 44,316 boundary edges, 2,433 components)",
+   "introduced": {
+    "hash": "37e5b4e",
+    "datetime": "2026-07-15T15:07:28+08:00"
+   },
+   "first_observed": {
+    "ref": "this audit",
+    "datetime": "2026-10-05T00:00:00+08:00",
+    "channel": "this audit",
+    "quote": "Simplified from the seam-split buffer (as shipped) the surface is cracked and the orange background shows through"
+   },
+   "fix_chain": [],
+   "fixed": null,
+   "elapsed_hours": {
+    "to_observe": 1952.88,
+    "to_fix": null
+   },
+   "first_explanation": null,
+   "present_in_final_build": true,
+   "visible_on_screen": {
+    "value": "unclear",
+    "why": "cracks are hairline and best seen up close; the 0.6 m companion hovers near the player at all times, but the developer's play check (a870939 'user Play-verified') did not record them"
+   },
+   "notes": "Introduced: 37e5b4e committed the 82,829-triangle OBJ; it entered the game with the baked prefab a870939 (15:43:38, 'user Play-verified'). xuanji_body.obj is unchanged from 37e5b4e to 87fdd16 (git log on the file). No commit, comment or doc ever describes cracks/holes. A related but different claim — the spec 2de7310 / plan / tools/decimate_xuanji.py comment 'converged — UV seam islands are the hard floor' (105,820 faces) — explains the triangle count, not the tear, and is contradicted by this audit (82,829 = 497,850 x 0.55^3, the loop ran out of rounds)."
   },
   {
-    "id": "D07",
-    "title": "Companion lay on its back after GLB->OBJ conversion dropped the root rotation (fixed twice)",
-    "introduced": {
-      "hash": "37e5b4e",
-      "datetime": "2026-07-15T15:07:28+08:00"
+   "id": "D07",
+   "title": "Companion lay on its back after GLB->OBJ conversion dropped the root rotation (fixed twice)",
+   "introduced": {
+    "hash": "37e5b4e",
+    "datetime": "2026-07-15T15:07:28+08:00"
+   },
+   "first_observed": {
+    "ref": "commit 95cf232 (Q33)",
+    "datetime": "2026-07-15T15:30:47+08:00",
+    "channel": "developer play-test",
+    "quote": "The GLB's orientation node is lost in the OBJ conversion, so the raw mesh lies face-up (supine)."
+   },
+   "fix_chain": [
+    {
+     "hash": "95cf232",
+     "datetime": "2026-07-15T15:30:47+08:00",
+     "subject": "fix(companion): stand the Xuanji medallion upright + camera-facing billboard (Q33)"
     },
-    "first_observed": {
-      "ref": "commit 95cf232 (Q33)",
-      "datetime": "2026-07-15T15:30:47+08:00",
-      "channel": "developer play-test",
-      "quote": "The GLB's orientation node is lost in the OBJ conversion, so the raw mesh lies face-up (supine)."
-    },
-    "fix_chain": [
-      {
-        "hash": "95cf232",
-        "datetime": "2026-07-15T15:30:47+08:00",
-        "subject": "fix(companion): stand the Xuanji medallion upright + camera-facing billboard (Q33)"
-      },
-      {
-        "hash": "288327d",
-        "datetime": "2026-07-15T15:35:56+08:00",
-        "subject": "fix(tools): flip Xuanji head-up (pitch +90/yaw 0 keeps face forward, inverts head axis)"
-      }
-    ],
-    "fixed": {
-      "hash": "288327d",
-      "datetime": "2026-07-15T15:35:56+08:00"
-    },
-    "elapsed_hours": {
-      "to_observe": 0.39,
-      "to_fix": 0.09
-    },
-    "first_explanation": {
-      "quote": "The GLB's orientation node is lost in the OBJ conversion, so the raw mesh lies face-up (supine).",
-      "source": "commit 95cf232 message",
-      "later_contradicted": false,
-      "contradicted_by": "Cause is consistent with this audit (all raw GLBs carry +90 deg about X on the root node). But the first correction (FacePitch -90) left the head down and needed 288327d (pitch +90) 5 min later — the direction was mis-stated."
-    },
-    "present_in_final_build": false,
-    "visible_on_screen": {
-      "value": true,
-      "why": "a companion lying on its back / upside down is obvious"
-    },
-    "notes": "SURPRISE: the root rotation was recorded at NPC import on 2026-06-23 (2658169 docs: '每个 GLB ... 带 +90°X 站立旋转'), 22 days before our OBJ conversion dropped it. Introduced: 37e5b4e (OBJ without the node), baked by c217b9b; observed 23 min later via walkthrough item Q33. Final fix verified by user in a870939 ('user-verified orientation'); final xuanji.prefab Model localRotation = +90 deg about X."
+    {
+     "hash": "288327d",
+     "datetime": "2026-07-15T15:35:56+08:00",
+     "subject": "fix(tools): flip Xuanji head-up (pitch +90/yaw 0 keeps face forward, inverts head axis)"
+    }
+   ],
+   "fixed": {
+    "hash": "288327d",
+    "datetime": "2026-07-15T15:35:56+08:00"
+   },
+   "elapsed_hours": {
+    "to_observe": 0.39,
+    "to_fix": 0.09
+   },
+   "first_explanation": {
+    "quote": "The GLB's orientation node is lost in the OBJ conversion, so the raw mesh lies face-up (supine).",
+    "source": "commit 95cf232 message",
+    "later_contradicted": false,
+    "contradicted_by": "Cause is consistent with this audit (all raw GLBs carry +90 deg about X on the root node). But the first correction (FacePitch -90) left the head down and needed 288327d (pitch +90) 5 min later — the direction was mis-stated."
+   },
+   "present_in_final_build": false,
+   "visible_on_screen": {
+    "value": true,
+    "why": "a companion lying on its back / upside down is obvious"
+   },
+   "notes": "SURPRISE: the root rotation was recorded at NPC import on 2026-06-23 (2658169 docs: '每个 GLB ... 带 +90°X 站立旋转'), 22 days before our OBJ conversion dropped it. Introduced: 37e5b4e (OBJ without the node), baked by c217b9b; observed 23 min later via walkthrough item Q33. Final fix verified by user in a870939 ('user-verified orientation'); final xuanji.prefab Model localRotation = +90 deg about X."
   },
   {
-    "id": "D08",
-    "title": "Boss hovered above its platform (bake normalised the bind pose; idle lifts the body 0.46–0.68 m)",
-    "introduced": {
-      "hash": "61f3e91",
-      "datetime": "2026-07-09T07:26:08+08:00"
+   "id": "D08",
+   "title": "Boss hovered above its platform (bake normalised the bind pose; idle lifts the body 0.46–0.68 m)",
+   "introduced": {
+    "hash": "61f3e91",
+    "datetime": "2026-07-09T07:26:08+08:00"
+   },
+   "first_observed": {
+    "ref": "commit 9760126 (message + GroundSnap comment 'user play report')",
+    "datetime": "2026-07-11T11:00:59+08:00",
+    "channel": "developer play-test",
+    "quote": "The prefab was normalized feet-at-origin from the FBX BIND pose, but the Animator's idle pose shifts the skeleton, so the embodied boss floated (user play report)."
+   },
+   "fix_chain": [
+    {
+     "hash": "9760126",
+     "datetime": "2026-07-11T11:00:59+08:00",
+     "subject": "fix(finale): trueform hovered above the platform - animated-pose ground snap"
     },
-    "first_observed": {
-      "ref": "commit 9760126 (message + GroundSnap comment 'user play report')",
-      "datetime": "2026-07-11T11:00:59+08:00",
-      "channel": "developer play-test",
-      "quote": "The prefab was normalized feet-at-origin from the FBX BIND pose, but the Animator's idle pose shifts the skeleton, so the embodied boss floated (user play report)."
+    {
+     "hash": "fc2dac5",
+     "datetime": "2026-07-11T11:09:59+08:00",
+     "subject": "fix(finale): trueform STILL hovered (Q30) - skinned bounds lie, bake the pose instead"
     },
-    "fix_chain": [
-      {
-        "hash": "9760126",
-        "datetime": "2026-07-11T11:00:59+08:00",
-        "subject": "fix(finale): trueform hovered above the platform - animated-pose ground snap"
-      },
-      {
-        "hash": "fc2dac5",
-        "datetime": "2026-07-11T11:09:59+08:00",
-        "subject": "fix(finale): trueform STILL hovered (Q30) - skinned bounds lie, bake the pose instead"
-      },
-      {
-        "hash": "373126d",
-        "datetime": "2026-07-11T11:15:12+08:00",
-        "subject": "fix(finale): residual hover - sample the idle loop's lowest point, not one frame"
-      },
-      {
-        "hash": "89c36d7",
-        "datetime": "2026-07-11T11:18:38+08:00",
-        "subject": "fix(finale): grounding v4 - unambiguous scale math (bake raw + localToWorld) + settle margin"
-      },
-      {
-        "hash": "dc81a43",
-        "datetime": "2026-07-11T11:26:57+08:00",
-        "subject": "fix(finale): grounding v5 - stable reading + empirically calibrated settle"
-      }
-    ],
-    "fixed": {
-      "hash": "dc81a43",
-      "datetime": "2026-07-11T11:26:57+08:00"
+    {
+     "hash": "373126d",
+     "datetime": "2026-07-11T11:15:12+08:00",
+     "subject": "fix(finale): residual hover - sample the idle loop's lowest point, not one frame"
     },
-    "elapsed_hours": {
-      "to_observe": 51.58,
-      "to_fix": 0.43
+    {
+     "hash": "89c36d7",
+     "datetime": "2026-07-11T11:18:38+08:00",
+     "subject": "fix(finale): grounding v4 - unambiguous scale math (bake raw + localToWorld) + settle margin"
     },
-    "first_explanation": {
-      "quote": "The prefab was normalized feet-at-origin from the FBX BIND pose, but the Animator's idle pose shifts the skeleton, so the embodied boss floated",
-      "source": "commit 9760126 message",
-      "later_contradicted": false,
-      "contradicted_by": "Confirmed by this audit (E1 reproduces it offline). The later explanations in the chain were not: 373126d blamed the idle bob, 89c36d7 then said 'bob was NOT the cause' and blamed BakeMesh(useScale) semantics, dc81a43 blamed 'Hunyuan bone/unit scaling' and calibrated an empirical 0.30 m settle (not reproduced by this audit)."
-    },
-    "present_in_final_build": false,
-    "visible_on_screen": {
-      "value": true,
-      "why": "a 10 m colossus floating ~0.5 m above the platform was reported from play"
-    },
-    "notes": "No earlier attempt was found: no commit between 61f3e91 and 9760126 touches grounding; playtest round 1 (cca41fd, 07-09 08:08) reported the boss's facing but not the hover. Introduced at 61f3e91 (bake tool + FBX); prefab baked be5441e (07:37:54); the boss became visible in play with 2942142 (07:51:17) — from 2942142, to_observe = 51.16 h. 5 fix commits in 26 min; two of them were fixes of the previous fix (see D15, D16). 'Fixed' = the constant hover is removed in the final GroundSnap (10 samples x 0.16 s, min, settle 0.30); the residual bob is D09."
+    {
+     "hash": "dc81a43",
+     "datetime": "2026-07-11T11:26:57+08:00",
+     "subject": "fix(finale): grounding v5 - stable reading + empirically calibrated settle"
+    }
+   ],
+   "fixed": {
+    "hash": "dc81a43",
+    "datetime": "2026-07-11T11:26:57+08:00"
+   },
+   "elapsed_hours": {
+    "to_observe": 51.58,
+    "to_fix": 0.43
+   },
+   "first_explanation": {
+    "quote": "The prefab was normalized feet-at-origin from the FBX BIND pose, but the Animator's idle pose shifts the skeleton, so the embodied boss floated",
+    "source": "commit 9760126 message",
+    "later_contradicted": false,
+    "contradicted_by": "Confirmed by this audit (E1 reproduces it offline). The later explanations in the chain were not: 373126d blamed the idle bob, 89c36d7 then said 'bob was NOT the cause' and blamed BakeMesh(useScale) semantics, dc81a43 blamed 'Hunyuan bone/unit scaling' and calibrated an empirical 0.30 m settle (not reproduced by this audit)."
+   },
+   "present_in_final_build": false,
+   "visible_on_screen": {
+    "value": true,
+    "why": "a 10 m colossus floating ~0.5 m above the platform was reported from play"
+   },
+   "notes": "No earlier attempt was found: no commit between 61f3e91 and 9760126 touches grounding; playtest round 1 (cca41fd, 07-09 08:08) reported the boss's facing but not the hover. Introduced at 61f3e91 (bake tool + FBX); prefab baked be5441e (07:37:54); the boss became visible in play with 2942142 (07:51:17) — from 2942142, to_observe = 51.16 h. 5 fix commits in 26 min; two of them were fixes of the previous fix (see D15, D16). 'Fixed' = the constant hover is removed in the final GroundSnap (10 samples x 0.16 s, min, settle 0.30); the residual bob is D09."
   },
   {
-    "id": "D09",
-    "title": "Residual idle bob (0.22 m) that no constant offset removes",
-    "introduced": {
-      "hash": "61f3e91",
-      "datetime": "2026-07-09T07:26:08+08:00"
+   "id": "D09",
+   "title": "Residual idle bob (0.22 m) that no constant offset removes",
+   "introduced": {
+    "hash": "61f3e91",
+    "datetime": "2026-07-09T07:26:08+08:00"
+   },
+   "first_observed": {
+    "ref": "commit 373126d (message + GroundSnap comment)",
+    "datetime": "2026-07-11T11:15:12+08:00",
+    "channel": "developer play-test",
+    "quote": "v2 snapped correctly (log: moved -0.72) but sampled a single frame of a BOBBING idle loop - the rest of the cycle still hovered ~0.1-0.2. [code: 'the feet still hover for the rest of the cycle (user report, residual ~0.1-0.2)']"
+   },
+   "fix_chain": [
+    {
+     "hash": "373126d",
+     "datetime": "2026-07-11T11:15:12+08:00",
+     "subject": "fix(finale): residual hover - sample the idle loop's lowest point, not one frame"
     },
-    "first_observed": {
-      "ref": "commit 373126d (message + GroundSnap comment)",
-      "datetime": "2026-07-11T11:15:12+08:00",
-      "channel": "developer play-test",
-      "quote": "v2 snapped correctly (log: moved -0.72) but sampled a single frame of a BOBBING idle loop - the rest of the cycle still hovered ~0.1-0.2. [code: 'the feet still hover for the rest of the cycle (user report, residual ~0.1-0.2)']"
+    {
+     "hash": "89c36d7",
+     "datetime": "2026-07-11T11:18:38+08:00",
+     "subject": "fix(finale): grounding v4 - unambiguous scale math (bake raw + localToWorld) + settle margin"
     },
-    "fix_chain": [
-      {
-        "hash": "373126d",
-        "datetime": "2026-07-11T11:15:12+08:00",
-        "subject": "fix(finale): residual hover - sample the idle loop's lowest point, not one frame"
-      },
-      {
-        "hash": "89c36d7",
-        "datetime": "2026-07-11T11:18:38+08:00",
-        "subject": "fix(finale): grounding v4 - unambiguous scale math (bake raw + localToWorld) + settle margin"
-      },
-      {
-        "hash": "dc81a43",
-        "datetime": "2026-07-11T11:26:57+08:00",
-        "subject": "fix(finale): grounding v5 - stable reading + empirically calibrated settle"
-      }
-    ],
-    "fixed": null,
-    "elapsed_hours": {
-      "to_observe": 51.82,
-      "to_fix": null
-    },
-    "first_explanation": {
-      "quote": "sampled a single frame of a BOBBING idle loop ... Now samples the baked lowest vertex 10 times across ~1.6s (one loop) and snaps to the global minimum: the boss's lowest bob grazes the platform, every other frame stands on it.",
-      "source": "commit 373126d message",
-      "later_contradicted": true,
-      "contradicted_by": "89c36d7 (3 min later): 'the loop-min differed from the single frame by only 0.04 (bob was NOT the cause)'; this audit: the bob is 0.22 m and snapping to the loop minimum leaves every other frame above the platform, so 'every other frame stands on it' is wrong — a constant cannot follow the bob; only per-frame contact (foot IK) can."
-    },
-    "present_in_final_build": true,
-    "visible_on_screen": {
-      "value": "unclear",
-      "why": "the user reported a ~0.1–0.2 residual once, but accepted the final version; with the 0.30 settle the bob may read as pressing in rather than hovering"
-    },
-    "notes": "The symptom was observed in play, but the property (irreducible by any constant) was first stated by this audit. Not fixed; inherent to a constant offset on a Generic rig. Present in the final build because GroundSnap at 87fdd16 still applies one constant offset."
+    {
+     "hash": "dc81a43",
+     "datetime": "2026-07-11T11:26:57+08:00",
+     "subject": "fix(finale): grounding v5 - stable reading + empirically calibrated settle"
+    }
+   ],
+   "fixed": null,
+   "elapsed_hours": {
+    "to_observe": 51.82,
+    "to_fix": null
+   },
+   "first_explanation": {
+    "quote": "sampled a single frame of a BOBBING idle loop ... Now samples the baked lowest vertex 10 times across ~1.6s (one loop) and snaps to the global minimum: the boss's lowest bob grazes the platform, every other frame stands on it.",
+    "source": "commit 373126d message",
+    "later_contradicted": true,
+    "contradicted_by": "89c36d7 (3 min later): 'the loop-min differed from the single frame by only 0.04 (bob was NOT the cause)'; this audit: the bob is 0.22 m and snapping to the loop minimum leaves every other frame above the platform, so 'every other frame stands on it' is wrong — a constant cannot follow the bob; only per-frame contact (foot IK) can."
+   },
+   "present_in_final_build": true,
+   "visible_on_screen": {
+    "value": "unclear",
+    "why": "the user reported a ~0.1–0.2 residual once, but accepted the final version; with the 0.30 settle the bob may read as pressing in rather than hovering"
+   },
+   "notes": "The symptom was observed in play, but the property (irreducible by any constant) was first stated by this audit. Not fixed; inherent to a constant offset on a Generic rig. Present in the final build because GroundSnap at 87fdd16 still applies one constant offset."
   },
   {
-    "id": "D10",
-    "title": "Other boss clips sink below the idle-calibrated ground (attack 0.27 m, knock-down 0.08 m, leap 1.19 m; offline prediction)",
-    "introduced": {
-      "hash": "61f3e91",
-      "datetime": "2026-07-09T07:26:08+08:00"
-    },
-    "first_observed": {
-      "ref": "this audit (offline prediction)",
-      "datetime": "2026-10-05T00:00:00+08:00",
-      "channel": "this audit",
-      "quote": "relative to the idle-calibrated ground, the lowest frame of the attack sinks 0.27 m, the knock-down 0.08 m and the forward leap 1.19 m. These are offline predictions; we did not check them in play."
-    },
-    "fix_chain": [],
-    "fixed": null,
-    "elapsed_hours": {
-      "to_observe": 2104.56,
-      "to_fix": null
-    },
-    "first_explanation": null,
-    "present_in_final_build": true,
-    "visible_on_screen": {
-      "value": false,
-      "why": "latent: the animator's attack/hit/leap transitions need triggers, and no runtime script at 87fdd16 calls SetTrigger (grep), so only idle ever plays"
-    },
-    "notes": "Never observed in development and cannot occur in normal play of the final build: the clips and the trigger transitions ship (FinaleBossTrueform.controller), but nothing fires them. present_in_final_build=true refers to the shipped assets + idle-only calibration, not to an on-screen symptom. Audit datetime is date-only."
+   "id": "D10",
+   "title": "Other boss clips sink below the idle-calibrated ground (attack 0.27 m, knock-down 0.08 m, leap 1.19 m; offline prediction)",
+   "introduced": {
+    "hash": "61f3e91",
+    "datetime": "2026-07-09T07:26:08+08:00"
+   },
+   "first_observed": {
+    "ref": "this audit (offline prediction)",
+    "datetime": "2026-10-05T00:00:00+08:00",
+    "channel": "this audit",
+    "quote": "relative to the idle-calibrated ground, the lowest frame of the attack sinks 0.27 m, the knock-down 0.08 m and the forward leap 1.19 m. These are offline predictions; we did not check them in play."
+   },
+   "fix_chain": [],
+   "fixed": null,
+   "elapsed_hours": {
+    "to_observe": 2104.56,
+    "to_fix": null
+   },
+   "first_explanation": null,
+   "present_in_final_build": true,
+   "visible_on_screen": {
+    "value": false,
+    "why": "latent: the animator's attack/hit/leap transitions need triggers, and no runtime script at 87fdd16 calls SetTrigger (grep), so only idle ever plays"
+   },
+   "notes": "Never observed in development and cannot occur in normal play of the final build: the clips and the trigger transitions ship (FinaleBossTrueform.controller), but nothing fires them. present_in_final_build=true refers to the shipped assets + idle-only calibration, not to an on-screen symptom. Audit datetime is date-only."
   },
   {
-    "id": "D11",
-    "title": "Converted materials rendered magenta (Built-in-RP ToonOutline under URP)",
-    "introduced": {
-      "hash": "c21ea44",
-      "datetime": "2026-06-22T06:32:31+08:00"
-    },
-    "first_observed": {
-      "ref": "commit 2594401 (message body)",
-      "datetime": "2026-06-23T04:05:42+08:00",
-      "channel": "import-time inspection",
-      "quote": "The historian imported magenta because the tool converted to ChronoTraveler/ToonOutline, which is a Built-in-RP shader (CGPROGRAM/ForwardBase) and does not render under URP."
-    },
-    "fix_chain": [
-      {
-        "hash": "2594401",
-        "datetime": "2026-06-23T04:05:42+08:00",
-        "subject": "fix(editor): default NPC materials to URP/Lit — ToonOutline is Built-in-RP (magenta in URP)"
-      }
-    ],
-    "fixed": {
-      "hash": "2594401",
-      "datetime": "2026-06-23T04:05:42+08:00"
-    },
-    "elapsed_hours": {
-      "to_observe": 21.55,
-      "to_fix": 0.0
-    },
-    "first_explanation": {
-      "quote": "ToonOutline, which is a Built-in-RP shader (CGPROGRAM/ForwardBase) and does not render under URP",
-      "source": "commit 2594401 message",
-      "later_contradicted": false,
-      "contradicted_by": null
-    },
-    "present_in_final_build": false,
-    "visible_on_screen": {
-      "value": true,
-      "why": "a magenta character is unmistakable"
-    },
-    "notes": "The ToonOutline default came from ffe082d (VRM path, 'fixes URP pink'); it first hit a generated asset with the historian GLB (c21ea44). Channel: seen when the first generated NPC was converted in the editor; the message does not name who saw it. Final: every NPC/prop material used by a prefab is URP/Lit (shader guid 933532a4...); one unreferenced ToonOutline material (npc_china_historian_Mats/Material.001_npc.mat) still sits in Resources and so ships, unused. The boss bake (61f3e91) wrote the same compensation ahead of need ('FBX Standard renders magenta under URP'), but the shipped boss prefab references the FBX's own imported material (boss_idle.fbx sub-asset, materialImportMode 2) and the tool's Materials folder was removed empty in ee28566 — so whether that conversion is what renders is unclear."
+   "id": "D11",
+   "title": "Converted materials rendered magenta (Built-in-RP ToonOutline under URP)",
+   "introduced": {
+    "hash": "c21ea44",
+    "datetime": "2026-06-22T06:32:31+08:00"
+   },
+   "first_observed": {
+    "ref": "commit 2594401 (message body)",
+    "datetime": "2026-06-23T04:05:42+08:00",
+    "channel": "import-time inspection",
+    "quote": "The historian imported magenta because the tool converted to ChronoTraveler/ToonOutline, which is a Built-in-RP shader (CGPROGRAM/ForwardBase) and does not render under URP."
+   },
+   "fix_chain": [
+    {
+     "hash": "2594401",
+     "datetime": "2026-06-23T04:05:42+08:00",
+     "subject": "fix(editor): default NPC materials to URP/Lit — ToonOutline is Built-in-RP (magenta in URP)"
+    }
+   ],
+   "fixed": {
+    "hash": "2594401",
+    "datetime": "2026-06-23T04:05:42+08:00"
+   },
+   "elapsed_hours": {
+    "to_observe": 21.55,
+    "to_fix": 0.0
+   },
+   "first_explanation": {
+    "quote": "ToonOutline, which is a Built-in-RP shader (CGPROGRAM/ForwardBase) and does not render under URP",
+    "source": "commit 2594401 message",
+    "later_contradicted": false,
+    "contradicted_by": null
+   },
+   "present_in_final_build": false,
+   "visible_on_screen": {
+    "value": true,
+    "why": "a magenta character is unmistakable"
+   },
+   "notes": "The ToonOutline default came from ffe082d (VRM path, 'fixes URP pink'); it first hit a generated asset with the historian GLB (c21ea44). Channel: seen when the first generated NPC was converted in the editor; the message does not name who saw it. Final: every NPC/prop material used by a prefab is URP/Lit (shader guid 933532a4...); one unreferenced ToonOutline material (npc_china_historian_Mats/Material.001_npc.mat) still sits in Resources and so ships, unused. The boss bake (61f3e91) wrote the same compensation ahead of need ('FBX Standard renders magenta under URP'), but the shipped boss prefab references the FBX's own imported material (boss_idle.fbx sub-asset, materialImportMode 2) and the tool's Materials folder was removed empty in ee28566 — so whether that conversion is what renders is unclear."
   },
   {
-    "id": "D12",
-    "title": "Boss double 180-degree turn cancelled the facing compensation (boss stood back to player)",
-    "introduced": {
-      "hash": "2942142",
-      "datetime": "2026-07-09T07:51:17+08:00"
-    },
-    "first_observed": {
-      "ref": "commit cca41fd (playtest round 1; code comment 'user play report')",
-      "datetime": "2026-07-09T08:08:00+08:00",
-      "channel": "developer play-test",
-      "quote": "Trueform stood back-to-player: the baked prefab already carries the 180 model flip, the extra root flip cancelled it - root is identity now."
-    },
-    "fix_chain": [
-      {
-        "hash": "cca41fd",
-        "datetime": "2026-07-09T08:08:00+08:00",
-        "subject": "fix(finale): playtest round 1 - player-paced CG advance with hint, trueform facing, F9 level compensation"
-      }
-    ],
-    "fixed": {
-      "hash": "cca41fd",
-      "datetime": "2026-07-09T08:08:00+08:00"
-    },
-    "elapsed_hours": {
-      "to_observe": 0.28,
-      "to_fix": 0.0
-    },
-    "first_explanation": {
-      "quote": "the baked prefab already carries the 180 model flip, the extra root flip cancelled it",
-      "source": "commit cca41fd message",
-      "later_contradicted": false,
-      "contradicted_by": null
-    },
-    "present_in_final_build": false,
-    "visible_on_screen": {
-      "value": true,
-      "why": "boss facing away from the arriving player"
-    },
-    "notes": "Our own code, not the asset: 61f3e91 bakes Model localRotation 180 and 2942142 added go.transform.rotation = Euler(0,180,0) at the root. Labelled OTHER in B5 (round-2 override). Which property the first 180 compensated for this FBX (different importer from UniGLTF) is not established. Final boss prefab Model rotation y=180, root identity."
+   "id": "D12",
+   "title": "Boss double 180-degree turn cancelled the facing compensation (boss stood back to player)",
+   "introduced": {
+    "hash": "2942142",
+    "datetime": "2026-07-09T07:51:17+08:00"
+   },
+   "first_observed": {
+    "ref": "commit cca41fd (playtest round 1; code comment 'user play report')",
+    "datetime": "2026-07-09T08:08:00+08:00",
+    "channel": "developer play-test",
+    "quote": "Trueform stood back-to-player: the baked prefab already carries the 180 model flip, the extra root flip cancelled it - root is identity now."
+   },
+   "fix_chain": [
+    {
+     "hash": "cca41fd",
+     "datetime": "2026-07-09T08:08:00+08:00",
+     "subject": "fix(finale): playtest round 1 - player-paced CG advance with hint, trueform facing, F9 level compensation"
+    }
+   ],
+   "fixed": {
+    "hash": "cca41fd",
+    "datetime": "2026-07-09T08:08:00+08:00"
+   },
+   "elapsed_hours": {
+    "to_observe": 0.28,
+    "to_fix": 0.0
+   },
+   "first_explanation": {
+    "quote": "the baked prefab already carries the 180 model flip, the extra root flip cancelled it",
+    "source": "commit cca41fd message",
+    "later_contradicted": false,
+    "contradicted_by": null
+   },
+   "present_in_final_build": false,
+   "visible_on_screen": {
+    "value": true,
+    "why": "boss facing away from the arriving player"
+   },
+   "notes": "Our own code, not the asset: 61f3e91 bakes Model localRotation 180 and 2942142 added go.transform.rotation = Euler(0,180,0) at the root. Labelled OTHER in B5 (round-2 override). Which property the first 180 compensated for this FBX (different importer from UniGLTF) is not established. Final boss prefab Model rotation y=180, root identity."
   },
   {
-    "id": "D13",
-    "title": "Boss normal map imported as Default instead of NormalMap texture type",
-    "introduced": {
-      "hash": "be5441e",
-      "datetime": "2026-07-09T07:37:54+08:00"
-    },
-    "first_observed": {
-      "ref": "commit ee28566 (pre-ship audit, four parallel AI reviews)",
-      "datetime": "2026-07-11T02:28:30+08:00",
-      "channel": "assistant",
-      "quote": "normal map texture marked as NormalMap; empty Materials folder + meta removed"
-    },
-    "fix_chain": [
-      {
-        "hash": "ee28566",
-        "datetime": "2026-07-11T02:28:30+08:00",
-        "subject": "fix: pre-ship audit round - 6 P1 + P2 batch from four parallel reviews"
-      }
-    ],
-    "fixed": {
-      "hash": "ee28566",
-      "datetime": "2026-07-11T02:28:30+08:00"
-    },
-    "elapsed_hours": {
-      "to_observe": 42.84,
-      "to_fix": 0.0
-    },
-    "first_explanation": null,
-    "present_in_final_build": false,
-    "visible_on_screen": {
-      "value": false,
-      "why": "a normal map read as colour data gives subtly wrong shading at most; never reported from play"
-    },
-    "notes": "texture_pbr_20250901_normal.png.meta textureType 0 -> 1 in ee28566. Found by the assistant's parallel review agents, no symptom described, no causal explanation written (low-confidence B5 label). Final build: build_textures.json shows the boss normal map as format 12 (DXT5) 2048², consistent with the NormalMap type."
+   "id": "D13",
+   "title": "Boss normal map imported as Default instead of NormalMap texture type",
+   "introduced": {
+    "hash": "be5441e",
+    "datetime": "2026-07-09T07:37:54+08:00"
+   },
+   "first_observed": {
+    "ref": "commit ee28566 (pre-ship audit, four parallel AI reviews)",
+    "datetime": "2026-07-11T02:28:30+08:00",
+    "channel": "assistant",
+    "quote": "normal map texture marked as NormalMap; empty Materials folder + meta removed"
+   },
+   "fix_chain": [
+    {
+     "hash": "ee28566",
+     "datetime": "2026-07-11T02:28:30+08:00",
+     "subject": "fix: pre-ship audit round - 6 P1 + P2 batch from four parallel reviews"
+    }
+   ],
+   "fixed": {
+    "hash": "ee28566",
+    "datetime": "2026-07-11T02:28:30+08:00"
+   },
+   "elapsed_hours": {
+    "to_observe": 42.84,
+    "to_fix": 0.0
+   },
+   "first_explanation": null,
+   "present_in_final_build": false,
+   "visible_on_screen": {
+    "value": false,
+    "why": "a normal map read as colour data gives subtly wrong shading at most; never reported from play"
+   },
+   "notes": "texture_pbr_20250901_normal.png.meta textureType 0 -> 1 in ee28566. Found by the assistant's parallel review agents, no symptom described, no causal explanation written (low-confidence B5 label). Final build: build_textures.json shows the boss normal map as format 12 (DXT5) 2048², consistent with the NormalMap type."
   },
   {
-    "id": "D14",
-    "title": "Runtime Shader.Find shaders stripped from builds (bd3e7e3)",
-    "status": "not_applicable",
-    "introduced": null,
-    "first_observed": null,
-    "fix_chain": [
-      {
-        "hash": "bd3e7e3",
-        "datetime": "2026-07-03T08:02:48+08:00",
-        "subject": "feat(build): pre-build hardening — always-include runtime shaders + F2 benchmark mode"
-      }
-    ],
-    "fixed": null,
-    "elapsed_hours": {
-      "to_observe": null,
-      "to_fix": null
-    },
-    "first_explanation": null,
-    "present_in_final_build": false,
-    "visible_on_screen": {
-      "value": false,
-      "why": "preventive change before the first build; no symptom"
-    },
-    "notes": "Not applicable to generated assets: the listed shaders serve procedural runtime materials (ocean, anomaly orbs, particles, skies, sprites). Generated NPC/prop/companion prefabs reference saved URP/Lit material assets, so their shaders are always included; the only Shader.Find near the boss (FinaleBossVisual.cs) builds the procedural colossus, not the generated trueform. Preventive (written before the first build), never observed as a symptom."
+   "id": "D14",
+   "title": "Runtime Shader.Find shaders stripped from builds (bd3e7e3)",
+   "status": "not_applicable",
+   "introduced": null,
+   "first_observed": null,
+   "fix_chain": [
+    {
+     "hash": "bd3e7e3",
+     "datetime": "2026-07-03T08:02:48+08:00",
+     "subject": "feat(build): pre-build hardening — always-include runtime shaders + F2 benchmark mode"
+    }
+   ],
+   "fixed": null,
+   "elapsed_hours": {
+    "to_observe": null,
+    "to_fix": null
+   },
+   "first_explanation": null,
+   "present_in_final_build": false,
+   "visible_on_screen": {
+    "value": false,
+    "why": "preventive change before the first build; no symptom"
+   },
+   "notes": "Not applicable to generated assets: the listed shaders serve procedural runtime materials (ocean, anomaly orbs, particles, skies, sprites). Generated NPC/prop/companion prefabs reference saved URP/Lit material assets, so their shaders are always included; the only Shader.Find near the boss (FinaleBossVisual.cs) builds the procedural colossus, not the generated trueform. Preventive (written before the first build), never observed as a symptom."
   },
   {
-    "id": "D15",
-    "title": "GroundSnap v1 was a no-op: SkinnedMeshRenderer.bounds is the bind-pose box (fix-induced, D08 chain)",
-    "introduced": {
-      "hash": "9760126",
-      "datetime": "2026-07-11T11:00:59+08:00"
-    },
-    "first_observed": {
-      "ref": "commit fc2dac5 (Q30)",
-      "datetime": "2026-07-11T11:09:59+08:00",
-      "channel": "developer play-test",
-      "quote": "trueform STILL hovered (Q30) ... SkinnedMeshRenderer.bounds is the static import-time bind-pose box moved by the root bone - it does not reflect the animated pose, so the measured offset was ~0."
-    },
-    "fix_chain": [
-      {
-        "hash": "fc2dac5",
-        "datetime": "2026-07-11T11:09:59+08:00",
-        "subject": "fix(finale): trueform STILL hovered (Q30) - skinned bounds lie, bake the pose instead"
-      }
-    ],
-    "fixed": {
-      "hash": "fc2dac5",
-      "datetime": "2026-07-11T11:09:59+08:00"
-    },
-    "elapsed_hours": {
-      "to_observe": 0.15,
-      "to_fix": 0.0
-    },
-    "first_explanation": {
-      "quote": "SkinnedMeshRenderer.bounds is the static import-time bind-pose box moved by the root bone - it does not reflect the animated pose",
-      "source": "commit fc2dac5 message",
-      "later_contradicted": false,
-      "contradicted_by": "Consistent with Unity's documentation (skinned bounds precomputed unless updated every frame); not separately reproduced by this audit."
-    },
-    "present_in_final_build": false,
-    "visible_on_screen": {
-      "value": true,
-      "why": "the boss kept hovering"
-    },
-    "notes": "ENGINE-labelled fix in B5 not covered by D01–D14 as its own defect; it is a defect introduced by the first D08 fix. Same-session fix (9 min)."
+   "id": "D15",
+   "title": "GroundSnap v1 was a no-op: SkinnedMeshRenderer.bounds is the bind-pose box (fix-induced, D08 chain)",
+   "introduced": {
+    "hash": "9760126",
+    "datetime": "2026-07-11T11:00:59+08:00"
+   },
+   "first_observed": {
+    "ref": "commit fc2dac5 (Q30)",
+    "datetime": "2026-07-11T11:09:59+08:00",
+    "channel": "developer play-test",
+    "quote": "trueform STILL hovered (Q30) ... SkinnedMeshRenderer.bounds is the static import-time bind-pose box moved by the root bone - it does not reflect the animated pose, so the measured offset was ~0."
+   },
+   "fix_chain": [
+    {
+     "hash": "fc2dac5",
+     "datetime": "2026-07-11T11:09:59+08:00",
+     "subject": "fix(finale): trueform STILL hovered (Q30) - skinned bounds lie, bake the pose instead"
+    }
+   ],
+   "fixed": {
+    "hash": "fc2dac5",
+    "datetime": "2026-07-11T11:09:59+08:00"
+   },
+   "elapsed_hours": {
+    "to_observe": 0.15,
+    "to_fix": 0.0
+   },
+   "first_explanation": {
+    "quote": "SkinnedMeshRenderer.bounds is the static import-time bind-pose box moved by the root bone - it does not reflect the animated pose",
+    "source": "commit fc2dac5 message",
+    "later_contradicted": false,
+    "contradicted_by": "Consistent with Unity's documentation (skinned bounds precomputed unless updated every frame); not separately reproduced by this audit."
+   },
+   "present_in_final_build": false,
+   "visible_on_screen": {
+    "value": true,
+    "why": "the boss kept hovering"
+   },
+   "notes": "ENGINE-labelled fix in B5 not covered by D01–D14 as its own defect; it is a defect introduced by the first D08 fix. Same-session fix (9 min)."
   },
   {
-    "id": "D16",
-    "title": "Grounding v4 overshoot sank the boss ~1.5 m into the floor (fix-induced, D08 chain)",
-    "introduced": {
-      "hash": "89c36d7",
-      "datetime": "2026-07-11T11:18:38+08:00"
-    },
-    "first_observed": {
-      "ref": "commit dc81a43 (message)",
-      "datetime": "2026-07-11T11:26:57+08:00",
-      "channel": "developer play-test",
-      "quote": "The two play-tested mappings bracketed the truth: useScale reading 0.68 left ~0.2 hover; localToWorld reading 2.29 sank the boss ~1.5 into the floor"
-    },
-    "fix_chain": [
-      {
-        "hash": "dc81a43",
-        "datetime": "2026-07-11T11:26:57+08:00",
-        "subject": "fix(finale): grounding v5 - stable reading + empirically calibrated settle"
-      }
-    ],
-    "fixed": {
-      "hash": "dc81a43",
-      "datetime": "2026-07-11T11:26:57+08:00"
-    },
-    "elapsed_hours": {
-      "to_observe": 0.14,
-      "to_fix": 0.0
-    },
-    "first_explanation": {
-      "quote": "Hunyuan bone/unit scaling poisons both interpretations, opposite directions; true hover ~0.9",
-      "source": "commit dc81a43 message",
-      "later_contradicted": null,
-      "contradicted_by": "Not reproduced or evaluated by this audit; E1 measures the bind-to-idle hover at 0.46–0.68 m at game scale, which does not match the commit's 'true hover ~0.9'."
-    },
-    "present_in_final_build": false,
-    "visible_on_screen": {
-      "value": true,
-      "why": "a 10 m boss sunk 1.5 m into the platform"
-    },
-    "notes": "89c36d7 is ENGINE-labelled (BakeMesh(useScale) semantics) and its own explanation ('bob was NOT the cause ... BakeMesh(useScale) ... systematic bias') was abandoned 8 min later; dc81a43 (OTHER in B5) reverted to the useScale reading and added an empirical 0.30 m settle."
+   "id": "D16",
+   "title": "Grounding v4 overshoot sank the boss ~1.5 m into the floor (fix-induced, D08 chain)",
+   "introduced": {
+    "hash": "89c36d7",
+    "datetime": "2026-07-11T11:18:38+08:00"
+   },
+   "first_observed": {
+    "ref": "commit dc81a43 (message)",
+    "datetime": "2026-07-11T11:26:57+08:00",
+    "channel": "developer play-test",
+    "quote": "The two play-tested mappings bracketed the truth: useScale reading 0.68 left ~0.2 hover; localToWorld reading 2.29 sank the boss ~1.5 into the floor"
+   },
+   "fix_chain": [
+    {
+     "hash": "dc81a43",
+     "datetime": "2026-07-11T11:26:57+08:00",
+     "subject": "fix(finale): grounding v5 - stable reading + empirically calibrated settle"
+    }
+   ],
+   "fixed": {
+    "hash": "dc81a43",
+    "datetime": "2026-07-11T11:26:57+08:00"
+   },
+   "elapsed_hours": {
+    "to_observe": 0.14,
+    "to_fix": 0.0
+   },
+   "first_explanation": {
+    "quote": "Hunyuan bone/unit scaling poisons both interpretations, opposite directions; true hover ~0.9",
+    "source": "commit dc81a43 message",
+    "later_contradicted": null,
+    "contradicted_by": "Not reproduced or evaluated by this audit; E1 measures the bind-to-idle hover at 0.46–0.68 m at game scale, which does not match the commit's 'true hover ~0.9'."
+   },
+   "present_in_final_build": false,
+   "visible_on_screen": {
+    "value": true,
+    "why": "a 10 m boss sunk 1.5 m into the platform"
+   },
+   "notes": "89c36d7 is ENGINE-labelled (BakeMesh(useScale) semantics) and its own explanation ('bob was NOT the cause ... BakeMesh(useScale) ... systematic bias') was abandoned 8 min later; dc81a43 (OTHER in B5) reverted to the useScale reading and added an empirical 0.30 m settle."
   }
-]
+ ]
+}
