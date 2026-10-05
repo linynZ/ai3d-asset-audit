@@ -1,0 +1,215 @@
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 7, "comment": "<summary>"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 8, "comment": "One-click \"imported VRM → drop-in NPC model\" builder. Takes a VRM model that"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 9, "comment": "UniVRM already imported (the generated prefab/GameObject) plus an npcId, and emits"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 10, "comment": "<c>Assets/Resources/CharacterModels/&lt;npcId&gt;.prefab</c> — exactly the path"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 11, "comment": "<c>NPCController.TrySwapModel</c> auto-loads, so the NPC's gray capsule is replaced"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 12, "comment": "at runtime with zero further wiring."}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 14, "comment": "Deliberately references NO UniVRM types (compiles with or without UniVRM in the"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 15, "comment": "project). It only touches generic Unity components:"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 16, "comment": "• optional idle AnimatorController so the Humanoid model doesn't stand in T-pose;"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 17, "comment": "• optional material conversion MToon → ChronoTraveler/ToonOutline (fixes the URP"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 18, "comment": "\"pink material\" issue AND matches the game's cel-shaded look), with a plain"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 19, "comment": "URP/Lit fallback."}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 21, "comment": "Static NPCs (the project's minimum bar) just need the mesh standing; the protagonist"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 22, "comment": "keeps its own rigged setup and does NOT go through this tool."}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 23, "comment": "</summary>"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 31, "comment": "ToonOutline is a Built-in-RP shader → magenta in URP"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 33, "comment": "metres — AI meshes export unit-normalised, scale to human height"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 34, "comment": "Hunyuan front-view exports face -Z; NPCController turns +Z to the player, so flip 180° to show the front"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 38, "comment": "Candidate shader-property names across MToon 0.x / MToon10 / URP for the base"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 39, "comment": "texture and base colour — we copy whichever the source material actually exposes."}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 99, "comment": "Work on a throwaway instance so we never mutate the source import."}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 105, "comment": "Make it an independent object (not linked to the source prefab) so the saved"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 106, "comment": "NPC prefab owns its own converted materials / controller."}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 119, "comment": "Wrap in a clean root whose origin = feet-centre, facing +Z, scaled to human"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 120, "comment": "height. NPCController.TrySwapModel then drops this root at the capsule floor and"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 121, "comment": "the feet land on the ground regardless of the mesh's own pivot."}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 132, "comment": "re-centre: feet-centre → root origin"}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 153, "comment": "Combined world-space AABB of all child renderers (false if the object has none)."}
+{"file": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs", "line": 207, "comment": "mainTexture maps to the shader's main-tex tag if present; fall back to scanning."}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 10, "comment": "<summary>"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 11, "comment": "Bakes the finale boss trueform from the Hunyuan 3D Studio FBX set (rigged + skinned +"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 12, "comment": "one animation per file) into a game-ready prefab:"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 13, "comment": "Assets/Art/Characters/Finale/boss_{idle,attack,hitdown,leap}.fbx"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 14, "comment": "→ configure importers (Generic rig, looping idle, extracted textures)"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 15, "comment": "→ URP/Lit materials (FBX Standard materials render magenta under URP)"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 16, "comment": "→ AnimatorController (Idle default-loop; attack/hit/leap triggers)"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 17, "comment": "→ Resources/CharacterModels/finale_boss_trueform.prefab (10m tall, grounded, +Z facing)"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 18, "comment": "Used by the two-act finale rework: the pinned, EMBODIED boss standing on the platform."}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 19, "comment": "Idempotent — re-run after replacing any FBX."}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 20, "comment": "</summary>"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 28, "comment": "spec: an 8-12m embodied colossus on the platform"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 41, "comment": "---- 1) importer pass: Generic rig, loop the idle, pull embedded textures ----"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 56, "comment": "one texture set serves all four (same model)"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 61, "comment": "---- 2) animator: Idle loops by default; the rest fire on triggers, then return ----"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 90, "comment": "---- 3) prefab: idle FBX as the body, URP materials, 10m grounded, +Z facing ----"}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 96, "comment": "Hunyuan exports face -Z (NPC-pipeline finding) — flip to +Z."}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 101, "comment": "Normalize: renderer bounds → 10m tall, feet on y=0, centred on origin."}
+{"file": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs", "line": 122, "comment": "<summary>FBX Standard materials → URP/Lit with the same base texture (magenta fix).</summary>"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 7, "comment": "<summary>"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 8, "comment": "Bakes the decimated Xuanji OBJ (output of tools/decimate_xuanji.py) into"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 9, "comment": "<c>Resources/CharacterModels/xuanji.prefab</c> — the drop-in 3D body that"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 10, "comment": "CompanionController prefers over its 2D sprite fallback. Floating-mascot"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 11, "comment": "specifics vs NPCModelSetupTool: the pivot is the renderer-bounds CENTRE"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 12, "comment": "(the body hangs on a hover anchor — no feet, no ground) and normalisation"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 13, "comment": "is by body LENGTH (longest horizontal axis; the pose is a curled lying fox),"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 14, "comment": "not by height."}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 15, "comment": "</summary>"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 24, "comment": "metres along the longest axis (Paimon-scale)"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 25, "comment": "The GLB's orientation node is lost in the OBJ conversion: the raw mesh lies face-UP"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 26, "comment": "(supine, +Y). Pitch +90 stands the curled-fox \"disc\" upright with the face on +Z —"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 27, "comment": "the medallion view the runtime then billboards at the camera. (Round 2: -90/180 put"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 28, "comment": "her head-down; +90/0 keeps the face forward and flips the head axis up.)"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 64, "comment": "pivot = bounds centre (hover anchor)"}
+{"file": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs", "line": 102, "comment": "Fixed path so re-running the menu overwrites instead of piling up xuanji_body_1.mat."}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 6, "comment": "<summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 7, "comment": "Drops a model so its ANIMATED silhouette stands on the ground. The finale trueform"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 8, "comment": "was baked feet-at-origin from the FBX bind pose, but the Animator's idle pose shifts"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 9, "comment": "the skeleton and the boss hovered (user reports ×2 — the first attempt read"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 10, "comment": "Renderer.bounds, which for a SkinnedMeshRenderer is the STATIC import-time bind-pose"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 11, "comment": "box moved by the root bone, not the animated pose; the measured offset came out ~0"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 12, "comment": "and the fix was a no-op, Q30). Ground truth instead: BakeMesh snapshots the current"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 13, "comment": "skinned vertices and the lowest vertex is the real animated foot line. One-shot after"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 14, "comment": "the Animator settles; works for any future rigged swap-in."}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 15, "comment": "</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 21, "comment": "Animator has applied the idle pose by now"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 23, "comment": "The idle loop BOBS: a single-frame sample lands mid-bob and the feet still"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 24, "comment": "hover for the rest of the cycle (user report, residual ~0.1-0.2). Sample the"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 25, "comment": "lowest vertex across ~one loop and snap to the global minimum."}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 34, "comment": "Ground under the model, skipping our own hierarchy (the trigger root carries"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 35, "comment": "the interact/blocker sphere, which a plain raycast would hit first)."}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 42, "comment": "nothing below — leave as-is"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 44, "comment": "Empirical correction + settle: the stable reading falls ~0.2 short of the true"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 45, "comment": "hover (bracketed by the two play-tested mappings above), and a colossus should"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 46, "comment": "press slightly into its footing anyway. 0.3 lands within ±0.1 of flush —"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 47, "comment": "grazing or faintly embedded, both read as grounded on a 10 m stone giant."}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 55, "comment": "<summary>World-space lowest visible point of the ANIMATED model. Skinned meshes"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 56, "comment": "are baked (their .bounds lie about the pose); static meshes use renderer bounds.</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 64, "comment": "Hunyuan rigs carry bone/unit scaling that poisons BOTH BakeMesh scale"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 65, "comment": "interpretations, in opposite directions — measured on this rig:"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 66, "comment": "useScale:true + rot/pos map   → 0.68  (short: ~0.2 hover remained)"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 67, "comment": "useScale:false + localToWorld → 2.29  (far: sank ~1.5 into the floor)"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 68, "comment": "True hover bracketed at ≈0.9. Keep the STABLE reading (0.72/0.68 across"}
+{"file": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs", "line": 69, "comment": "runs) and fold the empirically-derived shortfall into Settle below."}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 5, "comment": "<summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 6, "comment": "The finale's stage turn: after Xuanji pins the Unwritten into certain form, the"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 7, "comment": "formless colossus looming beyond the platform dissolves and the EMBODIED trueform"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 8, "comment": "(Hunyuan-baked prefab, idle-looping) stands on the platform as a walk-up duel."}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 9, "comment": "Pure runtime transform of the scene's existing finale BattleTrigger — its serialized"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 10, "comment": "loadout/enemy references are reused, so no scene rebuild and no Resources copies of"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 11, "comment": "the _Content assets are needed. Idempotent: the Trueform child marks \"already done\"."}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 12, "comment": "</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 18, "comment": "<summary>Centre-stage on the starstone platform (top at y=0), far enough from the"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 19, "comment": "spawn (z=-9) to walk toward, facing it. The 10m trueform reads as a duelist here,"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 20, "comment": "not the 450m overseer act 1 fought.</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 23, "comment": "<summary>Swap the colossus for the embodied trueform. Returns false if already"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 24, "comment": "embodied. Safe to call right after map entry (behind the fade) or after the"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 25, "comment": "awakening cutscene (the burst covers the swap).</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 32, "comment": "The colossus dissolves where it loomed (bone-white, its own colourlessness)."}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 36, "comment": "Strip the formless look: visual components FIRST (their Update loops drive the"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 37, "comment": "generated children), then every generated child, then the gray-box sphere itself."}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 47, "comment": "Pinned into certain form: person-scale trigger standing on the platform,"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 48, "comment": "facing the spawn. The sphere collider doubles as body blocker + E-interact range."}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 49, "comment": "Root stays identity: the baked prefab already carries the 180° model flip, and"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 50, "comment": "an extra root flip cancelled it — the trueform stood with its back to the"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 51, "comment": "arriving player (user play report)."}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 65, "comment": "The prefab was normalized feet-at-origin from the BIND pose; the idle"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 66, "comment": "animation shifts the skeleton and the boss hovered (user report)."}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 67, "comment": "GroundSnap measures the animated silhouette and drops it onto the platform."}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 72, "comment": "Missing-art tolerance: keep the sphere as act 2's body, but leave the"}
+{"file": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs", "line": 73, "comment": "idempotence marker so the swap doesn't re-run every entry."}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 3, "comment": "Billboard, PropVisuals"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 7, "comment": "<summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 8, "comment": "Xuanji's \"body\" — follows the player during exploration. Prefers the baked 3D model"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 9, "comment": "(Resources/CharacterModels/xuanji — a curled fox lying on starlight, Paimon-style hover)"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 10, "comment": "and falls back to the original 2D billboard sprite when the prefab is absent, so the"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 11, "comment": "game runs unchanged before the asset lands. Self-boots + DDOL; hides outside"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 12, "comment": "<see cref=\"GameState.Exploring\"/> (battle uses the bottom-left speaker instead)."}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 13, "comment": "A dumb view: the CompanionDirector calls <see cref=\"SetMood\"/> — on the 3D path a"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 14, "comment": "non-Idle mood pops a small overhead bubble (the static mesh has no expressions)."}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 15, "comment": "</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 21, "comment": "2D fallback body (null when the 3D model is in use)"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 22, "comment": "3D body root (null on the 2D fallback path)"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 23, "comment": "overhead emotion bubble (3D path only)"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 24, "comment": "Time.time after which the bubble fades out"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 27, "comment": "smoothed forward-lean while the player moves"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 29, "comment": "2D sprite: world-units tall, regardless of PPU"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 30, "comment": "3D bubble: world-units tall"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 43, "comment": "deterministic per-instance phase"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 62, "comment": "Asset-missing immunity: identical to the pre-3D behaviour."}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 71, "comment": "<summary>The fox lies on a faint pool of drifting gold/ice-blue star motes —"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 72, "comment": "the literal reading of \"a little fox lying on starlight\". Kept dim on purpose:"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 73, "comment": "the companion must never outshine the player or the scene.</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 86, "comment": "soft gold"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 87, "comment": "ice blue"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 98, "comment": "Unity requires all three velocity axes to share one curve MODE (\"Particle"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 99, "comment": "Velocity curves must all be in the same mode\"): setting only y to TwoConstants"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 100, "comment": "left x/z in their default Constant mode. Zero-width TwoConstants ranges keep"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 101, "comment": "x/z motionless while satisfying the same-mode rule."}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 136, "comment": "Static mesh has no expressions — non-Idle moods pop the overhead bubble."}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 157, "comment": "<summary>Scale the 2D body so it reads ~DesiredHeight tall whatever the sprite's PPU/size.</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 167, "comment": "Show during free exploration (hub or era), but never at the main menu / while paused —"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 168, "comment": "both freeze time, so timeScale is the robust \"actually in-game\" signal (works even when"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 169, "comment": "a scene is play-tested directly, where SceneFlowManager.CurrentMapScene is never set)."}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 185, "comment": "Hover beside-and-above the player (their right shoulder), smoothed, with a gentle bob."}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 196, "comment": "<summary>Programmatic life for the rig-less mesh: the curled-fox \"medallion\" always"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 197, "comment": "faces the camera (soft billboard, matching the 2D sprite behaviour), breathes with a"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 198, "comment": "slow pitch sway and leans forward while the player moves. The 2D path never gets"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 199, "comment": "here (Billboard owns its rotation).</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 205, "comment": "Upper bound rejects teleports (map travel writes the transform directly)."}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 214, "comment": "breathing pitch"}
+{"file": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs", "line": 218, "comment": "Mood bubble timeout fade."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 42, "comment": "real model child (null while on placeholder capsule)"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 43, "comment": "grounded local position to breathe around"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 50, "comment": "<summary>Set identity at build time (used by ChinaContentSetupTool).</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 65, "comment": "Self-restore the \"talked\" state from the persistent record (map scenes load after"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 66, "comment": "LoadGame, so a load-time scene scan can never reach us — we pull instead)."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 71, "comment": "Drop-in real model: explicit prefab, else Resources/CharacterModels/<npcId>."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 72, "comment": "When found, instantiate as child and hide the gray-box capsule mesh."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 81, "comment": "Ground the model: feet-at-origin assets (VRM/VRoid exports) would otherwise"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 82, "comment": "float, because the placeholder capsule is centred on the NPC origin. The"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 83, "comment": "capsule's bottom (collider centre − half height) is ground level — drop there."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 89, "comment": "Remember the model so we can give rig-free static meshes a subtle idle \"breath\"."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 94, "comment": "hide placeholder capsule"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 121, "comment": "Rig-free idle for AI-generated static NPC meshes: a gentle vertical bob reads as"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 122, "comment": "breathing / weight-shift without needing a skeleton. No-op while on the capsule."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 126, "comment": "±2 cm"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 132, "comment": "Gentle idle sway (±15° Y-axis sine rotation)"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 137, "comment": "Check if player enters awareness radius"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 152, "comment": "Slerp towards player"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 155, "comment": "If player leaves awareness radius, return to idle"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 164, "comment": "Lock facing player while in dialogue"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 172, "comment": "Keep facing player briefly"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 177, "comment": "Return to initial rotation over time, then go idle"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 194, "comment": "Pulse indicator when NPC notices player"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 240, "comment": "Scale pulse effect (will return to normal via AnimateIndicator)"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 244, "comment": "Bright yellow pulse"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 250, "comment": "Localized: the NPC's display name is resolved by id (scene-baked npcName is the"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 251, "comment": "fallback), and the prompt template comes from the UI string table."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 261, "comment": "persistent record (survives map unload + save/load)"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 267, "comment": "Speaker name localized by id (same resolution as the interaction prompt) —"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 268, "comment": "the scene-baked npcName is Chinese, which leaked into English dialogue."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 274, "comment": "<summary>World-state dialogue ladder: the era's people react to progress. Variants"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 275, "comment": "are optional data — \"&lt;id&gt;_post\" once the era's boss has fallen (starstone"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 276, "comment": "earned), \"&lt;id&gt;_gate\" when the seal loosens (memory full), \"&lt;id&gt;_mid\""}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 277, "comment": "past half memory. An absent variant falls down the ladder to the base dialogue, so"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 278, "comment": "everything keeps working before the content lands. Quest/journal completion always"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 279, "comment": "reports the BASE id (DialogueManager strips the suffix).</summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 297, "comment": "Scene name → era token id (the same lowercase ids EraProgress stores)."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 320, "comment": "The era map (and its NPCs) is unloaded while DialogueManager persists (DDOL)."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 321, "comment": "Drop any live subscription so a dialogue ending can't invoke a destroyed NPC."}
+{"file": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs", "line": 331, "comment": "Change indicator color to show completion"}
+{"file": "ChronoTraveler/Assets/Scripts/World/ModelSwapper.cs", "line": 5, "comment": "<summary>"}
+{"file": "ChronoTraveler/Assets/Scripts/World/ModelSwapper.cs", "line": 6, "comment": "Drop-in real model for a gray-box object (e.g. the player capsule). On Start,"}
+{"file": "ChronoTraveler/Assets/Scripts/World/ModelSwapper.cs", "line": 7, "comment": "instantiates an explicit prefab or one from Resources/CharacterModels/&lt;resourceId&gt;"}
+{"file": "ChronoTraveler/Assets/Scripts/World/ModelSwapper.cs", "line": 8, "comment": "as a child, and hides the host's placeholder MeshRenderer. No-op if none found."}
+{"file": "ChronoTraveler/Assets/Scripts/World/ModelSwapper.cs", "line": 9, "comment": "(Animator wiring for the player is asset-specific and set up when the model exists.)"}
+{"file": "ChronoTraveler/Assets/Scripts/World/ModelSwapper.cs", "line": 10, "comment": "</summary>"}
+{"file": "tools/decimate_xuanji.py", "line": 30, "comment": "'JSON'"}
+{"file": "tools/decimate_xuanji.py", "line": 32, "comment": "'BIN\\0'"}
+{"file": "tools/decimate_xuanji.py", "line": 54, "comment": "1024} KB)\")"}
+{"file": "tools/decimate_xuanji.py", "line": 60, "comment": "1024} KB)\")"}
+{"file": "tools/decimate_xuanji.py", "line": 63, "comment": "metallic-roughness is deliberately dropped (material bakes metallic=0 / smoothness 0.35)"}
+{"file": "tools/decimate_xuanji.py", "line": 76, "comment": "converged — UV seam islands are the hard floor"}
+{"file": "tools/decimate_xuanji.py", "line": 81, "comment": "(1024 * 1024)} MB)\")"}
+{"file": "tools/decimate_xuanji.py", "line": 82, "comment": "drop the .mtl pymeshlab writes next to the OBJ — the bake tool owns the material"}
