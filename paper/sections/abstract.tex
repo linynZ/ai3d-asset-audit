@@ -1,17 +1,19 @@
-Image-to-3D generators let a solo developer populate a game with textured
-models from single drawings, and their output is judged on how it looks. A
-real-time engine judges other things. We audited the 26 generated assets shipped
-in a finished Unity game (24 static models from one Hunyuan 3D setting, a
-companion we simplified, and a rigged, animated boss) against a plan committed
-before any audit script ran. Of five hypotheses, two held and three did not.
-The raw meshes are clean: all 24 are
-watertight and edge-manifold. Every asset arrives scaled to about one unit,
-facing away from the viewer, with three 4096$^2$ maps whose memory is 40--50
-times that of the geometry in BC7, and with half of each texture unused. The
-defects that cost time were conventions the file does not state, an animation
-that lifts the boss 0.46--0.68\,m off the ground at game scale, and our own
-processing: simplifying the seam-split vertex buffer a glTF loader returns tore
-the companion into 2,433 pieces, while welding first leaves every asset crack-free
-at the same budgets. Three of the game's six asset fixes repaired steps we had
-added. We release the scripts, measurements and labelled commit history, and
-give a short pre-import checklist ordered by what each check would have caught.
+Image-to-3D generators let a solo developer fill a game with textured models made
+from single drawings. We audited the 26 generated meshes of a completed Unity
+game (24 static models from one Hunyuan 3D setting, a companion we simplified,
+and a rigged, animated boss) against a plan committed before any audit script
+ran, then extended the audit after an internal review. Three of five stated
+hypotheses were not supported. The raw meshes are closed and edge-manifold, and
+their UV layouts fall within the range of the game's purchased meshes. Most
+problems came from the pipeline around the generator. The importer reversed the
+characters' front, which glTF places at $+Z$. The import path stored each asset's
+4096$^2$ base map uncompressed (21 of 24 with a CPU copy) and dropped its normal
+and metallic-roughness maps; these 24 maps are 70\,\% of the build's texture data,
+and nothing in the commit history recorded it. Simplifying in MeshLab the seam-split
+vertex buffer its glTF loader returns tore the companion into 2,433 pieces;
+welding first left every asset crack-free at a modest colour cost. Two
+problems did come from the generator: every asset is scaled to about one metre,
+and the boss's idle animation lifts it 0.46--0.68\,m above its bind-pose feet,
+leaving a 0.22\,m bob that no constant offset removes. We release scripts,
+measurements, labelled commit history and review reports, and give a short
+pre-import checklist derived from the case.

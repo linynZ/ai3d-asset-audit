@@ -50,7 +50,24 @@ def main():
                 "mean_abs_m": round(float(np.abs(hover).mean()), 3),
                 "share_frames_off_by_more_than_0.1m": round(float(np.mean(np.abs(hover) > 0.1)), 3),
             }
+        # Added after review: start the shipped 10-sample schedule at every frame of the loop
+        # (wrapping), and express each clip's lowest point against the idle-calibrated ground.
+        n = len(z)
+        phase_err = np.array([
+            (min(z[int(round(st + START_FRAMES + k * INTERVAL * fps)) % n] for k in range(N_SAMPLES)) - z.min()) * s
+            for st in range(n)])
+        row["phase_analysis"] = {
+            "loop_s": round(n / fps, 3),
+            "sampled_window_share": round((N_SAMPLES - 1) * INTERVAL / (n / fps), 3),
+            "phase_worst_mm": round(float(phase_err.max()) * 1000, 1),
+            "phase_median_mm": round(float(np.median(phase_err)) * 1000, 1),
+            "min_above_bind_m": round(float(z.min() - r["rest_zmin"]) * s, 3),
+            "max_above_bind_m": round(float(z.max() - r["rest_zmin"]) * s, 3),
+        }
         out.append(row)
+    idle = next(o for o in out if o["file"] == "boss_idle.fbx")["phase_analysis"]["min_above_bind_m"]
+    for o in out:
+        o["phase_analysis"]["lowest_vs_idle_ground_m"] = round(o["phase_analysis"]["min_above_bind_m"] - idle, 3)
         print(row["file"], row["lowest_point_range_m"],
               {k: (v["max_hover_m"], v["max_sink_m"]) for k, v in row["estimators"].items()})
     (HERE / "results" / "grounding.json").write_text(json.dumps(out, indent=1), encoding="utf-8")

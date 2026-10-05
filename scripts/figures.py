@@ -67,8 +67,8 @@ def decimation():
         ax.set_xticklabels(["50", "25", "12.5", "6.25"])
         ax.invert_xaxis()
         ax.set_xlabel("target (% of faces)")
-    axes[0].set_ylabel("open edges after\nwelding (median)")
-    axes[1].set_ylabel("mean Hausdorff\n(% of bbox diag.)")
+    axes[0].set_ylabel("boundary edges\nin output (median)")
+    axes[1].set_ylabel("mean surface dist.\n(% of bbox diag.)")
     fig.legend(*axes[0].get_legend_handles_labels(), loc="upper center", ncol=3, fontsize=6, bbox_to_anchor=(0.5, 1.02),
                handlelength=1.4, columnspacing=0.8)
     fig.tight_layout(pad=0.3, rect=(0, 0, 1, 0.88))

@@ -1,44 +1,50 @@
 \section{Discussion}
 \label{sec:discussion}
 
-\paragraph{The mesh was the easy part.} We expected generated meshes to fail as
-meshes: holes, non-manifold edges, stray fragments. They did not. The problems
-that cost development time were conventions that a file does not state (size,
-facing), a texture budget set by the generator rather than the user, a processing
-step whose input representation we did not check, and an animation whose pose
-differed from its bind pose. Three of the six fixes repaired our own processing,
-not the generator's output, and the one simplification step we added both tore
-the mesh and rested on a wrong diagnosis: its ``UV floor'' was a loop that ran
-out of rounds. For a developer
-adopting such a pipeline, the lesson is less ``inspect the generator'' than
-``inspect every step you add after it, and the explanation you wrote down for it''.
+\paragraph{Where the problems were.} We expected generated meshes to fail as
+meshes. They did not: mesh topology caused no fix, and by our measures the raw
+output is as closed, as manifold and as efficiently unwrapped as the meshes the
+game bought. The problems sat around the mesh. The generator normalises size to
+one metre whatever the subject. The importer reversed the front. The import path
+stored each asset's texture uncompressed, mostly with a CPU copy, and dropped
+two of its three maps. Our simplification tore the companion, and the ``UV floor''
+recorded for it is not reproduced by our runs. An animation lifted the boss off
+the ground. Of these, only the size
+normalisation and the animation belong to the generator; the rest are properties
+of the pipeline we built around it, and none of the texture problems left a
+trace in the commit history.
 
-\paragraph{A pre-import checklist.} Ordered by what each check would have caught
-in this game, at the cost of a script that runs in seconds per asset:
+\paragraph{A pre-import checklist.} Derived from this case and not validated on
+other projects.
 \begin{enumerate}
-\item \emph{Size and facing.} Read the largest extent and treat it as unitless;
-  supply real size from the design. Facing is not in the file: render one
-  thumbnail from $+Z$, or adopt the generator's convention once and test it on
-  the first asset.
-\item \emph{Texture budget.} Count texels, not triangles. Three 4096$^2$ maps cost
-  64\,MiB in BC7 per asset; most of the half-empty atlas can be dropped by
-  downscaling or re-baking.
-\item \emph{Simplification input.} Weld before simplifying, and check open edges
-  after. A seam-split buffer looks like a mesh and simplifies without error.
-\item \emph{Animated contact.} For rigged assets, evaluate each loop offline and
-  compare its lowest vertex with the bind pose; budget the bob amplitude, or use
-  foot contact handling.
-\item \emph{Topology.} Watertightness and manifoldness were never the problem
-  here, but they are cheap to count and our own tool was the one that broke them.
+\item \emph{Size and front.} Treat the largest extent as unknown and supply real
+  size from the design. Render one view from $+Z$ before import and one after, to
+  separate the asset's front from the importer's axis convention.
+\item \emph{What the engine actually stores.} Read texture format, size,
+  readability and which maps the material references from the build, not from the
+  source file; an uncompressed 4096$^2$ map is four times its BC7 size, and a
+  dropped normal map is invisible to a memory check.
+\item \emph{Simplification input.} Weld before simplifying and count boundary
+  edges after; a seam-split buffer simplifies without any error message, and in
+  MeshLab usually returns the requested triangle count.
+\item \emph{Animated contact.} For rigged assets, evaluate every clip offline and
+  compare its lowest vertex with the bind pose and with the clip used for
+  placement.
+\item \emph{Topology.} Closedness and manifoldness were never the problem here,
+  but they are cheap to count, and our own tool was the one that broke them.
 \end{enumerate}
+Items 1 and 3 restate existing guidance on real-world scale and
+origin~\cite{khronos3dc2025guidelines} and on welding before
+simplification~\cite{meshopt}, and texture memory is a familiar
+concern~\cite{unity_mobileart}; what this case
+adds is where the violations actually came from and which ones a developer did
+not notice.
 
-\paragraph{Counting versus looking.} Our earlier audit of an LLM-generated quiz
-bank found that the defects that matter were invisible one item at a
-time and obvious when counted across the set~\cite{zhao2026countingwhat}. Generated
-meshes partly reverse this. Counting confirmed that every asset shares the same
-conventions, so one correction serves all of them, and counting found the torn
-companion and the texture budget. But the costliest defects, facing and grounding,
-were found by looking at the game, and could only have been found earlier by
-looking: rendering a view, or evaluating an animation. A useful pre-import check
-for generated geometry is a small render and a short simulation, not only a
-statistic.
+\paragraph{Counting and looking.} Our earlier audit of an LLM-generated quiz
+bank found that the defects that mattered were invisible one item at a time and
+obvious when counted across the set~\cite{zhao2026countingwhat}. Here counting
+found the uniform size convention, the torn companion and the texture budget,
+but two findings needed a picture or a simulation: the front, which took a
+render in a known coordinate frame, and the hover, which took evaluating the
+animation. A useful pre-import check for generated geometry includes a small
+render and a short animation pass, not only statistics.

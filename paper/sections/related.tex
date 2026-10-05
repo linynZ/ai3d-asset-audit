@@ -1,42 +1,70 @@
 \section{Related Work}
 
-\paragraph{Image-to-3D generators.} Feed-forward and diffusion-based systems now
-produce textured meshes from one image in seconds to minutes:
+\paragraph{Image-to-3D generators.} Feed-forward and diffusion systems produce
+textured meshes from one image in seconds to minutes:
 TripoSR~\cite{tochilkin2024triposr}, InstantMesh~\cite{xu2024instantmesh},
 SF3D~\cite{boss2025sf3d}, TRELLIS~\cite{xiang2025trellis} and the Hunyuan3D
 series~\cite{zhao2025hunyuan3d20,hunyuan2025hunyuan3d21}, whose commercial
-service generated our assets~\cite{tencent2026hunyuan3dapi}. Several describe
-their output as production- or game-ready; Hunyuan3D Studio adds retopology, UV
-unwrapping and rigging for that purpose~\cite{lei2025hunyuan3dstudio}, and our
-boss came from it. These claims are made and checked by the developers of each
-system.
+service made our assets~\cite{tencent2026hunyuan3dapi}. Several properties we
+measure follow from such designs. Hunyuan3D~2.1 normalises training shapes to a
+unit cube and extracts surfaces as isosurfaces~\cite{hunyuan2025hunyuan3d21},
+which predicts unit scale and closed meshes; its open-source texturing defaults to
+4096$^2$ maps and unwraps with default xatlas settings~\cite{hunyuan21code}, and
+its developers note that xatlas ``generates over-fragmented
+cuts''~\cite{lei2025hunyuan3dstudio}. We cannot confirm that the commercial
+service runs the same code.
 
-\paragraph{Evaluating generated 3D\@.} Benchmarks such as
-T3Bench~\cite{he2023t3bench}, GPTEval3D~\cite{wu2024gpteval3d} and
-3DGen-Bench~\cite{zhang2025threedgenbench} score rendered views for plausibility,
-prompt alignment and human preference. A second line, from
-MeshGPT~\cite{siddiqui2024meshgpt} to MeshAnything~\cite{chen2025meshanything,chen2024meshanythingv2},
-argues that densely extracted meshes are wasteful for storage and rendering and
-changes the generator's output representation toward artist-like topology. We
-found no independent audit of a generator's output after it enters a real-time
-engine, covering units, axes, pivots, UV efficiency, memory and animation. We
-searched arXiv and the web rather than every venue, so we claim only that such
-work is not prominent.
+\paragraph{Generated assets in production.} Evaluation of generated 3D is mostly
+image-based: T3Bench~\cite{he2023t3bench}, GPTEval3D~\cite{wu2024gpteval3d} and
+3DGen-Bench~\cite{zhang2025threedgenbench} score rendered views. Work on
+artist-like topology~\cite{siddiqui2024meshgpt,chen2025meshanything} changes the
+output representation instead. A 2026 survey of production-ready generation
+observes that packing efficiency, manifoldness and watertightness are ``rarely
+reported'' or ``almost never quantified''~\cite{wu2026productionready}. PartUV
+measures chart counts on 114 TRELLIS meshes (xatlas: median 895, mean
+1,542)~\cite{wang2025partuv}. The closest study to ours is Begemann and Hutson's
+practice-led comparison, which rebuilt one game scene with Meshy and Hunyuan 3D
+and reported fragmented UV maps and loss of texture integrity under
+decimation~\cite{begemann2026prompted}. Practitioners describe generated UVs as
+``a jumbled mess''~\cite{edwards2024spot}, and HCI studies document how solo and
+indie developers use generative tools~\cite{panchanadikar2024solo}. Our study
+differs in measuring every generated asset of a completed game, per asset,
+against stated hypotheses, and in tracing each problem to where in the pipeline
+it arose.
 
-\paragraph{Mesh processing.} Our measurements use standard tools: quadric error
-simplification~\cite{garland1997qem} and its extensions to appearance
-attributes~\cite{garland1998colorqem,hoppe1999newqem}, texture-aware
-simplification~\cite{sander2001tmpm}, Hausdorff error as computed by
-Metro~\cite{cignoni1998metro}, and MeshLab~\cite{cignoni2008meshlab} through
-PyMeshLab~\cite{muntoni2021pymeshlab}. Attene et al.\ survey mesh defects and
-repair from an application perspective~\cite{attene2013repair}; our hygiene checks
-cover a subset of the defect classes they list. Texture formats and their costs follow standard
-references~\cite{akenine2018rtr4,microsoft_bc7}, and the asset format is
-glTF~2.0~\cite{khronos2021gltf}.
+\paragraph{Conventions and import.} glTF fixes units (metres), up ($+Y$) and front
+($+Z$), and requires a separate vertex wherever an attribute is
+discontinuous~\cite{khronos2021gltf}; Khronos's importer for Blender offers to
+merge such vertices only as an option~\cite{khronos_blenderio}. Khronos's
+real-time asset guidelines ask for 1:1 real-world scale and an origin at the
+bottom centre~\cite{khronos3dc2025guidelines}, and engine vendors note that
+textures usually dominate memory~\cite{unity_mobileart}. Several items of our
+checklist therefore restate existing guidance; what this case adds is which
+violations occurred, where they came from and which ones went unnoticed.
 
-\paragraph{Grounding animated characters.} Keeping feet on the ground during
-playback is usually a per-frame problem, handled by foot-contact cleanup or inverse
-kinematics~\cite{kovar2002footskate}. Engines expose bounds for skinned meshes that
-are not recomputed from the current pose~\cite{unity_localbounds},
-and a pose snapshot API whose scale handling depends on the
-hierarchy~\cite{unity_bakemesh}; both figure in our results.
+\paragraph{Simplification with seams.} Quadric error
+simplification~\cite{garland1997qem} was extended to appearance
+attributes~\cite{garland1998colorqem,hoppe1999newqem}; Hoppe's wedge structure
+stores one vertex with several attribute values at a seam~\cite{hoppe1999newqem}.
+Texture-aware simplification bounds texture
+stretch~\cite{sander2001tmpm}, seam-aware methods preserve the parametrisation
+exactly~\cite{liu2017seamless}, and recent work simplifies
+textured meshes independently of their UV layout~\cite{liu2025wild}.
+meshoptimizer's documentation states that ``identical vertices'' must be welded
+before simplification~\cite{meshopt}; PyMeshLab's documentation says its
+per-wedge conversion ``does not merge superfluous vertices''~\cite{pymeshlabdocs};
+a simplifier evaluated on Hunyuan3D output merges coincident vertices as
+standard pre-processing~\cite{bhosikar2026faqem}; and an open-source game project
+hit the same cracking on Meshy assets and also welded first (then re-unwrapped
+and re-baked), two weeks before we wrote this~\cite{galashots2026weld}. The mechanism is known;
+we report how much damage it did in a shipped asset and that the filter gave no
+sign of it.
+
+\paragraph{Grounding animated characters.} Keeping feet on the ground is a
+per-frame problem, handled by foot-contact cleanup or inverse
+kinematics~\cite{kovar2002footskate}. Unity offers a per-frame ``Feet'' root mode
+that ``prevents [the] floating problem'', but only for Humanoid
+rigs~\cite{unity_rootmotion}; our boss is a Generic rig. Unity precomputes a skinned
+mesh's bounds from its animations unless asked to update them every
+frame~\cite{unity_localbounds}, and its pose snapshot API has a scale option whose
+effect depends on the hierarchy~\cite{unity_bakemesh}.

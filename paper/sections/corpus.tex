@@ -1,28 +1,32 @@
-\section{The Assets}
+\section{The Game and Its Generated Assets}
 \label{sec:corpus}
 
-ChronoTraveler is a turn-based educational RPG built in Unity 6 (URP) by one
-developer working with an AI coding assistant over two months in 2026. Its five
-historical eras each have three non-player characters (NPCs); the Silk Road era
-also has nine props (two camels, a horse, a cart, a stupa, a milestone, silk
-bolts and spice sacks). All 24 were generated from a single front-view image each
-with Tencent's Hunyuan 3D web service (image-to-3D, version 3.1, ``50k faces''
-setting) and downloaded as GLB files. Two further assets came from the same
-service by other routes: the companion fox, generated at a higher face setting
-(497,850 triangles) and then simplified by us to 82,829 triangles, and the final
-boss, produced by the service's studio pipeline, which adds retopology,
-UV unwrapping, texturing, a 28-bone rig and four animations, delivered as four FBX
-files sharing one 9,038-triangle mesh. Table~\ref{tab:corpus} summarises the
-corpus; \texttt{data/manifest.json} lists every file with its SHA-256.
+ChronoTraveler is a turn-based educational RPG built in Unity~6 (URP) by one
+developer working with an AI coding assistant in mid-2026 (repository history
+June--August), as an MSc project. We call its final build (game commit \texttt{87fdd16}) the
+\emph{completed} game; it was not released commercially. Its five historical eras
+each have three non-player characters (NPCs); the Silk Road era also has nine
+props (two camels, a horse, a cart, a stupa, a milestone, silk bolts and spice
+sacks). All 24 were generated from one front-view drawing each with Tencent's
+Hunyuan 3D web service (image-to-3D, version~3.1 according to the game's
+pipeline notes, ``50k faces'' setting) and
+downloaded as GLB. Two more meshes came from the same service: the companion fox,
+generated at a higher setting (497,850 triangles) and simplified by us to 82,829
+triangles before shipping, and the final boss, produced by the service's studio
+pipeline~\cite{lei2025hunyuan3dstudio} with retopology, UV unwrapping, texturing,
+a 28-bone rig and four animations, delivered as four FBX files that share one
+9,038-triangle mesh. We audit 26 meshes, of which 25 shipped (Table~\ref{tab:corpus});
+\texttt{data/manifest.json} lists every file with its SHA-256.
 
-The 24 GLBs in the shipped game are byte-identical to the downloads. Nothing was
-edited before import. Every correction was applied inside the engine: an editor
-tool rescales each NPC to 1.7\,m, turns it 180\textdegree{} and converts its
-material; a second tool does the same for the boss at 10\,m; a run-time component
+The 24 GLBs in the game are byte-identical to the downloads. They were imported
+with UniGLTF~0.131 (the glTF importer bundled with UniVRM), whose default converts
+glTF to Unity coordinates by reversing $Z$. An editor tool then rescaled each NPC
+to 1.7\,m, turned it 180\textdegree{} and replaced its material with URP/Lit; a
+second tool does the same for the boss at 10\,m; a run-time component
 (\texttt{GroundSnap}) moves the animated boss down onto its platform.
 
 \begin{table}[t]
-\caption{Audited assets. ``Raw'' = generator output used as downloaded.}
+\caption{Audited meshes. ``Raw'' = generator output as downloaded.}
 \label{tab:corpus}
 \small
 \begin{tabularx}{\columnwidth}{@{}lrY@{}}
@@ -31,8 +35,8 @@ Group & $n$ & Source and use \\
 \midrule
 NPCs & 15 & image-to-3D, 50k setting; raw GLB, static \\
 Props & 9 & same pipeline; raw GLB, static \\
-Companion (raw) & 1 & image-to-3D, high setting; 497,850 triangles \\
-Companion (shipped) & 1 & our UV-preserving simplification; 82,829 triangles \\
+Companion (raw) & 1 & image-to-3D, high setting; 497,850 triangles; not shipped \\
+Companion (shipped) & 1 & our simplification of the raw mesh; 82,829 triangles \\
 Boss & 1 & studio pipeline: retopology, rig, 4 animations (4 FBX) \\
 \bottomrule
 \end{tabularx}

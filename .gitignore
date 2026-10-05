@@ -7,3 +7,7 @@ paper/*.out
 paper/*.blg
 paper/*.bbl
 paper/build.log
+results/cache/
+results/meshopt.err
+results/*.log
+paper/bib.log

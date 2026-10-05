@@ -1,47 +1,58 @@
 \section{Limitations}
 
-\paragraph{Scope.} One generator, one version, one game: 24 assets from one
-setting plus two from other routes. Hunyuan 3D's web service is closed and
-changes over time; another generator, or this one a few months later, may differ
-on every property we measured. The 50k-face setting and 4096$^2$ textures were the
-defaults we used, not a sweep.
+\paragraph{Scope.} One generator and version, one importer, one game: 24 meshes
+from one setting and two from other routes. Hunyuan 3D's service is closed and
+changes over time. The 50k setting and 4096$^2$ textures were our defaults, not
+a sweep. The texture findings depend on UniGLTF and our material tool; another
+importer would store the maps differently. We report counts, not population
+estimates.
 
-\paragraph{No frame-time measurements.} Memory figures are estimates from texel
-counts and formats; the one in-game cross-check is a scene-level total that
-includes other content. We did not profile draw calls, frame time or GPU memory
-per asset, and the game's benchmarks never isolated these assets.
+\paragraph{No frame-time measurements.} Memory figures are texel counts and
+stored sizes from the build, not profiler readings; we did not measure draw calls,
+frame time or GPU residency per asset.
 
-\paragraph{Labelling.} The 156 history labels were drafted by two AI labellers
-and reviewed by the AI assistant, with the author signing off; there was no second
-human rater. Commit messages describe what the developer believed at the time, so
-root causes inherit their mistakes (for example, a fix attributed to idle ``bob''
-that the next commit disproved). Keyword search misses commits that never used
-the words.
+\paragraph{Not blind.} The author built the game, wrote the commits B5 labels
+and wrote the plan. The labels were drafted by two AI labellers and reviewed by
+the AI assistant and the author; there was no independent human rater. Commit
+messages record what the developer believed at the time. Keyword search misses
+commits that never used the words.
 
 \paragraph{Grounding.} Ground truth comes from Blender's evaluation of the FBX,
-not from the engine. The Unity-side scaling ambiguity is reported from the commit
-record and was not reproduced. The boss is one rig with four animations.
+not from the engine; the in-engine offset and the predicted sinking in the other
+clips were not checked in play. The boss is one rig.
 
-\paragraph{Quality not scored.} We did not measure visual fidelity to the input
-image, texture quality, or how players perceived any of the assets.
+\paragraph{Appearance.} Visual fidelity to the input image was not scored. The
+colour error in B4 uses the nearest original vertex and only the base colour map.
 
-\paragraph{Authorship.} The author developed the game with an AI coding
-assistant, and the same assistant helped design and run this audit and draft the
-paper. Plan, scripts, outputs and labels are public so that the numbers can be
-checked without trusting either.
+\paragraph{Authorship.} The game, this audit and this text were made with an AI
+coding assistant. Plan, scripts, outputs, labels and the review reports that
+prompted the revisions are public so that the numbers can be checked without
+trusting the author or the assistant.
 
 \section{Deviations from the Plan}
 \label{sec:deviations}
 \begin{itemize}
-\item B4 was planned with one with-UV condition. After B2 found the shipped
-  companion torn, the with-UV condition was run on two input representations
-  (seam-split \emph{S}, welded \emph{W}); both are reported.
-\item B5 labels were drafted by two AI labellers splitting the commits in half,
-  rather than one; the reviewer added an \emph{origin} field not in the plan and
-  changed one \texttt{precheck} value (the boss hover, from ``none'' to per-frame
-  animation, because E1 shows an offline check finds it). Both are recorded with
-  reasons in \texttt{results/history\_labels.json}.
-\item The scene-memory consistency check (Section~\ref{sec:cost}) was not planned.
-\item The GLB reader and the hygiene script were run before the B4 script was
-  written; no hypothesis or threshold was changed after any result was seen.
+\item B4's with-UV condition was split into seam-split (S) and welded (W) inputs
+  after B2 found the shipped companion torn.
+\item After an internal fact-check and review of the first draft, we added: the
+  facing renders (B1), the non-generated baseline (B2), the shipped-build texture
+  readout (B3), S with boundary preservation, a matched no-UV control and a colour
+  error (B4), all four clips and all starting phases (E1). A scene-memory
+  comparison in the first draft was dropped: its premise (compressed textures) was
+  wrong.
+\item The first draft stated that UV charts do not overlap; the rasterised
+  coverage cannot show that, and the claim was removed.
+\item B5 labels were drafted by two labellers rather than one and reviewed twice.
+  The second review moved three fixes out of \texttt{ASSET}, which changed H5's
+  outcome (Section~\ref{sec:history}). The reviewer added an \emph{origin} field
+  and the fix/feature split, neither of which was in the plan.
+\item The plan's B3 metric was bytes as uploaded; we report bytes as stored in the
+  file, then what the build stored.
+\item E1 did not evaluate the shipped constant offset (0.30\,m), which corrects an
+  engine-side reading we did not reproduce. The Wilson interval planned for H2
+  was dropped: the 24 assets are not a random sample. Output file names differ
+  from those listed in the plan.
+\item A second internal fact-check of the revised draft led to the meshoptimizer
+  comparison and to corrections of several numbers and phrasings; both review
+  rounds are in the repository.
 \end{itemize}

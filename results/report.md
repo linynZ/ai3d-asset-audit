@@ -715,29 +715,27 @@
 {
  "matched": 156,
  "by_label": {
-  "OTHER": 76,
+  "OTHER": 78,
   "LEVEL": 61,
-  "ASSET": 13,
-  "ENGINE": 6
+  "ASSET": 10,
+  "ENGINE": 7
  },
- "asset_fix": 6,
+ "asset_fix": 3,
  "asset_feature": 7,
  "asset_by_precheck": {
-  "scale": 6,
-  "facing": 2,
+  "scale": 5,
   "per_frame_animation": 1,
   "poly_budget": 1,
   "pivot": 1,
   "axis_rotation": 2
  },
  "asset_fix_by_precheck": {
-  "facing": 2,
   "per_frame_animation": 1,
-  "scale": 1,
   "axis_rotation": 2
  },
  "engine_by_property": {
   "Built-in-RP shader under URP renders magenta": 1,
+  "importer reverses Z (UniGLTF default)": 1,
   "runtime Shader.Find shaders stripped from build": 1,
   "normal map texture import type": 1,
   "SkinnedMeshRenderer.bounds is the bind-pose box": 1,
@@ -745,11 +743,13 @@
   "BakeMesh(useScale) semantics under ancestor scale": 1
  },
  "asset_fix_by_origin": {
-  "generator": 3,
-  "own_pipeline": 3
+  "generator": 1,
+  "own_pipeline": 2
  },
- "asset_fix_countable_by_metadata": 3,
- "H5_majority_countable": false,
+ "asset_fix_countable_by_metadata": 2,
+ "H5_fixes_only_majority_countable": true,
+ "asset_all_countable_by_metadata": 9,
+ "H5_all_asset_majority_countable": true,
  "non_merge_commits_total": 484
 }
 ```
@@ -789,6 +789,15 @@
     "mean_abs_m": 0.113,
     "share_frames_off_by_more_than_0.1m": 0.541
    }
+  },
+  "phase_analysis": {
+   "loop_s": 1.85,
+   "sampled_window_share": 0.778,
+   "phase_worst_mm": 20.4,
+   "phase_median_mm": 3.9,
+   "min_above_bind_m": 0.46,
+   "max_above_bind_m": 0.684,
+   "lowest_vs_idle_ground_m": 0.0
   }
  },
  {
@@ -822,6 +831,15 @@
     "mean_abs_m": 0.55,
     "share_frames_off_by_more_than_0.1m": 0.95
    }
+  },
+  "phase_analysis": {
+   "loop_s": 2.683,
+   "sampled_window_share": 0.537,
+   "phase_worst_mm": 331.1,
+   "phase_median_mm": 102.6,
+   "min_above_bind_m": 0.192,
+   "max_above_bind_m": 1.58,
+   "lowest_vs_idle_ground_m": -0.268
   }
  },
  {
@@ -855,6 +873,15 @@
     "mean_abs_m": 1.599,
     "share_frames_off_by_more_than_0.1m": 0.887
    }
+  },
+  "phase_analysis": {
+   "loop_s": 2.367,
+   "sampled_window_share": 0.608,
+   "phase_worst_mm": 590.4,
+   "phase_median_mm": 48.1,
+   "min_above_bind_m": 0.381,
+   "max_above_bind_m": 3.649,
+   "lowest_vs_idle_ground_m": -0.079
   }
  },
  {
@@ -888,6 +915,15 @@
     "mean_abs_m": 1.815,
     "share_frames_off_by_more_than_0.1m": 0.964
    }
+  },
+  "phase_analysis": {
+   "loop_s": 3.683,
+   "sampled_window_share": 0.391,
+   "phase_worst_mm": 1672.0,
+   "phase_median_mm": 364.8,
+   "min_above_bind_m": -0.729,
+   "max_above_bind_m": 2.519,
+   "lowest_vs_idle_ground_m": -1.189
   }
  }
 ]

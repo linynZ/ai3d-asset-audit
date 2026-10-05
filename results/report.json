@@ -691,29 +691,27 @@
  "B5": {
   "matched": 156,
   "by_label": {
-   "OTHER": 76,
+   "OTHER": 78,
    "LEVEL": 61,
-   "ASSET": 13,
-   "ENGINE": 6
+   "ASSET": 10,
+   "ENGINE": 7
   },
-  "asset_fix": 6,
+  "asset_fix": 3,
   "asset_feature": 7,
   "asset_by_precheck": {
-   "scale": 6,
-   "facing": 2,
+   "scale": 5,
    "per_frame_animation": 1,
    "poly_budget": 1,
    "pivot": 1,
    "axis_rotation": 2
   },
   "asset_fix_by_precheck": {
-   "facing": 2,
    "per_frame_animation": 1,
-   "scale": 1,
    "axis_rotation": 2
   },
   "engine_by_property": {
    "Built-in-RP shader under URP renders magenta": 1,
+   "importer reverses Z (UniGLTF default)": 1,
    "runtime Shader.Find shaders stripped from build": 1,
    "normal map texture import type": 1,
    "SkinnedMeshRenderer.bounds is the bind-pose box": 1,
@@ -721,11 +719,13 @@
    "BakeMesh(useScale) semantics under ancestor scale": 1
   },
   "asset_fix_by_origin": {
-   "generator": 3,
-   "own_pipeline": 3
+   "generator": 1,
+   "own_pipeline": 2
   },
-  "asset_fix_countable_by_metadata": 3,
-  "H5_majority_countable": false,
+  "asset_fix_countable_by_metadata": 2,
+  "H5_fixes_only_majority_countable": true,
+  "asset_all_countable_by_metadata": 9,
+  "H5_all_asset_majority_countable": true,
   "non_merge_commits_total": 484
  },
  "E1": [
@@ -760,6 +760,15 @@
      "mean_abs_m": 0.113,
      "share_frames_off_by_more_than_0.1m": 0.541
     }
+   },
+   "phase_analysis": {
+    "loop_s": 1.85,
+    "sampled_window_share": 0.778,
+    "phase_worst_mm": 20.4,
+    "phase_median_mm": 3.9,
+    "min_above_bind_m": 0.46,
+    "max_above_bind_m": 0.684,
+    "lowest_vs_idle_ground_m": 0.0
    }
   },
   {
@@ -793,6 +802,15 @@
      "mean_abs_m": 0.55,
      "share_frames_off_by_more_than_0.1m": 0.95
     }
+   },
+   "phase_analysis": {
+    "loop_s": 2.683,
+    "sampled_window_share": 0.537,
+    "phase_worst_mm": 331.1,
+    "phase_median_mm": 102.6,
+    "min_above_bind_m": 0.192,
+    "max_above_bind_m": 1.58,
+    "lowest_vs_idle_ground_m": -0.268
    }
   },
   {
@@ -826,6 +844,15 @@
      "mean_abs_m": 1.599,
      "share_frames_off_by_more_than_0.1m": 0.887
     }
+   },
+   "phase_analysis": {
+    "loop_s": 2.367,
+    "sampled_window_share": 0.608,
+    "phase_worst_mm": 590.4,
+    "phase_median_mm": 48.1,
+    "min_above_bind_m": 0.381,
+    "max_above_bind_m": 3.649,
+    "lowest_vs_idle_ground_m": -0.079
    }
   },
   {
@@ -859,7 +886,289 @@
      "mean_abs_m": 1.815,
      "share_frames_off_by_more_than_0.1m": 0.964
     }
+   },
+   "phase_analysis": {
+    "loop_s": 3.683,
+    "sampled_window_share": 0.391,
+    "phase_worst_mm": 1672.0,
+    "phase_median_mm": 364.8,
+    "min_above_bind_m": -0.729,
+    "max_above_bind_m": 2.519,
+    "lowest_vs_idle_ground_m": -1.189
    }
   }
- ]
+ ],
+ "B4_extra": {
+  "S@0.125": {
+   "n": 24,
+   "reached": 24,
+   "cracked": 24,
+   "triangles_median": 6236.5,
+   "triangles_min": 6082,
+   "triangles_max": 6265,
+   "rmse_median": 17.325,
+   "floor_median": 17.035,
+   "rmse_over_floor_median": 0.14,
+   "rmse_over_floor_max": 3.62,
+   "worst": "npc_rome_engineer"
+  },
+  "S_pb@0.125": {
+   "n": 24,
+   "reached": 0,
+   "cracked": 0,
+   "triangles_median": 21939.0,
+   "triangles_min": 13238,
+   "triangles_max": 29292,
+   "rmse_median": 20.299999999999997,
+   "floor_median": 17.035,
+   "rmse_over_floor_median": 2.08,
+   "rmse_over_floor_max": 16.4,
+   "worst": "prop_trade_stupa"
+  },
+  "W@0.125": {
+   "n": 24,
+   "reached": 24,
+   "cracked": 0,
+   "triangles_median": 6236.0,
+   "triangles_min": 6082,
+   "triangles_max": 6266,
+   "rmse_median": 18.445,
+   "floor_median": 17.035,
+   "rmse_over_floor_median": 1.45,
+   "rmse_over_floor_max": 3.63,
+   "worst": "npc_rome_engineer"
+  },
+  "N_nn@0.125": {
+   "n": 24,
+   "reached": 24,
+   "cracked": 0,
+   "triangles_median": 6236.0,
+   "triangles_min": 6082,
+   "triangles_max": 6266
+  },
+  "S@0.0625": {
+   "n": 24,
+   "reached": 18,
+   "cracked": 24,
+   "triangles_median": 3124.5,
+   "triangles_min": 3089,
+   "triangles_max": 4974,
+   "rmse_median": 21.915,
+   "floor_median": 17.035,
+   "rmse_over_floor_median": 3.5,
+   "rmse_over_floor_max": 9.59,
+   "worst": "prop_trade_stupa"
+  },
+  "S_pb@0.0625": {
+   "n": 24,
+   "reached": 0,
+   "cracked": 0,
+   "triangles_median": 21939.0,
+   "triangles_min": 13238,
+   "triangles_max": 29292,
+   "rmse_median": 20.17,
+   "floor_median": 17.035,
+   "rmse_over_floor_median": 2.37,
+   "rmse_over_floor_max": 16.67,
+   "worst": "prop_trade_stupa"
+  },
+  "W@0.0625": {
+   "n": 24,
+   "reached": 23,
+   "cracked": 0,
+   "triangles_median": 3119.0,
+   "triangles_min": 3088,
+   "triangles_max": 3824,
+   "rmse_median": 21.189999999999998,
+   "floor_median": 17.035,
+   "rmse_over_floor_median": 3.68,
+   "rmse_over_floor_max": 37.1,
+   "worst": "npc_rome_engineer"
+  },
+  "N_nn@0.0625": {
+   "n": 24,
+   "reached": 24,
+   "cracked": 0,
+   "triangles_median": 3118.0,
+   "triangles_min": 3040,
+   "triangles_max": 3132
+  }
+ },
+ "B4_meshopt": {
+  "S@0.125": {
+   "n": 24,
+   "reached": 15,
+   "cracked": 0,
+   "triangles_median": 6249.0
+  },
+  "W@0.125": {
+   "n": 24,
+   "reached": 24,
+   "cracked": 0,
+   "triangles_median": 6218.0
+  },
+  "S@0.0625": {
+   "n": 24,
+   "reached": 2,
+   "cracked": 0,
+   "triangles_median": 5900.0
+  },
+  "W@0.0625": {
+   "n": 24,
+   "reached": 24,
+   "cracked": 0,
+   "triangles_median": 3093.0
+  }
+ },
+ "B2_baseline": {
+  "n": 81,
+  "closed": 40,
+  "edge_manifold": 66,
+  "with_self_intersections": 54,
+  "groups": {
+   "licensed character": {
+    "n": 1,
+    "charts_per_1k": [
+     9.92,
+     9.92,
+     9.92
+    ],
+    "uv_area_sum": [
+     4.449,
+     4.449,
+     4.449
+    ],
+    "seam_split": [
+     1.434,
+     1.434,
+     1.434
+    ]
+   },
+   "CGM Egypt pack": {
+    "n": 47,
+    "charts_per_1k": [
+     9.54,
+     496.77,
+     859.06
+    ],
+    "uv_area_sum": [
+     0.0,
+     0.0,
+     12.669
+    ],
+    "seam_split": [
+     1.185,
+     3.737,
+     4.977
+    ]
+   },
+   "Temple of Nike pack": {
+    "n": 4,
+    "charts_per_1k": [
+     9.87,
+     21.285,
+     43.98
+    ],
+    "uv_area_sum": [
+     0.413,
+     0.505,
+     164.125
+    ],
+    "seam_split": [
+     1.234,
+     1.365,
+     1.647
+    ]
+   },
+   "Altar Ruins pack": {
+    "n": 29,
+    "charts_per_1k": [
+     7.02,
+     46.69,
+     166.67
+    ],
+    "uv_area_sum": [
+     0.014,
+     0.384,
+     5.482
+    ],
+    "seam_split": [
+     1.268,
+     1.847,
+     2.125
+    ]
+   }
+  }
+ },
+ "B2_generated_uv": {
+  "charts_per_1k": [
+   14.062,
+   31.567,
+   63.463
+  ],
+  "uv_area_sum": [
+   0.461,
+   0.504,
+   0.659
+  ]
+ },
+ "B3_build": {
+  "generated_by_format_size": {
+   "5 4096x4096 mips=13 readable=True": 21,
+   "5 4096x4096 mips=13 readable=False": 3,
+   "10 2048x2048 mips=12 readable=False": 1,
+   "12 2048x2048 mips=12 readable=False": 1
+  },
+  "texture_totals_MiB": {
+   "all": 2943.5,
+   "generated_all": 2056.0,
+   "glb_base_maps_n": 24,
+   "glb_base_maps": 2048.0,
+   "glb_base_maps_readable": 21,
+   "glb_base_maps_share_pct": 69.6,
+   "largest_other": [
+    "LVL3_hdrp_Albedo",
+    "25",
+    21.3
+   ]
+  }
+ },
+ "E1_phase": {
+  "boss_idle.fbx": {
+   "loop_s": 1.85,
+   "sampled_window_share": 0.778,
+   "phase_worst_mm": 20.4,
+   "phase_median_mm": 3.9,
+   "min_above_bind_m": 0.46,
+   "max_above_bind_m": 0.684,
+   "lowest_vs_idle_ground_m": 0.0
+  },
+  "boss_attack.fbx": {
+   "loop_s": 2.683,
+   "sampled_window_share": 0.537,
+   "phase_worst_mm": 331.1,
+   "phase_median_mm": 102.6,
+   "min_above_bind_m": 0.192,
+   "max_above_bind_m": 1.58,
+   "lowest_vs_idle_ground_m": -0.268
+  },
+  "boss_hitdown.fbx": {
+   "loop_s": 2.367,
+   "sampled_window_share": 0.608,
+   "phase_worst_mm": 590.4,
+   "phase_median_mm": 48.1,
+   "min_above_bind_m": 0.381,
+   "max_above_bind_m": 3.649,
+   "lowest_vs_idle_ground_m": -0.079
+  },
+  "boss_leap.fbx": {
+   "loop_s": 3.683,
+   "sampled_window_share": 0.391,
+   "phase_worst_mm": 1672.0,
+   "phase_median_mm": 364.8,
+   "min_above_bind_m": -0.729,
+   "max_above_bind_m": 2.519,
+   "lowest_vs_idle_ground_m": -1.189
+  }
+ }
 }

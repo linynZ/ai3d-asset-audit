@@ -134,8 +134,10 @@ def main():
             "engine_by_property": Counter(l["property"] for l in labels if l["label"] == "ENGINE"),
             "asset_fix_by_origin": Counter(l["origin"] for l in asset if l["is_fix"]),
             "asset_fix_countable_by_metadata": sum(l["precheck"] in countable for l in asset if l["is_fix"]),
-            "H5_majority_countable": sum(l["precheck"] in countable for l in asset if l["is_fix"])
-                                     > sum(l["is_fix"] for l in asset) / 2,
+            "H5_fixes_only_majority_countable": sum(l["precheck"] in countable for l in asset if l["is_fix"])
+                                                > sum(l["is_fix"] for l in asset) / 2,
+            "asset_all_countable_by_metadata": sum(l["precheck"] in countable for l in asset),
+            "H5_all_asset_majority_countable": sum(l["precheck"] in countable for l in asset) > len(asset) / 2,
             "non_merge_commits_total": 484,
         }
 

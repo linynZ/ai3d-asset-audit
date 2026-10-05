@@ -1,7 +1,8 @@
 {
- "status": "drafted by AI labellers + reviewed by the AI assistant; awaiting author sign-off",
+ "status": "drafted by two AI labellers; reviewed by the AI assistant (two rounds, see overrides); awaiting author sign-off",
  "overrides": [
   {
+   "round": "round1",
    "hash": "9760126",
    "field": "precheck",
    "from": "none",
@@ -9,9 +10,76 @@
    "reason": "E1 shows an offline per-frame evaluation of the FBX finds this hover (0.46-0.68 m at game scale) before import; no metadata count does."
   },
   {
+   "round": "round2",
+   "hash": "f3da6c2",
+   "field": "label",
+   "from": "ASSET",
+   "to": "ENGINE",
+   "reason": "Rendering every GLB in glTF coordinates shows the front faces +Z, as the glTF spec requires; the game's importer (UniGLTF, reverseAxis=Default -> Z) maps it to Unity -Z. A spec-compliant hand-made GLB would face the same way, so the root cause is the importer convention, not the generated asset."
+  },
+  {
+   "round": "round2",
+   "hash": "f3da6c2",
+   "field": "precheck",
+   "from": "facing",
+   "to": null,
+   "reason": "Rendering every GLB in glTF coordinates shows the front faces +Z, as the glTF spec requires; the game's importer (UniGLTF, reverseAxis=Default -> Z) maps it to Unity -Z. A spec-compliant hand-made GLB would face the same way, so the root cause is the importer convention, not the generated asset."
+  },
+  {
+   "round": "round2",
+   "hash": "f3da6c2",
+   "field": "property",
+   "from": "front faces -Z",
+   "to": "importer reverses Z (UniGLTF default)",
+   "reason": "Rendering every GLB in glTF coordinates shows the front faces +Z, as the glTF spec requires; the game's importer (UniGLTF, reverseAxis=Default -> Z) maps it to Unity -Z. A spec-compliant hand-made GLB would face the same way, so the root cause is the importer convention, not the generated asset."
+  },
+  {
+   "round": "round2",
+   "hash": "cca41fd",
+   "field": "label",
+   "from": "ASSET",
+   "to": "OTHER",
+   "reason": "Two compensating 180-degree turns in our own code cancelled each other on the boss (FBX path, different importer); which property the first turn compensated is not established, so by the plan's rule the ambiguous case goes to OTHER."
+  },
+  {
+   "round": "round2",
+   "hash": "cca41fd",
+   "field": "precheck",
+   "from": "facing",
+   "to": null,
+   "reason": "Two compensating 180-degree turns in our own code cancelled each other on the boss (FBX path, different importer); which property the first turn compensated is not established, so by the plan's rule the ambiguous case goes to OTHER."
+  },
+  {
+   "round": "round2",
+   "hash": "cca41fd",
+   "field": "property",
+   "from": "-Z facing compensation applied twice",
+   "to": null,
+   "reason": "Two compensating 180-degree turns in our own code cancelled each other on the boss (FBX path, different importer); which property the first turn compensated is not established, so by the plan's rule the ambiguous case goes to OTHER."
+  },
+  {
+   "round": "round2",
    "hash": "dc81a43",
-   "field": "note",
-   "reason": "Reviewer: mixed cause (asset bone/unit scale x Unity BakeMesh semantics); kept ASSET as labelled, reported as mixed."
+   "field": "label",
+   "from": "ASSET",
+   "to": "OTHER",
+   "reason": "Labeller confidence low and cause mixed (asset bone/unit scale x Unity BakeMesh semantics); the plan sends ambiguous cases to OTHER. Round 1 had kept it as ASSET, contrary to that rule."
+  },
+  {
+   "round": "round2",
+   "hash": "dc81a43",
+   "field": "precheck",
+   "from": "scale",
+   "to": null,
+   "reason": "Labeller confidence low and cause mixed (asset bone/unit scale x Unity BakeMesh semantics); the plan sends ambiguous cases to OTHER. Round 1 had kept it as ASSET, contrary to that rule."
+  },
+  {
+   "round": "round2",
+   "hash": "dc81a43",
+   "field": "property",
+   "from": "bone/unit scaling of studio FBX",
+   "to": null,
+   "reason": "Labeller confidence low and cause mixed (asset bone/unit scale x Unity BakeMesh semantics); the plan sends ambiguous cases to OTHER. Round 1 had kept it as ASSET, contrary to that rule."
   }
  ],
  "labels": [
@@ -23,7 +91,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Battle UI redesign; keyword hit is UI ('floating damage numbers'), no 3D asset involved."
+   "note": "Battle UI redesign; keyword hit is UI ('floating damage numbers'), no 3D asset involved.",
+   "origin": null
   },
   {
    "hash": "d1961c3",
@@ -33,7 +102,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Imports 2D boss portraits (立绘) as sprites; no meshes."
+   "note": "Imports 2D boss portraits (立绘) as sprites; no meshes.",
+   "origin": null
   },
   {
    "hash": "2e20884",
@@ -43,7 +113,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "UI: 'show player 立绘 in original orientation (no mirror)' — 2D portrait, not a mesh."
+   "note": "UI: 'show player 立绘 in original orientation (no mirror)' — 2D portrait, not a mesh.",
+   "origin": null
   },
   {
    "hash": "0ca4bd9",
@@ -53,7 +124,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "2D NPC dialogue portraits with background removal; no meshes."
+   "note": "2D NPC dialogue portraits with background removal; no meshes.",
+   "origin": null
   },
   {
    "hash": "f27527d",
@@ -63,7 +135,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Dialogue UI portrait re-anchoring ('pivot bottom-right') — UI pivot, not a mesh."
+   "note": "Dialogue UI portrait re-anchoring ('pivot bottom-right') — UI pivot, not a mesh.",
+   "origin": null
   },
   {
    "hash": "782f6c7",
@@ -73,7 +146,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "PMX->FBX + humanoid avatar tooling for licensed hand-made Astraea (MMD bone mapping, 'FBX materials import white under URP'); not a generated asset, feature not fix."
+   "note": "PMX->FBX + humanoid avatar tooling for licensed hand-made Astraea (MMD bone mapping, 'FBX materials import white under URP'); not a generated asset, feature not fix.",
+   "origin": null
   },
   {
    "hash": "3d42385",
@@ -83,7 +157,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Player controller animator + Mixamo retarget onto licensed Astraea model."
+   "note": "Player controller animator + Mixamo retarget onto licensed Astraea model.",
+   "origin": null
   },
   {
    "hash": "6530b88",
@@ -93,7 +168,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Player controller tuning: 'runBlend to narrow the run's wide stance'."
+   "note": "Player controller tuning: 'runBlend to narrow the run's wide stance'.",
+   "origin": null
   },
   {
    "hash": "bf8b555",
@@ -103,7 +179,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "PMX stage importer for scenery ('MMD stages rely on backfaces', fixed scale) — environment asset, not generated."
+   "note": "PMX stage importer for scenery ('MMD stages rely on backfaces', fixed scale) — environment asset, not generated.",
+   "origin": null
   },
   {
    "hash": "3a401b5",
@@ -113,7 +190,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Temple .blend->FBX converter + PBR->URP for licensed scene asset."
+   "note": "Temple .blend->FBX converter + PBR->URP for licensed scene asset.",
+   "origin": null
   },
   {
    "hash": "1fa987b",
@@ -123,7 +201,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Commits licensed temple environment (~0.7M tris, rebuilt URP mats) — purchased/licensed, not generated."
+   "note": "Commits licensed temple environment (~0.7M tris, rebuilt URP mats) — purchased/licensed, not generated.",
+   "origin": null
   },
   {
    "hash": "a967457",
@@ -133,7 +212,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "China level layout rework (linear journey, boss gate)."
+   "note": "China level layout rework (linear journey, boss gate).",
+   "origin": null
   },
   {
    "hash": "69f887f",
@@ -143,7 +223,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "China level look: fog, temple scale x1.5/re-centre, portal intensity."
+   "note": "China level look: fog, temple scale x1.5/re-centre, portal intensity.",
+   "origin": null
   },
   {
    "hash": "9349302",
@@ -153,7 +234,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Full temple-valley environment pipeline (licensed .blend, trees decimated 0.5, mesh colliders) — not image-to-3D."
+   "note": "Full temple-valley environment pipeline (licensed .blend, trees decimated 0.5, mesh colliders) — not image-to-3D.",
+   "origin": null
   },
   {
    "hash": "9859bb0",
@@ -163,7 +245,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "'ground all China gameplay objects via downward raycast (no more floating)' — placement of orbs/enemies/portal."
+   "note": "'ground all China gameplay objects via downward raycast (no more floating)' — placement of orbs/enemies/portal.",
+   "origin": null
   },
   {
    "hash": "c095373",
@@ -173,7 +256,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "'render-diorama's geometry is broken for walking ... floating temple' — licensed environment, clean approach layer."
+   "note": "'render-diorama's geometry is broken for walking ... floating temple' — licensed environment, clean approach layer.",
+   "origin": null
   },
   {
    "hash": "36182a5",
@@ -183,7 +267,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Spawn point past ramp edge raycast hit safety floor — spawn placement."
+   "note": "Spawn point past ramp edge raycast hit safety floor — spawn placement.",
+   "origin": null
   },
   {
    "hash": "6752661",
@@ -193,7 +278,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Side walls + rerun height-creep from colliders intercepting grounding raycasts — level tooling."
+   "note": "Side walls + rerun height-creep from colliders intercepting grounding raycasts — level tooling.",
+   "origin": null
   },
   {
    "hash": "952d268",
@@ -203,7 +289,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "'NPCs were sunk (capsule pivot at centre placed at ground)' — placeholder capsules, pre-dates generated NPC meshes."
+   "note": "'NPCs were sunk (capsule pivot at centre placed at ground)' — placeholder capsules, pre-dates generated NPC meshes.",
+   "origin": null
   },
   {
    "hash": "80aee68",
@@ -213,7 +300,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Cosmetic stair treads + railings on temple path."
+   "note": "Cosmetic stair treads + railings on temple path.",
+   "origin": null
   },
   {
    "hash": "2fdd2b8",
@@ -223,7 +311,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Rebuild China from grounded primitives ('stop forcing the render-diorama (floating/clipping/scale mess)')."
+   "note": "Rebuild China from grounded primitives ('stop forcing the render-diorama (floating/clipping/scale mess)').",
+   "origin": null
   },
   {
    "hash": "d3c0c36",
@@ -233,7 +322,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Hub palace from commercial PMX + portals/atmosphere — licensed environment."
+   "note": "Hub palace from commercial PMX + portals/atmosphere — licensed environment.",
+   "origin": null
   },
   {
    "hash": "8f8aadf",
@@ -243,7 +333,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "chore: save China level + commercial temple textures."
+   "note": "chore: save China level + commercial temple textures.",
+   "origin": null
   },
   {
    "hash": "9311314",
@@ -253,7 +344,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Bilingual i18n; keyword match incidental."
+   "note": "Bilingual i18n; keyword match incidental.",
+   "origin": null
   },
   {
    "hash": "92e9b3b",
@@ -263,7 +355,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Procedural Anomaly shader for enemies ('grown bounds' for vertex displacement) — procedural VFX, not a generated mesh."
+   "note": "Procedural Anomaly shader for enemies ('grown bounds' for vertex displacement) — procedural VFX, not a generated mesh.",
+   "origin": null
   },
   {
    "hash": "6351efb",
@@ -273,7 +366,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "UI localisation phase 2; keyword match incidental."
+   "note": "UI localisation phase 2; keyword match incidental.",
+   "origin": null
   },
   {
    "hash": "06b3972",
@@ -283,7 +377,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Battle UI game-feel (screen shake, 'Damage numbers scale') — UI scale."
+   "note": "Battle UI game-feel (screen shake, 'Damage numbers scale') — UI scale.",
+   "origin": null
   },
   {
    "hash": "7c9e364",
@@ -293,7 +388,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Checkpoint chore: rb.velocity API rename, MainScene, font atlas, temple prefab (licensed)."
+   "note": "Checkpoint chore: rb.velocity API rename, MainScene, font atlas, temple prefab (licensed).",
+   "origin": null
   },
   {
    "hash": "b9bfdfb",
@@ -303,7 +399,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "PerfRecorder sampleSeconds bug — 'float'/time math, unrelated."
+   "note": "PerfRecorder sampleSeconds bug — 'float'/time math, unrelated.",
+   "origin": null
   },
   {
    "hash": "0e450b4",
@@ -313,7 +410,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Docs: narrative design spec."
+   "note": "Docs: narrative design spec.",
+   "origin": null
   },
   {
    "hash": "0d61251",
@@ -323,7 +421,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Cutscene JSON audio clip fix."
+   "note": "Cutscene JSON audio clip fix.",
+   "origin": null
   },
   {
    "hash": "e2cd174",
@@ -333,7 +432,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Audio volume restore + cutscene try/finally."
+   "note": "Audio volume restore + cutscene try/finally.",
+   "origin": null
   },
   {
    "hash": "91f675a",
@@ -343,7 +443,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Hub portals pentagon + 'rebuilds the invisible walk floor' after palace rescaled ~5x — licensed environment."
+   "note": "Hub portals pentagon + 'rebuilds the invisible walk floor' after palace rescaled ~5x — licensed environment.",
+   "origin": null
   },
   {
    "hash": "0af6efd",
@@ -353,7 +454,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Hub floor/spawn derived from portal ring ('spawn landing outside/below the floor'); also UI portrait anchoring (pivot) — no generated mesh."
+   "note": "Hub floor/spawn derived from portal ring ('spawn landing outside/below the floor'); also UI portrait anchoring (pivot) — no generated mesh.",
+   "origin": null
   },
   {
    "hash": "056aba6",
@@ -363,7 +465,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "chore: Hub floor/fog rescale + CJK atlas."
+   "note": "chore: Hub floor/fog rescale + CJK atlas.",
+   "origin": null
   },
   {
    "hash": "8a889ef",
@@ -373,7 +476,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "TrySwapModel placed model at capsule centre, 'leaving feet-at-origin assets (VRM/VRoid exports) floating ~1m' — placement code, predates Hunyuan meshes; a hand-made model hits it equally."
+   "note": "TrySwapModel placed model at capsule centre, 'leaving feet-at-origin assets (VRM/VRoid exports) floating ~1m' — placement code, predates Hunyuan meshes; a hand-made model hits it equally.",
+   "origin": null
   },
   {
    "hash": "666c3be",
@@ -383,7 +487,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "ComfyUI outpaint prompt for 2D reference image fed to image-to-3D; upstream of the mesh, no mesh property involved."
+   "note": "ComfyUI outpaint prompt for 2D reference image fed to image-to-3D; upstream of the mesh, no mesh property involved.",
+   "origin": null
   },
   {
    "hash": "e4d88ef",
@@ -393,7 +498,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "ComfyUI outpaint extra-hands fix in 2D reference image; generation input, not a mesh property."
+   "note": "ComfyUI outpaint extra-hands fix in 2D reference image; generation input, not a mesh property.",
+   "origin": null
   },
   {
    "hash": "562fe4d",
@@ -403,7 +509,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "ComfyUI outpaint body proportions in 2D reference; not a mesh property."
+   "note": "ComfyUI outpaint body proportions in 2D reference; not a mesh property.",
+   "origin": null
   },
   {
    "hash": "03bb02f",
@@ -413,7 +520,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "ComfyUI outpaint robe continuation in 2D reference; not a mesh property."
+   "note": "ComfyUI outpaint robe continuation in 2D reference; not a mesh property.",
+   "origin": null
   },
   {
    "hash": "c21ea44",
@@ -439,21 +547,22 @@
    "property": "Built-in-RP shader under URP renders magenta",
    "precheck": null,
    "confidence": "high",
-   "note": "'ToonOutline ... is a Built-in-RP shader ... does not render under URP' — tool's shader choice; any asset converted to it turns magenta."
+   "note": "'ToonOutline ... is a Built-in-RP shader ... does not render under URP' — tool's shader choice; any asset converted to it turns magenta.",
+   "origin": null
   },
   {
    "hash": "f3da6c2",
-   "label": "ASSET",
+   "label": "ENGINE",
    "is_fix": true,
    "asset_ids": [
     "npc_china_historian",
     "all_npc"
    ],
-   "property": "front faces -Z",
-   "precheck": "facing",
+   "property": "importer reverses Z (UniGLTF default)",
+   "precheck": null,
    "confidence": "high",
    "note": "'Hunyuan front-view exports face -Z' -> default Face Yaw 180; not detectable from metadata/vertex counts alone, needs a convention probe or render.",
-   "origin": "generator"
+   "origin": null
   },
   {
    "hash": "267ff39",
@@ -465,7 +574,8 @@
    "property": null,
    "precheck": null,
    "confidence": "low",
-   "note": "Adds a raw GLB (49,772 tris, '+90deg X stand-up' noted) with no tooling/fix; documents properties but addresses none — not forced into ASSET."
+   "note": "Adds a raw GLB (49,772 tris, '+90deg X stand-up' noted) with no tooling/fix; documents properties but addresses none — not forced into ASSET.",
+   "origin": null
   },
   {
    "hash": "953f004",
@@ -491,7 +601,8 @@
    "property": null,
    "precheck": null,
    "confidence": "low",
-   "note": "Adds raw GLB; notes 'normalized bbox height is shorter (0.99) — may need a higher Target Height' (bounds-driven scale issue) but makes no change."
+   "note": "Adds raw GLB; notes 'normalized bbox height is shorter (0.99) — may need a higher Target Height' (bounds-driven scale issue) but makes no change.",
+   "origin": null
   },
   {
    "hash": "c1ff678",
@@ -514,7 +625,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Docs: CLAUDE.md log of NPC pipeline."
+   "note": "Docs: CLAUDE.md log of NPC pipeline.",
+   "origin": null
   },
   {
    "hash": "1054587",
@@ -524,7 +636,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Battle Focus balance; keyword match incidental."
+   "note": "Battle Focus balance; keyword match incidental.",
+   "origin": null
   },
   {
    "hash": "4935bac",
@@ -534,7 +647,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Memory HUD UI ('floats a +N toast')."
+   "note": "Memory HUD UI ('floats a +N toast').",
+   "origin": null
   },
   {
    "hash": "e10d5e8",
@@ -544,7 +658,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Objective waypoint marker VFX."
+   "note": "Objective waypoint marker VFX.",
+   "origin": null
   },
   {
    "hash": "d968892",
@@ -554,7 +669,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Waypoint gem polish ('small floating gem')."
+   "note": "Waypoint gem polish ('small floating gem').",
+   "origin": null
   },
   {
    "hash": "3ab9dab",
@@ -564,7 +680,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Waypoint size/height polish."
+   "note": "Waypoint size/height polish.",
+   "origin": null
   },
   {
    "hash": "babf978",
@@ -574,7 +691,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Waypoint 'hovers clearly above the head'."
+   "note": "Waypoint 'hovers clearly above the head'.",
+   "origin": null
   },
   {
    "hash": "06d3d7b",
@@ -584,7 +702,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Waypoint hover distance tune."
+   "note": "Waypoint hover distance tune.",
+   "origin": null
   },
   {
    "hash": "2103bab",
@@ -594,7 +713,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Docs: Xuanji 2D companion design (3D model deferred)."
+   "note": "Docs: Xuanji 2D companion design (3D model deferred).",
+   "origin": null
   },
   {
    "hash": "3371929",
@@ -604,7 +724,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Xuanji 2D visibility gate (timeScale) + environment backdrop bootstrap; no generated mesh."
+   "note": "Xuanji 2D visibility gate (timeScale) + environment backdrop bootstrap; no generated mesh.",
+   "origin": null
   },
   {
    "hash": "39212ef",
@@ -614,7 +735,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Procedural OceanIsland ring sea sizing."
+   "note": "Procedural OceanIsland ring sea sizing.",
+   "origin": null
   },
   {
    "hash": "9f13543",
@@ -624,7 +746,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Procedural sea level from player feet."
+   "note": "Procedural sea level from player feet.",
+   "origin": null
   },
   {
    "hash": "78dac99",
@@ -634,7 +757,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Sea level default tune."
+   "note": "Sea level default tune.",
+   "origin": null
   },
   {
    "hash": "3245990",
@@ -644,7 +768,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Sea level live-tune."
+   "note": "Sea level live-tune.",
+   "origin": null
   },
   {
    "hash": "81038c1",
@@ -654,7 +779,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Procedural ambient VFX/post-FX/sky birds/wind sway."
+   "note": "Procedural ambient VFX/post-FX/sky birds/wind sway.",
+   "origin": null
   },
   {
    "hash": "9c8d47a",
@@ -664,7 +790,8 @@
    "property": null,
    "precheck": null,
    "confidence": "low",
-   "note": "Mainly quest soft-lock backfill; keyword hit is procedural StylizedWater 'Cull Off->Back' (would be LEVEL) — mixed commit, no generated asset."
+   "note": "Mainly quest soft-lock backfill; keyword hit is procedural StylizedWater 'Cull Off->Back' (would be LEVEL) — mixed commit, no generated asset.",
+   "origin": null
   },
   {
    "hash": "a6ebe25",
@@ -674,7 +801,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Egypt (CGM pack) placement: 'bounds.min.y was a -12 foundation' — purchased pack."
+   "note": "Egypt (CGM pack) placement: 'bounds.min.y was a -12 foundation' — purchased pack.",
+   "origin": null
   },
   {
    "hash": "9779f34",
@@ -684,7 +812,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Add MeshColliders to CGM pack env — purchased pack."
+   "note": "Add MeshColliders to CGM pack env — purchased pack.",
+   "origin": null
   },
   {
    "hash": "d595071",
@@ -694,7 +823,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Egypt desert ground + dunes + lighting."
+   "note": "Egypt desert ground + dunes + lighting.",
+   "origin": null
   },
   {
    "hash": "532eaf1",
@@ -704,7 +834,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Egypt spawn/placement clamp ('悬空/落屋顶的NPC与敌人') — placement on purchased pack."
+   "note": "Egypt spawn/placement clamp ('悬空/落屋顶的NPC与敌人') — placement on purchased pack.",
+   "origin": null
   },
   {
    "hash": "edb1d48",
@@ -714,7 +845,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Scale CGM demo env 2.5x + spawn — purchased pack."
+   "note": "Scale CGM demo env 2.5x + spawn — purchased pack.",
+   "origin": null
   },
   {
    "hash": "c4f4ec1",
@@ -724,7 +856,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Import CGM Egypt Pack + scene (NPCs floating noted) — purchased pack/placement."
+   "note": "Import CGM Egypt Pack + scene (NPCs floating noted) — purchased pack/placement.",
+   "origin": null
   },
   {
    "hash": "aee4345",
@@ -734,7 +867,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Egypt placement anchored on spawn + walkability validation."
+   "note": "Egypt placement anchored on spawn + walkability validation.",
+   "origin": null
   },
   {
    "hash": "702e01a",
@@ -744,7 +878,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Named prompts + third-person 'camera anti-clip' + layout preservation."
+   "note": "Named prompts + third-person 'camera anti-clip' + layout preservation.",
+   "origin": null
   },
   {
    "hash": "d953468",
@@ -754,7 +889,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Return portal + hub spawn + 'ground-snaps every arrival' of the player."
+   "note": "Return portal + hub spawn + 'ground-snaps every arrival' of the player.",
+   "origin": null
   },
   {
    "hash": "ac91710",
@@ -764,7 +900,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Rebuilt 30_Egypt scene content."
+   "note": "Rebuilt 30_Egypt scene content.",
+   "origin": null
   },
   {
    "hash": "625b78a",
@@ -774,7 +911,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Procedural VFX for portals/fragments (code-generated crystal mesh, 'cull-off' material) — no generated asset."
+   "note": "Procedural VFX for portals/fragments (code-generated crystal mesh, 'cull-off' material) — no generated asset.",
+   "origin": null
   },
   {
    "hash": "a3c8632",
@@ -784,7 +922,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Fragment colour + China procedural ocean sea level from outer ground."
+   "note": "Fragment colour + China procedural ocean sea level from outer ground.",
+   "origin": null
   },
   {
    "hash": "ad3407f",
@@ -794,7 +933,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Ocean stale negative rise tuning + median ground probe."
+   "note": "Ocean stale negative rise tuning + median ground probe.",
+   "origin": null
   },
   {
    "hash": "448e956",
@@ -804,7 +944,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "'flip annulus winding — water/beach faced DOWN, culled' — procedural OceanIsland mesh."
+   "note": "'flip annulus winding — water/beach faced DOWN, culled' — procedural OceanIsland mesh.",
+   "origin": null
   },
   {
    "hash": "e62a49c",
@@ -814,7 +955,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Procedural shoreline 'no more hovering water edge'."
+   "note": "Procedural shoreline 'no more hovering water edge'.",
+   "origin": null
   },
   {
    "hash": "a6cbd0f",
@@ -824,7 +966,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Procedural SandSea dune plane + FallRescue edge teleport; the 'floating temple' is purchased CGM level geometry."
+   "note": "Procedural SandSea dune plane + FallRescue edge teleport; the 'floating temple' is purchased CGM level geometry.",
+   "origin": null
   },
   {
    "hash": "1194380",
@@ -834,7 +977,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Data-only companion barks for fall rescue; no mesh involved."
+   "note": "Data-only companion barks for fall rescue; no mesh involved.",
+   "origin": null
   },
   {
    "hash": "d625ddd",
@@ -844,7 +988,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Cutscene JSON; matched 'sinking-chronicle' narrative text."
+   "note": "Cutscene JSON; matched 'sinking-chronicle' narrative text.",
+   "origin": null
   },
   {
    "hash": "0ad0121",
@@ -854,7 +999,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Era unlock chain; 'magic circle scales in' is a VFX animation."
+   "note": "Era unlock chain; 'magic circle scales in' is a VFX animation.",
+   "origin": null
   },
   {
    "hash": "dd55fb9",
@@ -864,7 +1010,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Star-wake spectacle VFX/portal state; 'scales' and 'ground shockwave' are procedural effects."
+   "note": "Star-wake spectacle VFX/portal state; 'scales' and 'ground shockwave' are procedural effects.",
+   "origin": null
   },
   {
    "hash": "bd3e7e3",
@@ -874,7 +1021,8 @@
    "property": "runtime Shader.Find shaders stripped from build",
    "precheck": null,
    "confidence": "medium",
-   "note": "'builds would strip them: invisible ocean, magenta particles' - Always Included Shaders for procedural runtime materials; preventive, not tied to generated meshes."
+   "note": "'builds would strip them: invisible ocean, magenta particles' - Always Included Shaders for procedural runtime materials; preventive, not tied to generated meshes.",
+   "origin": null
   },
   {
    "hash": "c89bf12",
@@ -884,7 +1032,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "'Gate-unseal particle burst: Color.magenta -> seal purple' is a colour choice; rest is localisation/scene-flow fixes."
+   "note": "'Gate-unseal particle burst: Color.magenta -> seal purple' is a colour choice; rest is localisation/scene-flow fixes.",
+   "origin": null
   },
   {
    "hash": "62edb25",
@@ -898,7 +1047,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Pure ingestion of three Hunyuan GLBs ('pending in-editor identification'); no property addressed."
+   "note": "Pure ingestion of three Hunyuan GLBs ('pending in-editor identification'); no property addressed.",
+   "origin": null
   },
   {
    "hash": "80902e8",
@@ -912,7 +1062,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Renaming hash-named GLBs 'by embedded texture atlas' - identity/provenance of generator output, not a geometric/material property."
+   "note": "Renaming hash-named GLBs 'by embedded texture atlas' - identity/provenance of generator output, not a geometric/material property.",
+   "origin": null
   },
   {
    "hash": "46e52ef",
@@ -922,7 +1073,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Battle UI cut-in/hitstop (timeScale, portrait scale)."
+   "note": "Battle UI cut-in/hitstop (timeScale, portrait scale).",
+   "origin": null
   },
   {
    "hash": "538bf61",
@@ -932,7 +1084,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Places optional anomalies 'on validated single-jump walkable ground' in 30_Egypt."
+   "note": "Places optional anomalies 'on validated single-jump walkable ground' in 30_Egypt.",
+   "origin": null
   },
   {
    "hash": "b66a9ef",
@@ -942,7 +1095,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "VideoGate video playback infrastructure."
+   "note": "VideoGate video playback infrastructure.",
+   "origin": null
   },
   {
    "hash": "e0d4e37",
@@ -952,7 +1106,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Docs: title key-art prompt library."
+   "note": "Docs: title key-art prompt library.",
+   "origin": null
   },
   {
    "hash": "2549ed7",
@@ -962,7 +1117,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Title screen skin UI."
+   "note": "Title screen skin UI.",
+   "origin": null
   },
   {
    "hash": "d22fec2",
@@ -972,7 +1128,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Edit-mode title preview tool (UI)."
+   "note": "Edit-mode title preview tool (UI).",
+   "origin": null
   },
   {
    "hash": "94446fe",
@@ -982,7 +1139,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Battle UI portrait anim drift / timeScale safety net; 'scale-1' is UI."
+   "note": "Battle UI portrait anim drift / timeScale safety net; 'scale-1' is UI.",
+   "origin": null
   },
   {
    "hash": "a997d4b",
@@ -992,7 +1150,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Docs: era content tool generalisation spec."
+   "note": "Docs: era content tool generalisation spec.",
+   "origin": null
   },
   {
    "hash": "e082769",
@@ -1002,7 +1161,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "EraBuildEngine shared placement/validation + procedural ground."
+   "note": "EraBuildEngine shared placement/validation + procedural ground.",
+   "origin": null
   },
   {
    "hash": "0f26eea",
@@ -1012,7 +1172,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Temple of Nike purchased pack wired with plaza floor and spawn anchoring."
+   "note": "Temple of Nike purchased pack wired with plaza floor and spawn anchoring.",
+   "origin": null
   },
   {
    "hash": "8920ead",
@@ -1022,7 +1183,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "'user-tuned temple facing (Y=90.165)' - yaw of the purchased Temple of Nike monument."
+   "note": "'user-tuned temple facing (Y=90.165)' - yaw of the purchased Temple of Nike monument.",
+   "origin": null
   },
   {
    "hash": "0f5c2b0",
@@ -1036,7 +1198,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Ingestion of three 'hash-named Hunyuan 50k GLBs' with hand-written UniGLTF metas; identification only."
+   "note": "Ingestion of three 'hash-named Hunyuan 50k GLBs' with hand-written UniGLTF metas; identification only.",
+   "origin": null
   },
   {
    "hash": "81b6353",
@@ -1049,7 +1212,8 @@
    "property": null,
    "precheck": null,
    "confidence": "low",
-   "note": "'Texture-atlas identification had sage and historian reversed' - a real fix caused by opaque generator naming, but identity is not a geometric/material property in the taxonomy; not forced into ASSET."
+   "note": "'Texture-atlas identification had sage and historian reversed' - a real fix caused by opaque generator naming, but identity is not a geometric/material property in the taxonomy; not forced into ASSET.",
+   "origin": null
   },
   {
    "hash": "1dbc949",
@@ -1059,7 +1223,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Procedural EnvironmentBackdrop ring 'floated above the local horizon'; skirt added."
+   "note": "Procedural EnvironmentBackdrop ring 'floated above the local horizon'; skirt added.",
+   "origin": null
   },
   {
    "hash": "2630151",
@@ -1069,7 +1234,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Altar Ruins purchased pack import/trim; 'envScale = 1 ... Terrain ignores transform scale'."
+   "note": "Altar Ruins purchased pack import/trim; 'envScale = 1 ... Terrain ignores transform scale'.",
+   "origin": null
   },
   {
    "hash": "7766444",
@@ -1079,7 +1245,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "'Altar Ruins pack's particle systems report unsimulated editor bounds' poisoned the placement anchor."
+   "note": "'Altar Ruins pack's particle systems report unsimulated editor bounds' poisoned the placement anchor.",
+   "origin": null
   },
   {
    "hash": "de2f0dd",
@@ -1089,7 +1256,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Rome fog/backdrop retint (procedural backdrop 'grey discs') + NPC prompt docs; no mesh property."
+   "note": "Rome fog/backdrop retint (procedural backdrop 'grey discs') + NPC prompt docs; no mesh property.",
+   "origin": null
   },
   {
    "hash": "8552314",
@@ -1103,7 +1271,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Ingestion of three Rome Hunyuan GLBs, identified by albedo atlas."
+   "note": "Ingestion of three Rome Hunyuan GLBs, identified by albedo atlas.",
+   "origin": null
   },
   {
    "hash": "40f7193",
@@ -1132,7 +1301,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Ingestion; 'Pose verified by vertex-cloud silhouette projection; all four legs intact' is a pre-import topology inspection, but no property was compensated."
+   "note": "Ingestion; 'Pose verified by vertex-cloud silhouette projection; all four legs intact' is a pre-import topology inspection, but no property was compensated.",
+   "origin": null
   },
   {
    "hash": "f971a89",
@@ -1149,7 +1319,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Ingestion of six prop GLBs 'identified via embedded albedo atlas + bounding box audit'."
+   "note": "Ingestion of six prop GLBs 'identified via embedded albedo atlas + bounding box audit'.",
+   "origin": null
   },
   {
    "hash": "a9e90af",
@@ -1159,7 +1330,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Parameterised procedural ground size."
+   "note": "Parameterised procedural ground size.",
+   "origin": null
   },
   {
    "hash": "380e3f3",
@@ -1173,7 +1345,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Ingestion of the last three NPC GLBs."
+   "note": "Ingestion of the last three NPC GLBs.",
+   "origin": null
   },
   {
    "hash": "3063e0a",
@@ -1183,7 +1356,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Docs: finale battle design spec (mentions optional Hunyuan true-form)."
+   "note": "Docs: finale battle design spec (mentions optional Hunyuan true-form).",
+   "origin": null
   },
   {
    "hash": "d3411e1",
@@ -1193,7 +1367,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "'Boss baked at 30x scale' predates the trueform FBX (07:26 same day) - this is the procedural AnomalyVisual colossus placement."
+   "note": "'Boss baked at 30x scale' predates the trueform FBX (07:26 same day) - this is the procedural AnomalyVisual colossus placement.",
+   "origin": null
   },
   {
    "hash": "e49ac7e",
@@ -1203,7 +1378,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Camera yaw resync in SimplePlayerController + procedural colossus lifted y12->20 above the sea."
+   "note": "Camera yaw resync in SimplePlayerController + procedural colossus lifted y12->20 above the sea.",
+   "origin": null
   },
   {
    "hash": "5e3ba0f",
@@ -1213,7 +1389,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "70_Finale scene artifacts (skybox, platform, procedural 30x colossus)."
+   "note": "70_Finale scene artifacts (skybox, platform, procedural 30x colossus).",
+   "origin": null
   },
   {
    "hash": "1078528",
@@ -1225,7 +1402,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Docs: concept-art prompt engineered to be '3D-reconstruction-safe' - upstream of generation, not an import property."
+   "note": "Docs: concept-art prompt engineered to be '3D-reconstruction-safe' - upstream of generation, not an import property.",
+   "origin": null
   },
   {
    "hash": "61f3e91",
@@ -1250,7 +1428,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Bake artifacts (controller, PBR textures, prefab, metas); no property addressed."
+   "note": "Bake artifacts (controller, PBR textures, prefab, metas); no property addressed.",
+   "origin": null
   },
   {
    "hash": "2942142",
@@ -1262,20 +1441,21 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Two-act finale flow rework that swaps in the Hunyuan trueform prefab - gameplay feature."
+   "note": "Two-act finale flow rework that swaps in the Hunyuan trueform prefab - gameplay feature.",
+   "origin": null
   },
   {
    "hash": "cca41fd",
-   "label": "ASSET",
+   "label": "OTHER",
    "is_fix": true,
    "asset_ids": [
     "boss"
    ],
-   "property": "-Z facing compensation applied twice",
-   "precheck": "facing",
+   "property": null,
+   "precheck": null,
    "confidence": "medium",
    "note": "'baked prefab already carries the 180 model flip, the extra root flip cancelled it' - double compensation for the generated mesh's -Z facing; not detectable by metadata counting.",
-   "origin": "own_pipeline"
+   "origin": null
   },
   {
    "hash": "ee28566",
@@ -1287,7 +1467,8 @@
    "property": "normal map texture import type",
    "precheck": null,
    "confidence": "low",
-   "note": "Mostly unrelated audit batch; the asset-related item is 'normal map texture marked as NormalMap' for the boss PBR set - a texture import setting any asset needs."
+   "note": "Mostly unrelated audit batch; the asset-related item is 'normal map texture marked as NormalMap' for the boss PBR set - a texture import setting any asset needs.",
+   "origin": null
   },
   {
    "hash": "be1c3b4",
@@ -1307,7 +1488,8 @@
    "property": null,
    "precheck": null,
    "confidence": "low",
-   "note": "'Hunyuan prop models ... were placed with no colliders - player ghosted through them' - a placement-tooling omission any imported prop would hit; rest is procedural tents and UI."
+   "note": "'Hunyuan prop models ... were placed with no colliders - player ghosted through them' - a placement-tooling omission any imported prop would hit; rest is procedural tents and UI.",
+   "origin": null
   },
   {
    "hash": "87b32ed",
@@ -1317,7 +1499,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Repaired 60_TradeRoutes scene baked (tents, prop blocker colliders)."
+   "note": "Repaired 60_TradeRoutes scene baked (tents, prop blocker colliders).",
+   "origin": null
   },
   {
    "hash": "f65de6f",
@@ -1327,7 +1510,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Procedural ambience layer (dust, procedural camel silhouettes, falcons)."
+   "note": "Procedural ambience layer (dust, procedural camel silhouettes, falcons).",
+   "origin": null
   },
   {
    "hash": "5da526d",
@@ -1337,7 +1521,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Slim-pole CapsuleColliders on procedural posts + CGM fire bowls; lore card UI."
+   "note": "Slim-pole CapsuleColliders on procedural posts + CGM fire bowls; lore card UI.",
+   "origin": null
   },
   {
    "hash": "c8a2f7f",
@@ -1347,7 +1532,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Lore card UI auto-height."
+   "note": "Lore card UI auto-height.",
+   "origin": null
   },
   {
    "hash": "60cb676",
@@ -1357,7 +1543,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Scene bake of post/pole/fire-bowl colliders."
+   "note": "Scene bake of post/pole/fire-bowl colliders.",
+   "origin": null
   },
   {
    "hash": "9760126",
@@ -1382,7 +1569,8 @@
    "property": "SkinnedMeshRenderer.bounds is the bind-pose box",
    "precheck": null,
    "confidence": "high",
-   "note": "'SkinnedMeshRenderer.bounds is the static import-time bind-pose box' - Unity semantics any skinned mesh hits."
+   "note": "'SkinnedMeshRenderer.bounds is the static import-time bind-pose box' - Unity semantics any skinned mesh hits.",
+   "origin": null
   },
   {
    "hash": "373126d",
@@ -1394,7 +1582,8 @@
    "property": "single-frame sampling of a bobbing idle loop",
    "precheck": null,
    "confidence": "low",
-   "note": "Estimator refinement 'samples the baked lowest vertex 10 times across ~1.6s'; next commit shows bob 'was NOT the cause' - an estimator choice any animated mesh shares."
+   "note": "Estimator refinement 'samples the baked lowest vertex 10 times across ~1.6s'; next commit shows bob 'was NOT the cause' - an estimator choice any animated mesh shares.",
+   "origin": null
   },
   {
    "hash": "89c36d7",
@@ -1406,20 +1595,21 @@
    "property": "BakeMesh(useScale) semantics under ancestor scale",
    "precheck": null,
    "confidence": "medium",
-   "note": "'BakeMesh(useScale) semantics around the ANCESTOR-level 4.85x scale carried a systematic bias' - Unity API behaviour."
+   "note": "'BakeMesh(useScale) semantics around the ANCESTOR-level 4.85x scale carried a systematic bias' - Unity API behaviour.",
+   "origin": null
   },
   {
    "hash": "dc81a43",
-   "label": "ASSET",
+   "label": "OTHER",
    "is_fix": true,
    "asset_ids": [
     "boss"
    ],
-   "property": "bone/unit scaling of studio FBX",
-   "precheck": "scale",
+   "property": null,
+   "precheck": null,
    "confidence": "low",
-   "note": "'Hunyuan bone/unit scaling poisons both interpretations' -> empirically calibrated 0.30 settle; the BakeMesh ambiguity is Unity-side, the bone/unit scale is the asset's. Reviewer: mixed cause (asset bone/unit scale x Unity BakeMesh semantics); kept ASSET as labelled, reported as mixed.",
-   "origin": "generator"
+   "note": "'Hunyuan bone/unit scaling poisons both interpretations' -> empirically calibrated 0.30 settle; the BakeMesh ambiguity is Unity-side, the bone/unit scale is the asset's.",
+   "origin": null
   },
   {
    "hash": "7bfccc1",
@@ -1429,7 +1619,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Finale BGM continuity."
+   "note": "Finale BGM continuity.",
+   "origin": null
   },
   {
    "hash": "625490e",
@@ -1439,7 +1630,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Pause menu reskin UI."
+   "note": "Pause menu reskin UI.",
+   "origin": null
   },
   {
    "hash": "28a3d0b",
@@ -1449,7 +1641,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Pause menu mid-battle; timeScale."
+   "note": "Pause menu mid-battle; timeScale.",
+   "origin": null
   },
   {
    "hash": "238d1c5",
@@ -1459,7 +1652,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Title leakage / Xuanji chatter silence; timeScale gate."
+   "note": "Title leakage / Xuanji chatter silence; timeScale gate.",
+   "origin": null
   },
   {
    "hash": "576c853",
@@ -1469,7 +1663,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Session archive; mentions in-progress Xuanji 3D brainstorming."
+   "note": "Session archive; mentions in-progress Xuanji 3D brainstorming.",
+   "origin": null
   },
   {
    "hash": "2de7310",
@@ -1481,7 +1676,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Docs: Xuanji 3D spec ('decimation to ~105k faces verified with pymeshlab') - design doc, no code."
+   "note": "Docs: Xuanji 3D spec ('decimation to ~105k faces verified with pymeshlab') - design doc, no code.",
+   "origin": null
   },
   {
    "hash": "2bf2cfd",
@@ -1493,7 +1689,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Docs: implementation plan."
+   "note": "Docs: implementation plan.",
+   "origin": null
   },
   {
    "hash": "37e5b4e",
@@ -1531,7 +1728,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Runtime companion 3D path (hover, cushion, mood bubble) - feature."
+   "note": "Runtime companion 3D path (hover, cushion, mood bubble) - feature.",
+   "origin": null
   },
   {
    "hash": "a107e09",
@@ -1541,7 +1739,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Docs ledger."
+   "note": "Docs ledger.",
+   "origin": null
   },
   {
    "hash": "95cf232",
@@ -1579,7 +1778,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Bake products + metas (prefab, URP material)."
+   "note": "Bake products + metas (prefab, URP material).",
+   "origin": null
   },
   {
    "hash": "4ceeafc",
@@ -1589,7 +1789,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Docs: video production guide."
+   "note": "Docs: video production guide.",
+   "origin": null
   },
   {
    "hash": "c8fbda7",
@@ -1599,7 +1800,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Lore content + LoreStelePlacementTool (procedural stele placement)."
+   "note": "Lore content + LoreStelePlacementTool (procedural stele placement).",
+   "origin": null
   },
   {
    "hash": "6199253",
@@ -1609,7 +1811,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "'steles fused into one clump': trigger-hitting raycast in stele placement."
+   "note": "'steles fused into one clump': trigger-hitting raycast in stele placement.",
+   "origin": null
   },
   {
    "hash": "892604d",
@@ -1621,7 +1824,8 @@
    "property": null,
    "precheck": null,
    "confidence": "medium",
-   "note": "Procedural star-cushion particle velocity-curve mode mismatch - Unity particle API, unrelated to the mesh."
+   "note": "Procedural star-cushion particle velocity-curve mode mismatch - Unity particle API, unrelated to the mesh.",
+   "origin": null
   },
   {
    "hash": "e2bd1c4",
@@ -1631,7 +1835,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "User in-editor scene adjustments."
+   "note": "User in-editor scene adjustments.",
+   "origin": null
   },
   {
    "hash": "4624441",
@@ -1641,7 +1846,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Prologue guide; 'no collider' light-pillar markers."
+   "note": "Prologue guide; 'no collider' light-pillar markers.",
+   "origin": null
   },
   {
    "hash": "aef0a1f",
@@ -1651,7 +1857,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Pause menu nested Canvas Scaler collapse - UI scale."
+   "note": "Pause menu nested Canvas Scaler collapse - UI scale.",
+   "origin": null
   },
   {
    "hash": "4c67a08",
@@ -1661,7 +1868,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Docs: video storyboard."
+   "note": "Docs: video storyboard.",
+   "origin": null
   },
   {
    "hash": "4ba8a1b",
@@ -1671,7 +1879,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Pre-ship audit defensive hardening (state guards)."
+   "note": "Pre-ship audit defensive hardening (state guards).",
+   "origin": null
   },
   {
    "hash": "34c5538",
@@ -1681,7 +1890,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Dissertation docs; Hunyuan3D citation author fix."
+   "note": "Dissertation docs; Hunyuan3D citation author fix.",
+   "origin": null
   },
   {
    "hash": "704cce2",
@@ -1691,7 +1901,8 @@
    "property": null,
    "precheck": null,
    "confidence": "high",
-   "note": "Dissertation V4 docs ('tooling scales' wording)."
+   "note": "Dissertation V4 docs ('tooling scales' wording).",
+   "origin": null
   }
  ]
 }
