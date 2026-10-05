@@ -1,0 +1,417 @@
+[
+ {
+  "id": "C001",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: skins=0, animations=0 for all 15 NPC GLBs"
+ },
+ {
+  "id": "C002",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: NPC heights 0.98-1.15 units, largest extent 0.895-1.151 (all 24)"
+ },
+ {
+  "id": "C003",
+  "verdict": "CONTRADICTED",
+  "evidence": "conventions.json pivot_frac y=0 for all 24; claims_measurements.json: origin at base for 25/25 after UniGLTF Z reversal"
+ },
+ {
+  "id": "C004",
+  "verdict": "UNTESTABLE",
+  "evidence": "prefab output of the tool not measured"
+ },
+ {
+  "id": "C005",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: historian 49,818 triangles, 3 images, no skin/animation"
+ },
+ {
+  "id": "C006",
+  "verdict": "UNTESTABLE",
+  "evidence": "shader behaviour not measured"
+ },
+ {
+  "id": "C007",
+  "verdict": "CONFIRMED",
+  "evidence": "build_textures.json: each GLB asset's base map is present and referenced in the build"
+ },
+ {
+  "id": "C008",
+  "verdict": "UNTESTABLE",
+  "evidence": "UniGLTF material output not measured"
+ },
+ {
+  "id": "C009",
+  "verdict": "UNTESTABLE",
+  "evidence": "not measured (a later commit in the same history reverses it)"
+ },
+ {
+  "id": "C010",
+  "verdict": "CONTRADICTED",
+  "evidence": "facing renders (results/facing, facing_sheet.png): all 15 NPCs show their faces from glTF +Z"
+ },
+ {
+  "id": "C011",
+  "verdict": "PARTLY",
+  "evidence": "effect (historian showed its back) true; cause wrong: GLB fronts face +Z, UniGLTF default reverses Z"
+ },
+ {
+  "id": "C012",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: guardian 49,684 triangles, 3 images, no skin"
+ },
+ {
+  "id": "C013",
+  "verdict": "UNTESTABLE",
+  "evidence": "height 0.993 confirmed (conventions.json) but the stated cause (polearm) not tested"
+ },
+ {
+  "id": "C014",
+  "verdict": "OUT_OF_SCOPE",
+  "evidence": "concerns VRM models, not generated assets"
+ },
+ {
+  "id": "C015",
+  "verdict": "CONFIRMED",
+  "evidence": "manifest.json: GLB files 29-52 MB"
+ },
+ {
+  "id": "C016",
+  "verdict": "CONFIRMED",
+  "evidence": "facing renders show all three camels with four separate legs; hygiene.json: camels one component"
+ },
+ {
+  "id": "C017",
+  "verdict": "UNTESTABLE",
+  "evidence": "prefab heights not measured"
+ },
+ {
+  "id": "C018",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding_raw.json: 9,038 triangles, 28 bones, four FBX each with an action"
+ },
+ {
+  "id": "C019",
+  "verdict": "UNTESTABLE",
+  "evidence": "shader behaviour not measured"
+ },
+ {
+  "id": "C020",
+  "verdict": "UNTESTABLE",
+  "evidence": "tool output not measured (FBX bind-pose feet at origin: grounding_raw rest_zmin -0.01, consistent)"
+ },
+ {
+  "id": "C021",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding_raw.json: identical vertex (4,501) and triangle (9,038) counts in all four FBX"
+ },
+ {
+  "id": "C022",
+  "verdict": "UNTESTABLE",
+  "evidence": "boss facing not rendered"
+ },
+ {
+  "id": "C023",
+  "verdict": "UNTESTABLE",
+  "evidence": "not measured"
+ },
+ {
+  "id": "C024",
+  "verdict": "UNTESTABLE",
+  "evidence": "colliders not measured"
+ },
+ {
+  "id": "C025",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding.json: idle loop lowest vertex 0.46-0.68 m above bind-pose feet at game scale"
+ },
+ {
+  "id": "C026",
+  "verdict": "UNTESTABLE",
+  "evidence": "Unity renderer bounds not measured; Unity documents skinned bounds as precomputed from animations"
+ },
+ {
+  "id": "C027",
+  "verdict": "UNTESTABLE",
+  "evidence": "Unity BakeMesh not measured"
+ },
+ {
+  "id": "C028",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding.json: one sampled frame can be off by up to 0.22 m (idle bob) - matches the 0.1-0.2 residual"
+ },
+ {
+  "id": "C029",
+  "verdict": "CONTRADICTED",
+  "evidence": "grounding.json: idle bob range 0.224 m at game scale, >5x the stated 0.04"
+ },
+ {
+  "id": "C030",
+  "verdict": "UNTESTABLE",
+  "evidence": "Unity BakeMesh semantics not reproduced"
+ },
+ {
+  "id": "C031",
+  "verdict": "UNTESTABLE",
+  "evidence": "Unity prefab scale not measured"
+ },
+ {
+  "id": "C032",
+  "verdict": "UNTESTABLE",
+  "evidence": "engine readings not reproduced"
+ },
+ {
+  "id": "C033",
+  "verdict": "UNTESTABLE",
+  "evidence": "engine readings not reproduced"
+ },
+ {
+  "id": "C034",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding.json: hover 0.46-0.68 m; 0.9 lies outside that range but within the plan's factor-of-2 rule"
+ },
+ {
+  "id": "C035",
+  "verdict": "UNTESTABLE",
+  "evidence": "engine placement not measured"
+ },
+ {
+  "id": "C036",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: xuanji_raw skins=0, animations=0"
+ },
+ {
+  "id": "C037",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: xuanji_raw world extent 0.8725 x 1.1054 x 0.5246"
+ },
+ {
+  "id": "C038",
+  "verdict": "CONFIRMED",
+  "evidence": "manifest.json: 56.6 MB = 54.0 MiB"
+ },
+ {
+  "id": "C039",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: xuanji_raw has three 4096x4096 PNG maps"
+ },
+ {
+  "id": "C040",
+  "verdict": "UNTESTABLE",
+  "evidence": "appearance not scored"
+ },
+ {
+  "id": "C041",
+  "verdict": "CONTRADICTED",
+  "evidence": "hygiene.json: shipped companion has 82,829 triangles after the three rounds; decimation.jsonl: no floor near 106k"
+ },
+ {
+  "id": "C042",
+  "verdict": "CONTRADICTED",
+  "evidence": "decimation.jsonl: xuanji_raw reaches 31,116 triangles (6.25 %) in one pass, welded or seam-split"
+ },
+ {
+  "id": "C043",
+  "verdict": "CONFIRMED",
+  "evidence": "hygiene.json: xuanji_body 82,829 triangles; 497,850 x 0.55^3 ~ 82,830"
+ },
+ {
+  "id": "C044",
+  "verdict": "UNTESTABLE",
+  "evidence": "not measured"
+ },
+ {
+  "id": "C045",
+  "verdict": "CONFIRMED",
+  "evidence": "B3 arithmetic: a 4096^2 map in BC7 with mips is 21.3 MiB (visual claim not tested)"
+ },
+ {
+  "id": "C046",
+  "verdict": "UNTESTABLE",
+  "evidence": "draw calls not measured"
+ },
+ {
+  "id": "C047",
+  "verdict": "UNTESTABLE",
+  "evidence": "rigging not tested"
+ },
+ {
+  "id": "C048",
+  "verdict": "UNTESTABLE",
+  "evidence": "not tested"
+ },
+ {
+  "id": "C049",
+  "verdict": "UNTESTABLE",
+  "evidence": "companion facing not rendered"
+ },
+ {
+  "id": "C050",
+  "verdict": "UNTESTABLE",
+  "evidence": "tool output not measured"
+ },
+ {
+  "id": "C051",
+  "verdict": "UNTESTABLE",
+  "evidence": "tool output not measured"
+ },
+ {
+  "id": "C052",
+  "verdict": "CONFIRMED",
+  "evidence": "claims_measurements.json: MeshLab returns untransformed positions, tallest axis z (lying); the GLB node chain makes it y"
+ },
+ {
+  "id": "C053",
+  "verdict": "CONTRADICTED",
+  "evidence": "conventions.json: root rotation +90 deg about X, i.e. up is local -Z; a -90 pitch turns the head down"
+ },
+ {
+  "id": "C054",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: root rotation +90 deg about X restores up; +90 pitch is the GLB's own correction"
+ },
+ {
+  "id": "C055",
+  "verdict": "UNTESTABLE",
+  "evidence": "inputs not tested"
+ },
+ {
+  "id": "C056",
+  "verdict": "UNTESTABLE",
+  "evidence": "inputs not tested"
+ },
+ {
+  "id": "C057",
+  "verdict": "UNTESTABLE",
+  "evidence": "not tested"
+ },
+ {
+  "id": "C058",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: artisan 49,772 triangles, 3 images, no skin"
+ },
+ {
+  "id": "C059",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: root rotation [0.7071,0,0,0.7071] (+90 deg X) on all 24"
+ },
+ {
+  "id": "C060",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: 48,658-50,124 triangles"
+ },
+ {
+  "id": "C061",
+  "verdict": "UNTESTABLE",
+  "evidence": "inputs not tested"
+ },
+ {
+  "id": "C062",
+  "verdict": "UNTESTABLE",
+  "evidence": "not tested"
+ },
+ {
+  "id": "C063",
+  "verdict": "CONTRADICTED",
+  "evidence": "facing renders: all 15 NPCs face glTF +Z; the -Z front in Unity comes from the importer"
+ },
+ {
+  "id": "C064",
+  "verdict": "UNTESTABLE",
+  "evidence": "prefabs not measured"
+ },
+ {
+  "id": "C065",
+  "verdict": "OUT_OF_SCOPE",
+  "evidence": "concerns VRM models"
+ },
+ {
+  "id": "C066",
+  "verdict": "CONFIRMED",
+  "evidence": "boss_idle.fbx.meta animationType: 2 (Generic), read for Section 5.6 before extraction"
+ },
+ {
+  "id": "C067",
+  "verdict": "UNTESTABLE",
+  "evidence": "engine placement not measured"
+ },
+ {
+  "id": "C068",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: xuanji_raw 497,850 triangles"
+ },
+ {
+  "id": "C069",
+  "verdict": "UNTESTABLE",
+  "evidence": "pose not measured"
+ },
+ {
+  "id": "C070",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: up is local -Z, so -90 pitch puts the head down"
+ },
+ {
+  "id": "C071",
+  "verdict": "UNTESTABLE",
+  "evidence": "prefab not measured"
+ },
+ {
+  "id": "C072",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: xuanji_raw attributes NORMAL, POSITION, TEXCOORD_0 only; no morph targets, no animation"
+ },
+ {
+  "id": "C073",
+  "verdict": "CONFIRMED",
+  "evidence": "build_textures.json: companion normal map (1024, DXT5) present in the build"
+ },
+ {
+  "id": "C074",
+  "verdict": "UNTESTABLE",
+  "evidence": "inputs not tested"
+ },
+ {
+  "id": "C075",
+  "verdict": "OUT_OF_SCOPE",
+  "evidence": "concerns VRM models"
+ },
+ {
+  "id": "C076",
+  "verdict": "CONFIRMED",
+  "evidence": "effect confirmed (all NPCs face away after import); 'some' understates it"
+ },
+ {
+  "id": "C077",
+  "verdict": "UNTESTABLE",
+  "evidence": "identity not tested"
+ },
+ {
+  "id": "C078",
+  "verdict": "UNTESTABLE",
+  "evidence": "identity not tested"
+ },
+ {
+  "id": "C079",
+  "verdict": "UNTESTABLE",
+  "evidence": "identity not tested"
+ },
+ {
+  "id": "C080",
+  "verdict": "UNTESTABLE",
+  "evidence": "not tested"
+ },
+ {
+  "id": "C081",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding_raw.json: four FBX, one action each"
+ },
+ {
+  "id": "C082",
+  "verdict": "UNTESTABLE",
+  "evidence": "engine readings not reproduced"
+ },
+ {
+  "id": "C083",
+  "verdict": "CONFIRMED",
+  "evidence": "build_textures.json: companion base 2048 (DXT1), normal 1024 (DXT5), no metallic-roughness map"
+ }
+]

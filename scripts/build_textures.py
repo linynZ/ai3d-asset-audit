@@ -38,7 +38,7 @@ def main():
     size_of = lambda r: r["stream_size"] or r["bytes"] or 0
     glb_maps = [r for r in gen if r["width"] == 4096]  # the 24 GLB assets' base maps (the boss's are 2048)
     mib = 2 ** 20
-    out = {"all_textures": len(rows), "generated_textures": gen,
+    out = {"all_textures": len(rows), "generated_textures": gen, "textures": rows,
            "texture_totals_MiB": {
                "all": round(sum(size_of(r) for r in rows) / mib, 1),
                "generated_all": round(sum(size_of(r) for r in gen) / mib, 1),

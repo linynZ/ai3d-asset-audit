@@ -1,0 +1,267 @@
+{
+ "origin_after_unigltf": [
+  {
+   "id": "npc_china_artisan",
+   "origin_frac_xyz": [
+    0.4715,
+    -0.0,
+    0.3654
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_china_guardian",
+   "origin_frac_xyz": [
+    0.5175,
+    -0.0,
+    0.4101
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_china_historian",
+   "origin_frac_xyz": [
+    0.5171,
+    -0.0,
+    0.4764
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_egypt_guardian",
+   "origin_frac_xyz": [
+    0.5588,
+    0.0,
+    0.4839
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_egypt_priest",
+   "origin_frac_xyz": [
+    0.5337,
+    -0.0,
+    0.3081
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_egypt_scribe",
+   "origin_frac_xyz": [
+    0.5182,
+    -0.0,
+    0.4841
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_greece_guardian",
+   "origin_frac_xyz": [
+    0.5759,
+    0.0,
+    0.705
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_greece_historian",
+   "origin_frac_xyz": [
+    0.5408,
+    0.0,
+    0.4698
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_greece_sage",
+   "origin_frac_xyz": [
+    0.4876,
+    0.0,
+    0.5749
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_rome_engineer",
+   "origin_frac_xyz": [
+    0.4591,
+    0.0,
+    0.5587
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_rome_guardian",
+   "origin_frac_xyz": [
+    0.5383,
+    -0.0,
+    0.6737
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_rome_senator",
+   "origin_frac_xyz": [
+    0.5035,
+    -0.0,
+    0.646
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_trade_guardian",
+   "origin_frac_xyz": [
+    0.5417,
+    -0.0,
+    0.5723
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_trade_leader",
+   "origin_frac_xyz": [
+    0.52,
+    0.0,
+    0.4897
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "npc_trade_monk",
+   "origin_frac_xyz": [
+    0.5119,
+    0.0,
+    0.4789
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "prop_trade_camel_resting",
+   "origin_frac_xyz": [
+    0.5221,
+    -0.0,
+    0.4947
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "prop_trade_camel_standing",
+   "origin_frac_xyz": [
+    0.4348,
+    -0.0,
+    0.5004
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "prop_trade_camel_standing_b",
+   "origin_frac_xyz": [
+    0.5641,
+    0.0,
+    0.4951
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "prop_trade_cart",
+   "origin_frac_xyz": [
+    0.4979,
+    -0.0,
+    0.6226
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "prop_trade_horse",
+   "origin_frac_xyz": [
+    0.5003,
+    0.0,
+    0.5575
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "prop_trade_milestone",
+   "origin_frac_xyz": [
+    0.4741,
+    0.0,
+    0.4725
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "prop_trade_silk_bolts",
+   "origin_frac_xyz": [
+    0.5417,
+    0.0,
+    0.4828
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "prop_trade_spice_sacks",
+   "origin_frac_xyz": [
+    0.4959,
+    0.0,
+    0.4535
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "prop_trade_stupa",
+   "origin_frac_xyz": [
+    0.5001,
+    0.0,
+    0.4881
+   ],
+   "origin_at_base": true
+  },
+  {
+   "id": "xuanji_raw",
+   "origin_frac_xyz": [
+    0.5079,
+    0.0,
+    0.4254
+   ],
+   "origin_at_base": true
+  }
+ ],
+ "meshlab_root_rotation": [
+  {
+   "id": "npc_china_artisan",
+   "glb_world_extent_xyz": [
+    0.455,
+    1.1063,
+    0.568
+   ],
+   "meshlab_extent_xyz": [
+    0.455,
+    0.568,
+    1.1063
+   ],
+   "meshlab_tallest_axis": "z",
+   "glb_world_tallest_axis": "y",
+   "meshlab_equals_untransformed_positions": true
+  },
+  {
+   "id": "xuanji_raw",
+   "glb_world_extent_xyz": [
+    0.8725,
+    1.1054,
+    0.5246
+   ],
+   "meshlab_extent_xyz": [
+    0.8725,
+    0.5246,
+    1.1054
+   ],
+   "meshlab_tallest_axis": "z",
+   "glb_world_tallest_axis": "y",
+   "meshlab_equals_untransformed_positions": true
+  }
+ ],
+ "summary": {
+  "n": 25,
+  "origin_at_base": 25
+ }
+}

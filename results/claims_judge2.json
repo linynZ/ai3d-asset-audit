@@ -1,0 +1,417 @@
+[
+ {
+  "id": "C001",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: skins=0, animations=0 for all 15 npc_* GLBs"
+ },
+ {
+  "id": "C002",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: NPC height_y/largest_extent 0.982-1.151 (historian 1.151); unit-normalised, ~1.15 within tolerance"
+ },
+ {
+  "id": "C003",
+  "verdict": "CONTRADICTED",
+  "evidence": "claims_measurements.json origin_after_unigltf: origin_at_base=true for 25/25 (origin_frac y=0); conventions.json pivot_frac_xyz[1]=0 for all"
+ },
+ {
+  "id": "C004",
+  "verdict": "UNTESTABLE",
+  "evidence": "no measurement of the baked NPC prefab root/scale"
+ },
+ {
+  "id": "C005",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json npc_china_historian: triangles=49818, 3 images, skins=0, animations=0"
+ },
+ {
+  "id": "C006",
+  "verdict": "UNTESTABLE",
+  "evidence": "no shader/material measurement in results/"
+ },
+ {
+  "id": "C007",
+  "verdict": "CONFIRMED",
+  "evidence": "build_textures.json: each of the 24 GLB assets ships its base-colour map (glb_base_maps_n=24); normal/MR not carried (not claimed)"
+ },
+ {
+  "id": "C008",
+  "verdict": "UNTESTABLE",
+  "evidence": "no measurement of UniGLTF material output"
+ },
+ {
+  "id": "C009",
+  "verdict": "OUT_OF_SCOPE",
+  "evidence": "stated for VRM/MToon materials (ffe082d), not the generated assets"
+ },
+ {
+  "id": "C010",
+  "verdict": "CONTRADICTED",
+  "evidence": "facing_sheet.png / facing/*_pZ.png: all 15 NPCs show their faces from +Z in glTF coordinates"
+ },
+ {
+  "id": "C011",
+  "verdict": "PARTLY",
+  "evidence": "symptom real, but facing/npc_china_historian_pZ.png shows the face at +Z; the -Z front in game comes from UniGLTF's Z reversal, not the generator"
+ },
+ {
+  "id": "C012",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json npc_china_guardian: triangles=49684, 3 images, skins=0"
+ },
+ {
+  "id": "C013",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json npc_china_guardian height_y=0.993 (vs 1.11-1.15 for NPCs without raised props; egypt_priest with raised ankh 0.989); facing render shows polearm above head"
+ },
+ {
+  "id": "C014",
+  "verdict": "OUT_OF_SCOPE",
+  "evidence": "about VRM/VRoid feet-at-origin swap-ins (8a889ef)"
+ },
+ {
+  "id": "C015",
+  "verdict": "CONFIRMED",
+  "evidence": "data/manifest.json: largest prop/NPC GLB 52.1 MB (prop_trade_camel_resting)"
+ },
+ {
+  "id": "C016",
+  "verdict": "UNTESTABLE",
+  "evidence": "no measurement of leg/tassel fusion (hygiene only gives components=1); renders too coarse to settle it"
+ },
+ {
+  "id": "C017",
+  "verdict": "UNTESTABLE",
+  "evidence": "baked prefab heights not measured"
+ },
+ {
+  "id": "C018",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding_raw.json: 4 boss FBX, triangles=9038, bones=28, animated frames (skinned)"
+ },
+ {
+  "id": "C019",
+  "verdict": "UNTESTABLE",
+  "evidence": "no material/shader measurement"
+ },
+ {
+  "id": "C020",
+  "verdict": "UNTESTABLE",
+  "evidence": "own tool output not measured (grounding.json assumes 10 m but does not measure the prefab)"
+ },
+ {
+  "id": "C021",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding_raw.json: all 4 FBX vertices=4501, triangles=9038, bones=28, identical rest_zmin/rest_zmax"
+ },
+ {
+  "id": "C022",
+  "verdict": "UNTESTABLE",
+  "evidence": "boss FBX facing not rendered (facing/ covers the 24 GLBs only); note the cited NPC premise is contradicted (C010)"
+ },
+ {
+  "id": "C023",
+  "verdict": "UNTESTABLE",
+  "evidence": "own code rotation chain not measured"
+ },
+ {
+  "id": "C024",
+  "verdict": "UNTESTABLE",
+  "evidence": "colliders not measured"
+ },
+ {
+  "id": "C025",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding.json boss_idle: bind_pose_bounds max_hover 0.684, phase_analysis min_above_bind_m 0.46 (animated feet above bind feet on every frame)"
+ },
+ {
+  "id": "C026",
+  "verdict": "UNTESTABLE",
+  "evidence": "Unity renderer-bounds behaviour not measured"
+ },
+ {
+  "id": "C027",
+  "verdict": "UNTESTABLE",
+  "evidence": "Unity BakeMesh not measured (grounding is offline Blender)"
+ },
+ {
+  "id": "C028",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding.json boss_idle lowest_point_range_m 0.224; single_frame mean_abs 0.109, share_off>0.1 = 0.505"
+ },
+ {
+  "id": "C029",
+  "verdict": "CONTRADICTED",
+  "evidence": "grounding.json boss_idle: bob range 0.224 m; even the min-of-10-samples estimator leaves max_hover 0.218, mean_abs 0.107 (52% of frames >0.1 m) -> the residual hover is the bob"
+ },
+ {
+  "id": "C030",
+  "verdict": "PARTLY",
+  "evidence": "residual hover real, but grounding.json shows the idle bob alone (min_10_samples max_hover 0.218) accounts for ~0.2 m; scale-bias cause not supported"
+ },
+ {
+  "id": "C031",
+  "verdict": "UNTESTABLE",
+  "evidence": "prefab hierarchy scale not measured"
+ },
+ {
+  "id": "C032",
+  "verdict": "PARTLY",
+  "evidence": "0.68 matches grounding.json phase_analysis max_above_bind_m 0.684 and 2.29 would sink ~1.6 (agrees with ~1.5), but at 10 m a 0.68 shift leaves no hover (sinks up to 0.22), so '~0.2 hover left' unsupported"
+ },
+ {
+  "id": "C033",
+  "verdict": "PARTLY",
+  "evidence": "grounding.json: correct lift 0.46-0.684 m at 10 m; useScale 0.68 is not biased short, only localToWorld 2.29 is wrong -> only one of the two directions holds"
+ },
+ {
+  "id": "C034",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding.json boss_idle bind-pose lift 0.46-0.684 m; 0.9 is 1.3-2.0x, inside the plan's 2x tolerance (borderline)"
+ },
+ {
+  "id": "C035",
+  "verdict": "PARTLY",
+  "evidence": "grounding.json: idle bob 0.224 m -> best constant gives about +-0.11 for idle only; other clips sink below idle ground (lowest_vs_idle_ground_m attack -0.268, hitdown -0.079, leap -1.189)"
+ },
+ {
+  "id": "C036",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json xuanji_raw: skins=0, animations=0"
+ },
+ {
+  "id": "C037",
+  "verdict": "CONFIRMED",
+  "evidence": "claims_measurements.json meshlab_root_rotation xuanji_raw meshlab_extent_xyz [0.8725,0.5246,1.1054]"
+ },
+ {
+  "id": "C038",
+  "verdict": "CONFIRMED",
+  "evidence": "data/manifest.json xuanji_raw 56.6e6 bytes = 54.0 MiB"
+ },
+ {
+  "id": "C039",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json xuanji_raw images: base, normal, metallic-roughness, all 4096x4096"
+ },
+ {
+  "id": "C040",
+  "verdict": "UNTESTABLE",
+  "evidence": "no appearance comparison measured"
+ },
+ {
+  "id": "C041",
+  "verdict": "CONTRADICTED",
+  "evidence": "decimation.jsonl xuanji_raw reaches 31,116 faces (6.25%) in one pass (S and W); shipped hygiene.json xuanji_body = 82,829, not 105,820; no convergence"
+ },
+ {
+  "id": "C042",
+  "verdict": "CONTRADICTED",
+  "evidence": "decimation.jsonl xuanji_raw: cond W 31,116 faces with 0 boundary edges; cond S also 31,116 -> UV seams are no floor above 50k"
+ },
+ {
+  "id": "C043",
+  "verdict": "CONFIRMED",
+  "evidence": "hygiene.json xuanji_raw triangles 497,850; xuanji_body triangles 82,829"
+ },
+ {
+  "id": "C044",
+  "verdict": "UNTESTABLE",
+  "evidence": "pymeshlab save_textures behaviour not measured (note: hygiene.json xuanji_body OBJ is torn, 2433 components)"
+ },
+ {
+  "id": "C045",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json cost.texture_bc7_mip_bytes 67,108,864 for 3 maps -> 21.3 MiB per 4096^2 map; 'no benefit' is a judgement"
+ },
+ {
+  "id": "C046",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json xuanji_raw primitives=1, materials=1 (one draw call); 'acceptable' is a judgement"
+ },
+ {
+  "id": "C047",
+  "verdict": "UNTESTABLE",
+  "evidence": "riggability not measured"
+ },
+ {
+  "id": "C048",
+  "verdict": "UNTESTABLE",
+  "evidence": "service feature not measured"
+ },
+ {
+  "id": "C049",
+  "verdict": "CONTRADICTED",
+  "evidence": "facing_sheet.png: all 15 same-service Hunyuan exports face +Z in glTF; xuanji_raw carries the same +90 X root rotation (conventions.json); the stated '-Z experience' is false"
+ },
+ {
+  "id": "C050",
+  "verdict": "UNTESTABLE",
+  "evidence": "own tool pivot/scale not measured"
+ },
+ {
+  "id": "C051",
+  "verdict": "CONTRADICTED",
+  "evidence": "conventions.json root rotation +90 about X (up stored along local -Z); claims_measurements meshlab_equals_untransformed_positions=true -> pitch -90 maps up to -Y (head-down), not upright"
+ },
+ {
+  "id": "C052",
+  "verdict": "CONFIRMED",
+  "evidence": "claims_measurements.json meshlab_root_rotation xuanji_raw: meshlab_equals_untransformed_positions=true, tallest axis z (MeshLab) vs y (glTF world)"
+ },
+ {
+  "id": "C053",
+  "verdict": "CONTRADICTED",
+  "evidence": "as C051: -90 pitch is the inverse of the lost +90 X root rotation -> head-down (later recorded in C070)"
+ },
+ {
+  "id": "C054",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json root rotation quaternion [0.7071,0,0,0.7071] = +90 about X; re-applying +90/yaw 0 to the untransformed MeshLab positions restores up +Y and front +Z"
+ },
+ {
+  "id": "C055",
+  "verdict": "UNTESTABLE",
+  "evidence": "input-image effects not measured"
+ },
+ {
+  "id": "C056",
+  "verdict": "UNTESTABLE",
+  "evidence": "input-image effects not measured"
+ },
+ {
+  "id": "C057",
+  "verdict": "UNTESTABLE",
+  "evidence": "not measured"
+ },
+ {
+  "id": "C058",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json npc_china_artisan triangles 49,772, 3 images, skins=0"
+ },
+ {
+  "id": "C059",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json node_transforms rotation [0.7071,0,0,0.7071] for artisan and historian (and all 24)"
+ },
+ {
+  "id": "C060",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json NPC triangles 48,658-50,006"
+ },
+ {
+  "id": "C061",
+  "verdict": "UNTESTABLE",
+  "evidence": "input-image effects not measured"
+ },
+ {
+  "id": "C062",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json: every GLB embeds a 4096^2 base-colour image (texture_pbr_20250901)"
+ },
+ {
+  "id": "C063",
+  "verdict": "PARTLY",
+  "evidence": "consistency true (all 24 same root rotation, all 15 NPC faces at +Z in facing_sheet.png, so one 180 deg fix fits all), but the -Z facing is wrong: the reversal comes from UniGLTF"
+ },
+ {
+  "id": "C064",
+  "verdict": "UNTESTABLE",
+  "evidence": "prefab materials/scale/yaw not measured"
+ },
+ {
+  "id": "C065",
+  "verdict": "OUT_OF_SCOPE",
+  "evidence": "same source as C014 (8a889ef), written for VRM/VRoid swap-ins"
+ },
+ {
+  "id": "C066",
+  "verdict": "CONFIRMED",
+  "evidence": "boss_idle.fbx.meta animationType: 2 (Generic), loopTime: 1"
+ },
+ {
+  "id": "C067",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding.json boss_idle bind-pose lift 0.46-0.684 m; 0.72 within tolerance"
+ },
+ {
+  "id": "C068",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json xuanji_raw triangles 497,850, skins 0, animations 0; claims_measurements meshlab extent 0.87x0.52x1.11"
+ },
+ {
+  "id": "C069",
+  "verdict": "UNTESTABLE",
+  "evidence": "xuanji not rendered; extents (thin disc 0.52 m) consistent but not decisive"
+ },
+ {
+  "id": "C070",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json +90 X root rotation: applying -90 to the untransformed positions puts up along -Y (head-down)"
+ },
+ {
+  "id": "C071",
+  "verdict": "CONFIRMED",
+  "evidence": "consistent with conventions.json +90 X root rotation and claims_measurements meshlab_equals_untransformed_positions (final +90/0 bake restores +Y up, +Z front)"
+ },
+ {
+  "id": "C072",
+  "verdict": "CONFIRMED",
+  "evidence": "conventions.json xuanji_raw skins=0, animations=0, attributes NORMAL/POSITION/TEXCOORD_0 only (no morph targets)"
+ },
+ {
+  "id": "C073",
+  "verdict": "UNTESTABLE",
+  "evidence": "baked material values not measured"
+ },
+ {
+  "id": "C074",
+  "verdict": "UNTESTABLE",
+  "evidence": "input requirements not measured"
+ },
+ {
+  "id": "C075",
+  "verdict": "OUT_OF_SCOPE",
+  "evidence": "VRM humanoid models"
+ },
+ {
+  "id": "C076",
+  "verdict": "CONFIRMED",
+  "evidence": "after UniGLTF Z reversal all 15 NPCs (faces at +Z in facing_sheet.png) face away from the game's +Z forward; claim states no cause"
+ },
+ {
+  "id": "C077",
+  "verdict": "CONTRADICTED",
+  "evidence": "data/manifest.json raw_original: 060c2ea1 -> npc_greece_historian, a784f240 -> npc_greece_sage (reverse of claim); 5d74e5c0 -> guardian"
+ },
+ {
+  "id": "C078",
+  "verdict": "CONFIRMED",
+  "evidence": "data/manifest.json raw_original mapping: sage/historian swapped relative to C077, guardian 5d74e5c0 unchanged"
+ },
+ {
+  "id": "C079",
+  "verdict": "CONFIRMED",
+  "evidence": "facing_sheet.png: rome_engineer navy cloak, rome_senator purple-bordered white toga, rome_guardian red/silver/gold scutum; manifest raw_original hashes"
+ },
+ {
+  "id": "C080",
+  "verdict": "UNTESTABLE",
+  "evidence": "not measured"
+ },
+ {
+  "id": "C081",
+  "verdict": "CONFIRMED",
+  "evidence": "grounding_raw.json: 4 FBX with distinct clips of 111/161/142/221 frames"
+ },
+ {
+  "id": "C082",
+  "verdict": "PARTLY",
+  "evidence": "grounding.json: 0.68 equals measured max lift 0.684 at 10 m, so 'falls ~0.2 short' unsupported; run-to-run stability not measured"
+ },
+ {
+  "id": "C083",
+  "verdict": "UNTESTABLE",
+  "evidence": "build_textures.json only identifies texture_pbr_* names (2048 DXT1 base + 2048 DXT5 normal, attributed to boss); companion texture sizes and MR drop not measured"
+ }
+]

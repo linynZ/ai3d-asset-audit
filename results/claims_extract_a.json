@@ -1,0 +1,1511 @@
+[
+ {
+  "id": "A001",
+  "text": "AI-generated NPC meshes have no skeleton, so skeletal idle isn't an option.",
+  "paraphrase_en": "The AI-generated (Hunyuan) NPC meshes have no skeleton/rig.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "57e9f6f",
+    "date": "2026-06-22"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs:121",
+    "date": null
+   },
+   {
+    "type": "commit",
+    "ref": "267ff39",
+    "date": "2026-06-23"
+   },
+   {
+    "type": "commit",
+    "ref": "ee25720",
+    "date": "2026-06-23"
+   }
+  ],
+  "first_date": "2026-06-22",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "all NPC GLBs"
+ },
+ {
+  "id": "A002",
+  "text": "AI meshes export unit-normalised at ~1.15m",
+  "paraphrase_en": "AI-generated NPC meshes are exported normalised to roughly unit size, about 1.15 m tall.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "c21ea44",
+    "date": "2026-06-22"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs:33",
+    "date": null
+   }
+  ],
+  "first_date": "2026-06-22",
+  "subject": "generator",
+  "kind": "magnitude",
+  "asset_scope": "all NPC GLBs"
+ },
+ {
+  "id": "A003",
+  "text": "Grounds by actual renderer bounds (AI pivots are not at the feet).",
+  "paraphrase_en": "The pivot/origin of the AI-generated meshes is not at the feet.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "c21ea44",
+    "date": "2026-06-22"
+   }
+  ],
+  "first_date": "2026-06-22",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "all NPC GLBs"
+ },
+ {
+  "id": "A004",
+  "text": "NPCModelSetupTool now wraps the imported mesh in a clean root whose origin = feet-centre, scales it to a real human height (default 1.7m ...) ... Grounds by actual renderer bounds",
+  "paraphrase_en": "The NPC setup tool re-roots each mesh so the origin is at the feet centre, scales it to 1.7 m by renderer bounds, so feet land on the ground regardless of the mesh's own pivot.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "c21ea44",
+    "date": "2026-06-22"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs:119-121",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs:132",
+    "date": null
+   }
+  ],
+  "first_date": "2026-06-22",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "all NPC GLBs"
+ },
+ {
+  "id": "A005",
+  "text": "Adds the first Hunyuan-generated NPC mesh (historian, 50k tris, textured, static)",
+  "paraphrase_en": "The historian GLB has about 50k triangles, is textured and static (no rig/animation).",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "c21ea44",
+    "date": "2026-06-22"
+   }
+  ],
+  "first_date": "2026-06-22",
+  "subject": "generator",
+  "kind": "magnitude",
+  "asset_scope": "npc_china_historian"
+ },
+ {
+  "id": "A006",
+  "text": "The historian imported magenta because the tool converted to ChronoTraveler/ToonOutline, which is a Built-in-RP shader (CGPROGRAM/ForwardBase) and does not render under URP.",
+  "paraphrase_en": "The magenta historian was caused by the tool converting materials to a Built-in-RP ToonOutline shader that does not render under URP.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "2594401",
+    "date": "2026-06-23"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs:31",
+    "date": null
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "own_tool",
+  "kind": "cause",
+  "asset_scope": "npc_china_historian / all NPC GLBs"
+ },
+ {
+  "id": "A007",
+  "text": "Default to URP/Lit (carries the base-color texture correctly)",
+  "paraphrase_en": "Converting the NPC materials to URP/Lit carries the base-colour texture over correctly.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "2594401",
+    "date": "2026-06-23"
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "all NPC GLBs"
+ },
+ {
+  "id": "A008",
+  "text": "document KeepOriginal as a valid fallback (UniGLTF already imports URP mats).",
+  "paraphrase_en": "UniGLTF's glTF import already produces URP materials, so keeping the original materials is valid.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "2594401",
+    "date": "2026-06-23"
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "importer",
+  "kind": "property",
+  "asset_scope": "all NPC GLBs"
+ },
+ {
+  "id": "A009",
+  "text": "material conversion MToon → ChronoTraveler/ToonOutline (fixes URP pink + matches cel look)",
+  "paraphrase_en": "Converting materials to the ChronoTraveler/ToonOutline shader fixes the pink/magenta material problem under URP.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "ffe082d",
+    "date": "2026-06-22"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs:17-18",
+    "date": null
+   }
+  ],
+  "first_date": "2026-06-22",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "NPC models via NPCModelSetupTool (stated for VRM/MToon)"
+ },
+ {
+  "id": "A010",
+  "text": "Hunyuan front-view exports face -Z.",
+  "paraphrase_en": "Hunyuan front-view NPC exports have their front facing -Z.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "f3da6c2",
+    "date": "2026-06-23"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs:34",
+    "date": null
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "all NPC GLBs"
+ },
+ {
+  "id": "A011",
+  "text": "The historian showed its back once the player approached: NPCController.FaceTarget points the NPC's +Z at the player, but Hunyuan front-view exports face -Z.",
+  "paraphrase_en": "The historian showing its back was caused by the -Z facing of the Hunyuan export combined with the NPC controller turning +Z towards the player.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "f3da6c2",
+    "date": "2026-06-23"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/NPCModelSetupTool.cs:34",
+    "date": null
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "generator",
+  "kind": "cause",
+  "asset_scope": "npc_china_historian"
+ },
+ {
+  "id": "A012",
+  "text": "Default the tool's Face Yaw to 180 so the baked model front aligns with the NPC forward (consistent across the same Hunyuan pipeline; still overridable per model).",
+  "paraphrase_en": "The -Z facing (and thus the 180 degree yaw correction) is consistent across all assets from the same Hunyuan pipeline.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "f3da6c2",
+    "date": "2026-06-23"
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "all NPC GLBs"
+ },
+ {
+  "id": "A013",
+  "text": "49,772 tris, 3 textures, no rig",
+  "paraphrase_en": "The artisan GLB has 49,772 triangles, 3 textures and no rig.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "267ff39",
+    "date": "2026-06-23"
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "generator",
+  "kind": "magnitude",
+  "asset_scope": "npc_china_artisan"
+ },
+ {
+  "id": "A014",
+  "text": "same +90deg X stand-up as the historian.",
+  "paraphrase_en": "The artisan GLB, like the historian GLB, needs/carries a +90 degree rotation about X to stand upright.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "267ff39",
+    "date": "2026-06-23"
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "npc_china_artisan, npc_china_historian"
+ },
+ {
+  "id": "A015",
+  "text": "49,684 tris, 3 textures, no rig.",
+  "paraphrase_en": "The guardian GLB has 49,684 triangles, 3 textures and no rig.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "ee25720",
+    "date": "2026-06-23"
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "generator",
+  "kind": "magnitude",
+  "asset_scope": "npc_china_guardian"
+ },
+ {
+  "id": "A016",
+  "text": "Polearm extends above the head, so its normalized bbox height is shorter (0.99)",
+  "paraphrase_en": "Because the guardian's polearm extends above the head, its normalised bounding-box (body) height is lower, 0.99.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "ee25720",
+    "date": "2026-06-23"
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "generator",
+  "kind": "cause",
+  "asset_scope": "npc_china_guardian"
+ },
+ {
+  "id": "A017",
+  "text": "historian + artisan drop-in prefabs (URP/Lit, 1.7m, yaw 180)",
+  "paraphrase_en": "The tool-built NPC prefabs use URP/Lit materials, are 1.7 m tall and rotated 180 degrees in yaw.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "953f004",
+    "date": "2026-06-23"
+   },
+   {
+    "type": "commit",
+    "ref": "c1ff678",
+    "date": "2026-06-23"
+   },
+   {
+    "type": "commit",
+    "ref": "40f7193",
+    "date": "2026-07-06"
+   }
+  ],
+  "first_date": "2026-06-23",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "all NPC prefabs"
+ },
+ {
+  "id": "A018",
+  "text": "TrySwapModel previously instantiated the real model at the NPC origin, leaving feet-at-origin assets (VRM/VRoid exports) floating ~1m.",
+  "paraphrase_en": "Swapped-in models with feet at the origin floated about 1 m because they were placed at the NPC (capsule-centre) origin.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "8a889ef",
+    "date": "2026-06-22"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs:81-83",
+    "date": null
+   }
+  ],
+  "first_date": "2026-06-22",
+  "subject": "own_tool",
+  "kind": "cause",
+  "asset_scope": "NPC swap-in models (stated for VRM/VRoid)"
+ },
+ {
+  "id": "A019",
+  "text": "Now offset to the placeholder capsule's bottom (collider centre - half height) so feet hit ground.",
+  "paraphrase_en": "Offsetting the model to the capsule's bottom makes its feet touch the ground.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "8a889ef",
+    "date": "2026-06-22"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/NPC/NPCController.cs:81-83",
+    "date": null
+   }
+  ],
+  "first_date": "2026-06-22",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "NPC swap-in models"
+ },
+ {
+  "id": "A020",
+  "text": "assets: identify Egypt GLBs by embedded texture atlas, name by character",
+  "paraphrase_en": "Each Hunyuan GLB embeds an albedo texture atlas whose content identifies the character/prop.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "80902e8",
+    "date": "2026-07-04"
+   },
+   {
+    "type": "commit",
+    "ref": "0f5c2b0",
+    "date": "2026-07-06"
+   },
+   {
+    "type": "commit",
+    "ref": "8552314",
+    "date": "2026-07-06"
+   },
+   {
+    "type": "commit",
+    "ref": "f971a89",
+    "date": "2026-07-06"
+   },
+   {
+    "type": "commit",
+    "ref": "380e3f3",
+    "date": "2026-07-06"
+   }
+  ],
+  "first_date": "2026-07-04",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "NPC GLBs (Egypt, Greece, Rome, Trade) and props"
+ },
+ {
+  "id": "A021",
+  "text": "Identified three hash-named Hunyuan 50k GLBs by embedded albedo atlas",
+  "paraphrase_en": "The Hunyuan NPC GLBs are 50k(-face) exports.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "0f5c2b0",
+    "date": "2026-07-06"
+   },
+   {
+    "type": "commit",
+    "ref": "8552314",
+    "date": "2026-07-06"
+   },
+   {
+    "type": "commit",
+    "ref": "380e3f3",
+    "date": "2026-07-06"
+   },
+   {
+    "type": "doc",
+    "ref": "npc_fullbody_prompts.md:5",
+    "date": null
+   },
+   {
+    "type": "doc",
+    "ref": "finale_boss_model_prompt.md:3",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-06",
+  "subject": "generator",
+  "kind": "magnitude",
+  "asset_scope": "NPC GLBs (Greece, Rome, Trade; template for all)"
+ },
+ {
+  "id": "A022",
+  "text": "identified via embedded albedo atlas + bounding box audit; all <100MB",
+  "paraphrase_en": "Each prop/NPC GLB file is under 100 MB.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "f971a89",
+    "date": "2026-07-06"
+   },
+   {
+    "type": "commit",
+    "ref": "380e3f3",
+    "date": "2026-07-06"
+   }
+  ],
+  "first_date": "2026-07-06",
+  "subject": "generator",
+  "kind": "magnitude",
+  "asset_scope": "trade props, trade NPC GLBs"
+ },
+ {
+  "id": "A023",
+  "text": "Pose verified by vertex-cloud silhouette projection; all four legs intact, no tassel fusion.",
+  "paraphrase_en": "The camel meshes have all four legs intact and no tassels fused to the body.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "ec2d732",
+    "date": "2026-07-06"
+   }
+  ],
+  "first_date": "2026-07-06",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "camel props"
+ },
+ {
+  "id": "A024",
+  "text": "cart 1.8m / spice_sacks 0.9m / silk_bolts 1.2m / horse 1.9m / stupa 2.5m / milestone 1.8m",
+  "paraphrase_en": "The baked prop prefabs have heights cart 1.8 m, spice sacks 0.9 m, silk bolts 1.2 m, horse 1.9 m, stupa 2.5 m, milestone 1.8 m.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "c9431cd",
+    "date": "2026-07-06"
+   }
+  ],
+  "first_date": "2026-07-06",
+  "subject": "own_tool",
+  "kind": "magnitude",
+  "asset_scope": "props"
+ },
+ {
+  "id": "A025",
+  "text": "Hunyuan 3D Studio full-pipeline output: retopo'd (~9k faces), UV'd, textured, rigged and skinned shattered-stele colossus with idle / charged-attack / hit-knockdown / forward-leap animation FBXs.",
+  "paraphrase_en": "The boss from Hunyuan 3D Studio is retopologised to about 9k faces, UV-mapped, textured, rigged and skinned, with four animation FBXs.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "61f3e91",
+    "date": "2026-07-09"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs:11-13",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-09",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A026",
+  "text": "URP/Lit material conversion (FBX Standard renders magenta under URP)",
+  "paraphrase_en": "FBX-imported Standard materials render magenta under URP, so they must be converted to URP/Lit.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "61f3e91",
+    "date": "2026-07-09"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs:15",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs:122",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-09",
+  "subject": "engine",
+  "kind": "cause",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A027",
+  "text": "FinaleBossModelTool bakes them into Resources/CharacterModels/finale_boss_trueform.prefab: Generic rig, looping idle",
+  "paraphrase_en": "The boss tool configures the FBX importers as a Generic rig with a looping idle and extracted textures.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "61f3e91",
+    "date": "2026-07-09"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs:14",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs:41",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-09",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A028",
+  "text": "normalized to 10m grounded +Z",
+  "paraphrase_en": "The boss tool normalises the boss to 10 m tall, feet on y=0, facing +Z.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "61f3e91",
+    "date": "2026-07-09"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs:17",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs:101",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs:19-20",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-09",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A029",
+  "text": "one texture set serves all four (same model)",
+  "paraphrase_en": "The four boss FBX files contain the same model, so one texture set serves all of them.",
+  "sources": [
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs:56",
+    "date": null
+   }
+  ],
+  "first_date": null,
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A030",
+  "text": "Hunyuan exports face -Z (NPC-pipeline finding) — flip to +Z.",
+  "paraphrase_en": "The Hunyuan 3D Studio boss export faces -Z (as found for the NPCs) and must be flipped to +Z.",
+  "sources": [
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/FinaleBossModelTool.cs:96",
+    "date": null
+   }
+  ],
+  "first_date": null,
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A031",
+  "text": "Trueform stood back-to-player: the baked prefab already carries the 180 model flip, the extra root flip cancelled it - root is identity now.",
+  "paraphrase_en": "The boss stood with its back to the player because an extra 180 degree root flip cancelled the 180 degree flip already baked into the prefab.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "cca41fd",
+    "date": "2026-07-09"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs:49-51",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-09",
+  "subject": "own_tool",
+  "kind": "cause",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A032",
+  "text": "Hunyuan prop models (camels/horse/cart/stupa/silk/spice/milestone) were placed with no colliders - player ghosted through them.",
+  "paraphrase_en": "The player passed through the Hunyuan props because they were placed without colliders.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "be1c3b4",
+    "date": "2026-07-11"
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "own_tool",
+  "kind": "cause",
+  "asset_scope": "props"
+ },
+ {
+  "id": "A033",
+  "text": "The prefab was normalized feet-at-origin from the FBX BIND pose, but the Animator's idle pose shifts the skeleton, so the embodied boss floated",
+  "paraphrase_en": "The boss floated because it was grounded on the bind pose while the idle animation shifts the skeleton; bake-time normalisation cannot know the animated pose.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "9760126",
+    "date": "2026-07-11"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs:7-9",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/FinaleEmbodiment.cs:65-66",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "animation_rig",
+  "kind": "cause",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A034",
+  "text": "SkinnedMeshRenderer.bounds is the static import-time bind-pose box moved by the root bone - it does not reflect the animated pose, so the measured offset was ~0.",
+  "paraphrase_en": "Renderer bounds of a skinned mesh are the static bind-pose box moved by the root bone, not the animated pose, so the first grounding fix measured ~0 offset.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "fc2dac5",
+    "date": "2026-07-11"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs:10-12",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs:55-56",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "engine",
+  "kind": "cause",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A035",
+  "text": "BakeMesh snapshots the current skinned vertices and the lowest vertex is the real animated foot line.",
+  "paraphrase_en": "Baking the skinned mesh (BakeMesh) gives the current animated vertices, whose lowest vertex is the true foot line.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "fc2dac5",
+    "date": "2026-07-11"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs:12-13",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "engine",
+  "kind": "effect",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A036",
+  "text": "v2 snapped correctly (log: moved -0.72) but sampled a single frame of a BOBBING idle loop - the rest of the cycle still hovered ~0.1-0.2.",
+  "paraphrase_en": "The remaining 0.1-0.2 hover was caused by sampling one frame of a bobbing idle loop.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "373126d",
+    "date": "2026-07-11"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs:23-25",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "animation_rig",
+  "kind": "cause",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A037",
+  "text": "v2 snapped correctly (log: moved -0.72)",
+  "paraphrase_en": "The BakeMesh-based grounding (v2) moved the boss down by 0.72 and snapped it correctly.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "373126d",
+    "date": "2026-07-11"
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "own_tool",
+  "kind": "magnitude",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A038",
+  "text": "the loop-min differed from the single frame by only 0.04 (bob was NOT the cause)",
+  "paraphrase_en": "The idle bob changes the lowest point by only 0.04, so the bob was not the cause of the hover.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "89c36d7",
+    "date": "2026-07-11"
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "animation_rig",
+  "kind": "magnitude",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A039",
+  "text": "BakeMesh(useScale) semantics around the ANCESTOR-level 4.85x scale carried a systematic bias.",
+  "paraphrase_en": "The constant hover was caused by a systematic bias in BakeMesh(useScale) semantics with the ancestor-level scale.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "89c36d7",
+    "date": "2026-07-11"
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "engine",
+  "kind": "cause",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A040",
+  "text": "the ANCESTOR-level 4.85x scale",
+  "paraphrase_en": "The boss prefab carries a 4.85x scale at an ancestor level of the skinned mesh.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "89c36d7",
+    "date": "2026-07-11"
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "own_tool",
+  "kind": "magnitude",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A041",
+  "text": "useScale reading 0.68 left ~0.2 hover; localToWorld reading 2.29 sank the boss ~1.5 into the floor",
+  "paraphrase_en": "With useScale the measured offset was 0.68 (about 0.2 hover left); with localToWorld it was 2.29 (boss sank about 1.5 into the floor).",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "dc81a43",
+    "date": "2026-07-11"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs:66-67",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "engine",
+  "kind": "magnitude",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A042",
+  "text": "Hunyuan bone/unit scaling poisons both interpretations, opposite directions",
+  "paraphrase_en": "Bone/unit scaling in the Hunyuan rig makes both BakeMesh scale interpretations wrong, in opposite directions.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "dc81a43",
+    "date": "2026-07-11"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs:64-65",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "animation_rig",
+  "kind": "cause",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A043",
+  "text": "true hover ~0.9",
+  "paraphrase_en": "The true hover of the animated boss above the platform is about 0.9 (scene units).",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "dc81a43",
+    "date": "2026-07-11"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs:68",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "animation_rig",
+  "kind": "magnitude",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A044",
+  "text": "fold the measured shortfall into a 0.30 settle - lands within +-0.1 of flush",
+  "paraphrase_en": "The stable reading falls about 0.2 short; adding a 0.30 settle lands the boss within +-0.1 of flush with the platform.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "dc81a43",
+    "date": "2026-07-11"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs:44-47",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/World/GroundSnap.cs:68-69",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-11",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A045",
+  "text": "几何 | 497,850 面 / 无绑骨 / 零动画 / 蜷卧姿小狐狸（尾环绕身体），bounds 0.87×0.53×1.10 m",
+  "paraphrase_en": "The Xuanji source GLB has 497,850 faces.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:24",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "commit",
+    "ref": "37e5b4e",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "magnitude",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A046",
+  "text": "源模型无绑骨 ... 497,850 面 / 无绑骨 / 零动画",
+  "paraphrase_en": "The Xuanji source model has no rig and no animation.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:14",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:24",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs:196",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A047",
+  "text": "bounds 0.87×0.53×1.10 m",
+  "paraphrase_en": "The Xuanji source GLB's bounding box is 0.87 x 0.53 x 1.10 m.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:24",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "magnitude",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A048",
+  "text": "蜷卧姿小狐狸（尾环绕身体）",
+  "paraphrase_en": "The Xuanji mesh is a curled, lying fox with its tail wrapped around the body.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:24",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs:13",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A049",
+  "text": "源模型 | ...0cf1d3308afdc6f06885627043fc98c0.glb（54 MB，仓库外）",
+  "paraphrase_en": "The Xuanji source GLB file is 54 MB.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:23",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "magnitude",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A050",
+  "text": "贴图 | PBR 三张：basecolor 4096² + normal + metallic-roughness",
+  "paraphrase_en": "The Xuanji GLB carries three PBR textures: a 4096x4096 base colour, a normal map and a metallic-roughness map.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:25",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "commit",
+    "ref": "37e5b4e",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "comment",
+    "ref": "tools/decimate_xuanji.py:63",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A051",
+  "text": "正典符合 | 高（白毛/耳内星空蓝/金瞳/额头星纹/尾蓝渐变全在，对照定妆图 `aiasset/璇玑.png`）",
+  "paraphrase_en": "The Xuanji model's texture/appearance matches the canonical design closely (white fur, starry-blue inner ears, gold eyes, forehead star mark, blue-gradient tail).",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:26",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A052",
+  "text": "迭代 3 轮**收敛于 105,820 面**",
+  "paraphrase_en": "UV-preserving QEM decimation of Xuanji converges at 105,820 faces after 3 rounds.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:27",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "commit",
+    "ref": "2de7310",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "own_tool",
+  "kind": "magnitude",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A053",
+  "text": "（混元自动 UV 碎接缝岛是硬约束，到不了 50k）",
+  "paraphrase_en": "Decimation cannot reach 50k faces because the fragmented UV seam islands from Hunyuan's automatic UVs are a hard floor.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:27",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "comment",
+    "ref": "tools/decimate_xuanji.py:76",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "cause",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A054",
+  "text": "pymeshlab UV-preserving QEM (3 rounds, 497,850 -> 82,829 faces)",
+  "paraphrase_en": "Three rounds of UV-preserving QEM reduce Xuanji from 497,850 to 82,829 faces.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "37e5b4e",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "own_tool",
+  "kind": "magnitude",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A055",
+  "text": "导出验证 | OBJ 导出 OK；pymeshlab `save_textures` 会报错 → 贴图需从 GLB 单独提取（PIL）",
+  "paraphrase_en": "pymeshlab exports the OBJ fine, but its save_textures fails, so textures must be extracted from the GLB separately.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:28",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A056",
+  "text": "卡通渲染语境下 MR 贴图无收益且省 21 MB 级贴图内存",
+  "paraphrase_en": "Dropping the metallic-roughness texture saves about 21 MB of texture memory with no visual loss in the toon context.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:38",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "magnitude",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A057",
+  "text": "105k 单 draw call 可接受",
+  "paraphrase_en": "The ~105k-face Xuanji mesh renders as a single draw call.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:27",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "engine",
+  "kind": "property",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A058",
+  "text": "源模型无绑骨，蜷卧姿不可事后绑骨做走路",
+  "paraphrase_en": "Because of its curled lying pose, the Xuanji mesh cannot be rigged afterwards for walking.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:14",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A059",
+  "text": "混元资产库对该模型一键重导 50k 版",
+  "paraphrase_en": "Hunyuan's asset library can re-export this model as a 50k-face version in one click.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:83",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A060",
+  "text": "Face Yaw 常量字段可调（默认 180，混元正视导出朝 -Z 的既有经验）",
+  "paraphrase_en": "The Xuanji model, as a Hunyuan front-view export, faces -Z (default yaw 180).",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:56",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A061",
+  "text": "the pivot is the renderer-bounds CENTRE ... normalisation is by body LENGTH (longest horizontal axis; the pose is a curled lying fox)",
+  "paraphrase_en": "The Xuanji tool puts the pivot at the renderer-bounds centre and normalises the longest horizontal axis to 0.6 m.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "c217b9b",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs:11-14",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs:24",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs:64",
+    "date": null
+   },
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:54-55",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A062",
+  "text": "Bake now applies FacePitch -90 to stand the curled-fox disc upright (face on +Z) and normalises by the overall longest axis",
+  "paraphrase_en": "The Xuanji bake normalises by the overall longest axis (not only horizontal).",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "95cf232",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A063",
+  "text": "The GLB's orientation node is lost in the OBJ conversion, so the raw mesh lies face-up (supine).",
+  "paraphrase_en": "Xuanji lay face-up because the GLB's orientation (rotation) node is lost when converting to OBJ.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "95cf232",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs:25-26",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "own_tool",
+  "kind": "cause",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A064",
+  "text": "Bake now applies FacePitch -90 to stand the curled-fox disc upright (face on +Z)",
+  "paraphrase_en": "A -90 degree pitch stands the Xuanji disc upright with its face on +Z.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "95cf232",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A065",
+  "text": "(Round 2: -90/180 put her head-down; +90/0 keeps the face forward and flips the head axis up.)",
+  "paraphrase_en": "A pitch of -90 with yaw 180 puts Xuanji head-down.",
+  "sources": [
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs:27-28",
+    "date": null
+   }
+  ],
+  "first_date": null,
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A066",
+  "text": "flip Xuanji head-up (pitch +90/yaw 0 keeps face forward, inverts head axis)",
+  "paraphrase_en": "A pitch of +90 with yaw 0 stands Xuanji upright, face forward on +Z, head up.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "288327d",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Editor/XuanjiModelTool.cs:26-28",
+    "date": null
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A067",
+  "text": "xuanji.prefab (upright medallion, face on +Z, user-verified orientation)",
+  "paraphrase_en": "The final baked Xuanji prefab is upright with the face on +Z.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "a870939",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A068",
+  "text": "Non-Idle SetMood pops a 3s overhead bubble (static mesh has no expressions)",
+  "paraphrase_en": "The Xuanji 3D mesh is static and has no facial expressions (no blendshapes/animation).",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "3b321ec",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs:14",
+    "date": null
+   },
+   {
+    "type": "comment",
+    "ref": "ChronoTraveler/Assets/Scripts/Companion/CompanionController.cs:136",
+    "date": null
+   },
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:76",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A069",
+  "text": "material bakes metallic=0 / smoothness 0.35",
+  "paraphrase_en": "The Xuanji bake produces a URP/Lit material with metallic 0, smoothness 0.35 and a normal map.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "37e5b4e",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "commit",
+    "ref": "a870939",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "comment",
+    "ref": "tools/decimate_xuanji.py:63",
+    "date": null
+   },
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:37-38",
+    "date": "2026-07-15"
+   },
+   {
+    "type": "doc",
+    "ref": "2026-07-15-xuanji-3d-companion-design.md:52-53",
+    "date": "2026-07-15"
+   }
+  ],
+  "first_date": "2026-07-15",
+  "subject": "own_tool",
+  "kind": "effect",
+  "asset_scope": "xuanji"
+ },
+ {
+  "id": "A070",
+  "text": "禁止强逆光/剧烈明暗/辉光爆闪（会烘进贴图变脏）",
+  "paraphrase_en": "Strong backlight, harsh contrast or glow in the input image get baked into the generated texture and dirty it.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "finale_boss_model_prompt.md:6",
+    "date": null
+   }
+  ],
+  "first_date": null,
+  "subject": "generator",
+  "kind": "cause",
+  "asset_scope": "boss (image-to-3D input)"
+ },
+ {
+  "id": "A071",
+  "text": "四肢与躯干之间留出空隙（防粘连）",
+  "paraphrase_en": "Limbs touching the torso in the input image get fused together in the 3D reconstruction.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "finale_boss_model_prompt.md:7",
+    "date": null
+   },
+   {
+    "type": "doc",
+    "ref": "finale_boss_model_prompt.md:56",
+    "date": null
+   }
+  ],
+  "first_date": null,
+  "subject": "generator",
+  "kind": "cause",
+  "asset_scope": "boss (image-to-3D input); NPCs"
+ },
+ {
+  "id": "A072",
+  "text": "一切部件必须物理相连——禁止悬浮元素、飘散粒子、半透明体（重建必废）",
+  "paraphrase_en": "Floating parts, particles and translucent elements in the input image make the 3D reconstruction fail.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "finale_boss_model_prompt.md:8",
+    "date": null
+   }
+  ],
+  "first_date": null,
+  "subject": "generator",
+  "kind": "cause",
+  "asset_scope": "boss (image-to-3D input)"
+ },
+ {
+  "id": "A073",
+  "text": "概念图建议「碎裂编年碑巨像」——五文明残碑/星盘/沙漏碎块聚合的雕塑感实体，混元擅长区",
+  "paraphrase_en": "Sculptural, hard-surface stone entities are a strength of Hunyuan image-to-3D.",
+  "sources": [
+   {
+    "type": "doc",
+    "ref": "2026-07-09-finale-battle-design.md:48",
+    "date": "2026-07-09"
+   }
+  ],
+  "first_date": "2026-07-09",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "boss"
+ },
+ {
+  "id": "A074",
+  "text": "Keeps the output a clean single view that image-to-3D actually ingests.",
+  "paraphrase_en": "Hunyuan image-to-3D only works with a clean single-view image, not a collage or multi-view sheet.",
+  "sources": [
+   {
+    "type": "commit",
+    "ref": "666c3be",
+    "date": "2026-06-22"
+   }
+  ],
+  "first_date": "2026-06-22",
+  "subject": "generator",
+  "kind": "property",
+  "asset_scope": "all NPC GLBs (input)"
+ }
+]

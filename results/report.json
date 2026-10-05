@@ -1170,5 +1170,134 @@
    "max_above_bind_m": 2.519,
    "lowest_vs_idle_ground_m": -1.189
   }
+ },
+ "C": {
+  "claims": 83,
+  "found_by_both": 62,
+  "judge_agreement": 0.759,
+  "cohen_kappa": 0.637,
+  "disagreements": [
+   "C009",
+   "C013",
+   "C016",
+   "C030",
+   "C032",
+   "C033",
+   "C035",
+   "C046",
+   "C049",
+   "C051",
+   "C062",
+   "C063",
+   "C067",
+   "C071",
+   "C073",
+   "C077",
+   "C078",
+   "C079",
+   "C082",
+   "C083"
+  ],
+  "unresolved": [],
+  "verdicts": {
+   "CONFIRMED": 31,
+   "CONTRADICTED": 6,
+   "UNTESTABLE": 40,
+   "OUT_OF_SCOPE": 4,
+   "PARTLY": 2
+  },
+  "testable": 39,
+  "wrong": 8,
+  "wrong_share": 0.205,
+  "H6_wrong_ge_20pct": true,
+  "by_kind": {
+   "property": {
+    "testable": 14,
+    "wrong": 3
+   },
+   "magnitude": {
+    "testable": 14,
+    "wrong": 2
+   },
+   "effect": {
+    "testable": 6,
+    "wrong": 1
+   },
+   "cause": {
+    "testable": 5,
+    "wrong": 2
+   }
+  },
+  "by_subject": {
+   "animation_rig": {
+    "testable": 5,
+    "wrong": 1
+   },
+   "engine": {
+    "testable": 1,
+    "wrong": 0
+   },
+   "generator": {
+    "testable": 24,
+    "wrong": 5
+   },
+   "importer": {
+    "testable": 0,
+    "wrong": 0
+   },
+   "own_tool": {
+    "testable": 9,
+    "wrong": 2
+   }
+  },
+  "wrong_ids": [
+   "C003",
+   "C010",
+   "C011",
+   "C029",
+   "C041",
+   "C042",
+   "C053",
+   "C063"
+  ],
+  "contradicted_never_revised": 5,
+  "contradicted": 6
+ },
+ "D": {
+  "defects": 16,
+  "present_in_final_build": [
+   "D03",
+   "D04",
+   "D05",
+   "D06",
+   "D09",
+   "D10"
+  ],
+  "visible_on_screen": {
+   "{'value': True, 'why': 'an NPC showing its back while talking to the player is plainly visible; fixed before any committed prefab'}": 1,
+   "{'value': True, 'why': 'a ~1 m adult NPC or 1 m colossus would be obvious; compensated in the same commit that brought in the first asset, so the wrong size never reached a committed prefab'}": 1,
+   "{'value': False, 'why': 'texture format affects memory and build size (3.36 GiB build), not the image on screen'}": 1,
+   "{'value': False, 'why': 'the loss of fine surface relief is not obviously a defect on screen (Hunyuan base colour already carries baked shading); no symptom was ever reported'}": 1,
+   "{'value': False, 'why': 'memory only; nothing on screen'}": 1,
+   "{'value': 'unclear', 'why': \"cracks are hairline and best seen up close; the 0.6 m companion hovers near the player at all times, but the developer's play check (a870939 'user Play-verified') did not record them\"}": 1,
+   "{'value': True, 'why': 'a companion lying on its back / upside down is obvious'}": 1,
+   "{'value': True, 'why': 'a 10 m colossus floating ~0.5 m above the platform was reported from play'}": 1,
+   "{'value': 'unclear', 'why': 'the user reported a ~0.1–0.2 residual once, but accepted the final version; with the 0.30 settle the bob may read as pressing in rather than hovering'}": 1,
+   "{'value': False, 'why': \"latent: the animator's attack/hit/leap transitions need triggers, and no runtime script at 87fdd16 calls SetTrigger (grep), so only idle ever plays\"}": 1,
+   "{'value': True, 'why': 'a magenta character is unmistakable'}": 1,
+   "{'value': True, 'why': 'boss facing away from the arriving player'}": 1,
+   "{'value': False, 'why': 'a normal map read as colour data gives subtly wrong shading at most; never reported from play'}": 1,
+   "{'value': False, 'why': 'preventive change before the first build; no symptom'}": 1,
+   "{'value': True, 'why': 'the boss kept hovering'}": 1,
+   "{'value': True, 'why': 'a 10 m boss sunk 1.5 m into the platform'}": 1
+  },
+  "observed_channel": {
+   "developer play-test": 7,
+   "import-time inspection": 2,
+   "build (external AI audit report)": 1,
+   "this audit": 4,
+   "assistant": 1,
+   "null": 1
+  }
  }
 }
