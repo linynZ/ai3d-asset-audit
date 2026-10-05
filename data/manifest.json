@@ -1,0 +1,242 @@
+[
+  {
+    "id": "npc_china_artisan",
+    "path": "China/npc_china_artisan.glb",
+    "group": "npc",
+    "bytes": 33297520,
+    "sha256": "2ddb9a5a56d365c0ab711566e0fd99ff284d615e181846de3726a20b208cdd15",
+    "raw_original": "China/d85be62812a30c5de2a17bfe0c648cf6.glb"
+  },
+  {
+    "id": "npc_china_guardian",
+    "path": "China/npc_china_guardian.glb",
+    "group": "npc",
+    "bytes": 37478512,
+    "sha256": "3639a7d4b15007b20267242505a0df835ffe31f14e949349792fc68b7849cf4d",
+    "raw_original": "China/7320def9391d061a1ce8aa8a96baf3b1.glb"
+  },
+  {
+    "id": "npc_china_historian",
+    "path": "China/npc_china_historian.glb",
+    "group": "npc",
+    "bytes": 29550180,
+    "sha256": "4b6395b383a2c5bc9a0d7936c42ea418cee1709bd7692d57f95f83fdaec9ccd5",
+    "raw_original": "China/adb9ff621469b9843fca9d2a107f60cd.glb"
+  },
+  {
+    "id": "xuanji_body",
+    "path": "Companion/xuanji_body.obj",
+    "group": "companion_decimated",
+    "bytes": 15923956,
+    "sha256": "5901db1906665a4a1366959de4f8c2a99a991d2ef2b8b105922b40c1ff69083c",
+    "raw_original": null
+  },
+  {
+    "id": "npc_egypt_guardian",
+    "path": "Egypt/npc_egypt_guardian.glb",
+    "group": "npc",
+    "bytes": 40459300,
+    "sha256": "f375d336c52bfa327c5540f65d3ff7766f7ce96ef91a3ddbc2d7c81c5ed64190",
+    "raw_original": "Egypt/60bc45ff88167075d34f2c2e58bdf928.glb"
+  },
+  {
+    "id": "npc_egypt_priest",
+    "path": "Egypt/npc_egypt_priest.glb",
+    "group": "npc",
+    "bytes": 34710136,
+    "sha256": "de394aa42ac7b56e3357f8c71c7cf96e04316f417cf5306eda094321f90be2ca",
+    "raw_original": "Egypt/e5d882e3c2fd10d2f71e369445e953d3.glb"
+  },
+  {
+    "id": "npc_egypt_scribe",
+    "path": "Egypt/npc_egypt_scribe.glb",
+    "group": "npc",
+    "bytes": 35840740,
+    "sha256": "6a517cc2a15f29e0fb18732358d37b8986685153a3540ba37f8a64a799db53c7",
+    "raw_original": "Egypt/a4f90bfa202900beac6f009b47581c0a.glb"
+  },
+  {
+    "id": "boss_attack",
+    "path": "Finale/boss_attack.fbx",
+    "group": "boss_studio",
+    "bytes": 41552092,
+    "sha256": "11a897c6767781c17495bc0ac7bdf20c12e13c2c8766ad46d0a58a003a0c306e",
+    "raw_original": "boss/蓄力攻击.fbx"
+  },
+  {
+    "id": "boss_hitdown",
+    "path": "Finale/boss_hitdown.fbx",
+    "group": "boss_studio",
+    "bytes": 41548764,
+    "sha256": "3c372bebfa850799615778b73adcd53da448efb75a4aac1bfb7ea54cfa351635",
+    "raw_original": "boss/受击倒地.fbx"
+  },
+  {
+    "id": "boss_idle",
+    "path": "Finale/boss_idle.fbx",
+    "group": "boss_studio",
+    "bytes": 41518540,
+    "sha256": "4e93a1ba6c8567d6774e85dfa55f3aa59d2bd6bb559568278963354083b032b2",
+    "raw_original": "boss/待机.fbx"
+  },
+  {
+    "id": "boss_leap",
+    "path": "Finale/boss_leap.fbx",
+    "group": "boss_studio",
+    "bytes": 41585884,
+    "sha256": "ee9207f9baedee21687c9cedb31eb0a6807d940255b25ae0b296693272ea4e34",
+    "raw_original": "boss/向前大跳.fbx"
+  },
+  {
+    "id": "npc_greece_guardian",
+    "path": "Greece/npc_greece_guardian.glb",
+    "group": "npc",
+    "bytes": 41334708,
+    "sha256": "66321d62337db0d4fc75e19a8e628575c916a32714fcddb5029352b85bb7ff05",
+    "raw_original": "Greece/5d74e5c0fd8ec8f3297a5677f7774d24.glb"
+  },
+  {
+    "id": "npc_greece_historian",
+    "path": "Greece/npc_greece_historian.glb",
+    "group": "npc",
+    "bytes": 33529012,
+    "sha256": "1764a0c3b44ecff6fe3ec34e709bb15bd3a469ebf49b7029579a46fea2538f90",
+    "raw_original": "Greece/060c2ea16920c7ac174852bde4a099c1.glb"
+  },
+  {
+    "id": "npc_greece_sage",
+    "path": "Greece/npc_greece_sage.glb",
+    "group": "npc",
+    "bytes": 32470988,
+    "sha256": "98bd42ffb89933ac6de58363580573748e617d195bc70c3939f29ade1c4a896f",
+    "raw_original": "Greece/a784f2409c1d303230fa06800d372f5d.glb"
+  },
+  {
+    "id": "npc_rome_engineer",
+    "path": "Rome/npc_rome_engineer.glb",
+    "group": "npc",
+    "bytes": 32526860,
+    "sha256": "957ccb4abe246067a696cf7b026c961d4d35460a707c4345dd12400d1782fe88",
+    "raw_original": "Rome/1fb15918ab0e7f49c90599868b610d78.glb"
+  },
+  {
+    "id": "npc_rome_guardian",
+    "path": "Rome/npc_rome_guardian.glb",
+    "group": "npc",
+    "bytes": 39537048,
+    "sha256": "5a540f2418ef6659cc47402c3c0e5560954e6b68dc72109b6c7f7816f06cdd80",
+    "raw_original": "Rome/c73c5be3a06682e95eaa8b76a71181d4.glb"
+  },
+  {
+    "id": "npc_rome_senator",
+    "path": "Rome/npc_rome_senator.glb",
+    "group": "npc",
+    "bytes": 37394340,
+    "sha256": "2521c02caf04264f9813ec29ba12e6e0aab3713c0d06964d0c2bab17eb6148ec",
+    "raw_original": "Rome/7783daaab41226972ec688594311ee0a.glb"
+  },
+  {
+    "id": "npc_trade_guardian",
+    "path": "Trade/npc_trade_guardian.glb",
+    "group": "npc",
+    "bytes": 36190660,
+    "sha256": "bc899a5d78b4322f43925f9aaf6f47f5225435337c36452f21162caeff83eee3",
+    "raw_original": "trade/0e9b9c03de1f76564728c1f4ce041b5e.glb"
+  },
+  {
+    "id": "npc_trade_leader",
+    "path": "Trade/npc_trade_leader.glb",
+    "group": "npc",
+    "bytes": 32285948,
+    "sha256": "1ac65e9d5adf79867b035637ef3f62f95568bb13d005d37d0f49c0bcb5de74dd",
+    "raw_original": "trade/3f28f9805deda022d3caed15325ff59d.glb"
+  },
+  {
+    "id": "npc_trade_monk",
+    "path": "Trade/npc_trade_monk.glb",
+    "group": "npc",
+    "bytes": 31363388,
+    "sha256": "de344d7f4deacd941feaee6d2aabff2105bc5996cbde9b2db2173a0a1fc71af9",
+    "raw_original": "trade/af733c31812234acf1413f2363416587.glb"
+  },
+  {
+    "id": "prop_trade_camel_resting",
+    "path": "Trade/prop_trade_camel_resting.glb",
+    "group": "prop",
+    "bytes": 52066468,
+    "sha256": "d979b68f54753fc6609959c9bbe6fa0085ff37d7c70861386af9fa469dec699c",
+    "raw_original": "others/be549e4f941f5d2d61eec8250daade04.glb"
+  },
+  {
+    "id": "prop_trade_camel_standing",
+    "path": "Trade/prop_trade_camel_standing.glb",
+    "group": "prop",
+    "bytes": 39219648,
+    "sha256": "3746fdc191b8916f2f28d85c2e84d8e2d632ca3615d1477f2ffb6c7d14fc2c2a",
+    "raw_original": "others/1d21e684c2db6d622c5bbaba5c32165c.glb"
+  },
+  {
+    "id": "prop_trade_camel_standing_b",
+    "path": "Trade/prop_trade_camel_standing_b.glb",
+    "group": "prop",
+    "bytes": 49584084,
+    "sha256": "362714d3e41c6c7bfc78a9666bd59ef6702e6162fb85dc1c9c45f2ded55a8a1b",
+    "raw_original": "others/ac79b9b7611584b8b74d93735dfca056.glb"
+  },
+  {
+    "id": "prop_trade_cart",
+    "path": "Trade/prop_trade_cart.glb",
+    "group": "prop",
+    "bytes": 36217116,
+    "sha256": "7714381e6cf43c661a047756d41e33a4ef5f3ab11a8fa01bae9759653187e6bc",
+    "raw_original": "others/86d7d63d9bd552c7dc5b24c032b16047.glb"
+  },
+  {
+    "id": "prop_trade_horse",
+    "path": "Trade/prop_trade_horse.glb",
+    "group": "prop",
+    "bytes": 35613144,
+    "sha256": "306fa053f29f5e2ce445e1d7fcf779fd830c4c1934bf318295f7b0c63c1b4bc4",
+    "raw_original": "others/3d7cd249362a6c1b19f345a41485b822.glb"
+  },
+  {
+    "id": "prop_trade_milestone",
+    "path": "Trade/prop_trade_milestone.glb",
+    "group": "prop",
+    "bytes": 36982680,
+    "sha256": "c999a0ad7cd8ae792079030b8352429c67d094e3b797d3a1ce1a1d73b01ea867",
+    "raw_original": "others/008d0893332f531be4cd911237166921.glb"
+  },
+  {
+    "id": "prop_trade_silk_bolts",
+    "path": "Trade/prop_trade_silk_bolts.glb",
+    "group": "prop",
+    "bytes": 35314000,
+    "sha256": "b8511998d659ed2414527e421f926469cd84b228f921cf8efd13d172731d50b0",
+    "raw_original": "others/c14d32a4b8427fa5601570eb2a9ba3b4.glb"
+  },
+  {
+    "id": "prop_trade_spice_sacks",
+    "path": "Trade/prop_trade_spice_sacks.glb",
+    "group": "prop",
+    "bytes": 43633672,
+    "sha256": "b795205d2cabf533320e0cde73d2eb467812e3436373f84e57abebb6f19d55a6",
+    "raw_original": "others/6bd2ff29e3ac7b0abc5a1899ca7cd439.glb"
+  },
+  {
+    "id": "prop_trade_stupa",
+    "path": "Trade/prop_trade_stupa.glb",
+    "group": "prop",
+    "bytes": 36563596,
+    "sha256": "197a02237ab5a5a8521a33e657881d44b1c366c14e5bd905d874f396eae41ce8",
+    "raw_original": "others/e3e39824c90e840e4950be50a975797d.glb"
+  },
+  {
+    "id": "xuanji_raw",
+    "path": "asset model/AI model/player/0cf1d3308afdc6f06885627043fc98c0.glb",
+    "group": "companion_raw",
+    "bytes": 56573084,
+    "sha256": "9a2fd6c3377b42383258ddd82b07e33d0aa181b64b5b89ad3158fa1bef44a3f3",
+    "raw_original": "player/0cf1d3308afdc6f06885627043fc98c0.glb"
+  }
+]
