@@ -1,19 +1,20 @@
-Image-to-3D generators let a solo developer fill a game with textured models made
-from single drawings. We audited the 26 generated meshes of a completed Unity
-game (24 static models from one Hunyuan 3D setting, a companion we simplified,
-and a rigged, animated boss) against a plan committed before any audit script
-ran, then extended the audit after an internal review. Three of five stated
-hypotheses were not supported. The raw meshes are closed and edge-manifold, and
-their UV layouts fall within the range of the game's purchased meshes. Most
-problems came from the pipeline around the generator. The importer reversed the
-characters' front, which glTF places at $+Z$. The import path stored each asset's
-4096$^2$ base map uncompressed (21 of 24 with a CPU copy) and dropped its normal
-and metallic-roughness maps; these 24 maps are 70\,\% of the build's texture data,
-and nothing in the commit history recorded it. Simplifying in MeshLab the seam-split
-vertex buffer its glTF loader returns tore the companion into 2,433 pieces;
-welding first left every asset crack-free at a modest colour cost. Two
-problems did come from the generator: every asset is scaled to about one metre,
-and the boss's idle animation lifts it 0.46--0.68\,m above its bind-pose feet,
-leaving a 0.22\,m bob that no constant offset removes. We release scripts,
-measurements, labelled commit history and review reports, and give a short
-pre-import checklist derived from the case.
+A solo developer built a complete Unity game with an AI coding assistant and
+filled it with image-to-3D models. We audited its 26 generated meshes against a
+plan committed before any audit script ran, and then did something the usual
+evaluation of generated 3D cannot: we set the assistant's own written
+explanations of the asset problems, kept in its commit messages, tool comments
+and design notes, against independent measurements of the same assets.
+The raw meshes are closed and edge-manifold, and their UV layouts resemble the
+game's purchased meshes; most problems came from the pipeline around the
+generator. The importer reversed the characters' front (glTF puts it at $+Z$);
+the import path stored each asset's 4096$^2$ base map uncompressed and dropped its
+normal and metallic-roughness maps, so 24 maps make up 70\,\% of the build's
+texture data; MeshLab simplification of the seam-split buffer tore the companion
+into 2,433 pieces, where welding first leaves every asset intact. Of 39 testable
+claims the assistant made about the assets, 8 are wrong; the confirmed ones are
+mostly readings off a file, the wrong ones mostly explanations: five blame the generator for what the pipeline
+did. Five of the six contradicted claims were never revised, and one spread from
+tool to tool as a ``finding''. Every defect clearly visible in play was fixed within an
+hour of being reported; every defect not visible on screen shipped, including
+one an AI review had flagged. We release scripts, measurements, the claims with
+both judges' verdicts, the defect record and the review reports.

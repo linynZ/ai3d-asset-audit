@@ -87,3 +87,32 @@ as ground truth. Heights are scaled so that the bind pose is 10\,m tall, as in t
 game. We score the estimators the game tried: bind-pose bounds, one frame, and
 the shipped minimum over ten samples 0.16\,s apart, at every starting phase of
 the loop.
+
+\paragraph{C Attribution audit (second plan).} After the first results, a second
+plan was committed (\texttt{63b4a34}) before any claim was extracted. 410 of the
+484 commits carry the AI assistant's co-author trailer; their messages, the
+comments in the asset tools and the design notes explain what the generated
+assets are and why problems occurred. The source texts were frozen (174 commits,
+215 comment lines, five design notes). Two AI extractors, without access to the
+measurements, independently listed every \emph{claim}: a declarative statement
+about a property of a generated asset, about what the pipeline does to it, or
+about the cause of an asset problem. The merged claims were judged by the
+assistant and, independently, by a second AI judge as \texttt{CONFIRMED},
+\texttt{CONTRADICTED}, \texttt{PARTLY} (right observation, wrong cause or a
+magnitude off by more than $2\times$) or \texttt{UNTESTABLE}, using only this
+study's measurements and two measurements listed in the plan in advance (the
+origin after UniGLTF's import; what MeshLab's loader does with the root node).
+Disagreements were resolved under a rule written before resolving; the author
+signed off. \textbf{H6:} at least 20\,\% of testable claims are contradicted or
+partly wrong. \textbf{H7:} most contradicted claims are never revised before the
+final build. \textbf{H8} (exploratory): causal claims are wrong more often than
+property claims.
+
+\paragraph{D Defect lifecycle.} For every defect the audit identified and every
+\texttt{ASSET}/\texttt{ENGINE} fix, we reconstructed from git when it was
+introduced, first described (and by whom: play-test, import inspection, the
+assistant, an AI review, this audit), fixed, and whether it reached the final
+build. \textbf{H9} (descriptive): defects visible on screen were fixed during
+development; defects not visible on screen shipped. The interactive session
+transcripts of the development period no longer exist (the earliest surviving one
+is from September), so effort is measured in commits and elapsed time.

@@ -1,39 +1,44 @@
 \section{Introduction}
 
 Image-to-3D generators now turn a single drawing into a textured mesh in a
-minute or two~\cite{zhao2025hunyuan3d20,xiang2025trellis}. For a solo developer
-this changes what is affordable: the 15 non-player characters and nine props of
-the game studied here each came from one drawing. Generators are usually
-evaluated on how their output looks. Engine readiness depends on different
-properties: size and orientation, origin, closed and manifold surfaces, memory,
-whether the mesh survives simplification, and, once rigged, where the feet are
-when it moves.
+minute or two~\cite{zhao2025hunyuan3d20,xiang2025trellis}, and AI coding
+assistants write much of the code that imports, converts and places those meshes.
+A solo developer can now build a complete game this way. The game studied here,
+ChronoTraveler, has 15 non-player characters and nine props that each came from
+one drawing, and 410 of its 484 commits were co-authored by an assistant.
 
-This paper audits the generated meshes in a completed Unity game, ChronoTraveler,
-against those properties, and asks which problems could have been found before
-import. The analysis plan was committed before any audit script existed; an
-internal fact-check and review of the first draft then led to further
-measurements, which we mark as such. The corpus is small (24 assets from one
-generator setting, a simplified companion and a rigged boss), so this is a case
-study.
+Generated meshes are usually judged by how they look. Engine readiness depends on
+other properties: size and orientation, origin, closed and manifold surfaces,
+memory, whether the mesh survives simplification, and, once rigged, where the
+feet are when it moves. When something goes wrong, a second question follows:
+whose fault is it, the generator's or the pipeline's? In an assistant-built game
+that question is usually answered by the assistant, in a commit message or a code
+comment, and the answer then shapes the next fix.
 
-Three of the five stated hypotheses were not supported. The raw meshes are
-closed and edge-manifold, and their UV layouts fall within the range of the
-meshes the game bought. Most of what went wrong came from the pipeline around the
-generator rather than from it. The importer reversed the characters' front. The
-import path stored each asset's 4096$^2$ base map uncompressed, in most cases
-with a CPU copy, and dropped the normal and metallic-roughness maps; these 24 maps are 70\,\% of
-the texture data in the build, and none of it left a trace in the commit history.
-Our simplification of the companion tore it into 2,433 pieces because the
-simplifier (MeshLab) was given the seam-split vertex buffer its glTF loader
-returns; welding first leaves every asset crack-free. Two problems did come from the generator:
-every asset is scaled to about one metre, and the rigged boss's idle animation
-lifts it 0.46--0.68\,m above where its bind pose says its feet are.
+This paper audits the generated meshes of the completed game against those
+properties, and then audits the assistant's explanations. We committed an
+analysis plan before writing any audit script, measured every generated asset,
+compared them with the game's purchased meshes, read the textures the shipped
+build actually stores, simplified each mesh under several inputs and tools, and
+evaluated the rigged boss's animations frame by frame. A second plan, committed
+before any extraction, set out how to collect every claim the assistant made
+about the assets and judge it against those measurements, and how to reconstruct
+each defect's history from git. Internal fact-checks and a review of the first
+draft led to further measurements, which we mark as such.
 
-Contributions: (1) an audit of generated meshes in a completed game, with
-scripts, measurements, commit labels and review reports released; (2) evidence
-from this case that engine readiness was decided by conventions, the import
-path, simplification input and animation rather than by mesh topology; (3) a
-short pre-import checklist (Section~\ref{sec:discussion}), derived here and not
-yet validated elsewhere. It extends our earlier audits of AI-generated game
-content~\cite{zhao2026featureorleak,zhao2026countingwhat} from text to geometry.
+Most of what went wrong came from the pipeline, not the generator, and several
+of the assistant's explanations said the opposite. Its wrong claims were
+mostly explanations rather than readings; most blamed the generator; they were written
+into tool comments, copied to other tools and never revised. Defects that showed
+on screen were fixed within the hour; defects that did not, from uncompressed
+textures to a torn mesh, shipped.
+
+Contributions: (1) an audit of every generated mesh in a completed game, with
+scripts, measurements and review reports released; (2) an attribution audit of
+an AI coding assistant's contemporaneous explanations of generated-asset problems
+against measured ground truth, which to our knowledge has not been done; (3) a
+defect record showing which problems a visual play-test catches and which it
+does not; (4) a pre-import checklist derived from the case and not yet validated
+elsewhere. It extends our audits of AI-generated game
+content~\cite{zhao2026featureorleak,zhao2026countingwhat} from text to geometry
+and to the assistant that builds the pipeline.

@@ -7,12 +7,34 @@ output is as closed, as manifold and as efficiently unwrapped as the meshes the
 game bought. The problems sat around the mesh. The generator normalises size to
 one metre whatever the subject. The importer reversed the front. The import path
 stored each asset's texture uncompressed, mostly with a CPU copy, and dropped
-two of its three maps. Our simplification tore the companion, and the ``UV floor''
-recorded for it is not reproduced by our runs. An animation lifted the boss off
-the ground. Of these, only the size
-normalisation and the animation belong to the generator; the rest are properties
-of the pipeline we built around it, and none of the texture problems left a
-trace in the commit history.
+two of its three maps. Our simplification tore the companion. An animation
+lifted the boss off the ground. Of these, only the size normalisation and the
+animation belong to the generator; the rest belong to the pipeline built around
+it, most of it written by the assistant.
+
+\paragraph{Explanations are where the assistant went wrong.} The assistant was
+mostly right when it read numbers off files and less reliable when it explained
+them. Most of its wrong explanations had a direction: they named the newest and
+most conspicuous component, the generator, as the cause of what an older component, the importer
+or our own script, had done. They also had a life. A causal sentence in a commit
+message becomes a comment above the line it justifies (\texttt{\_faceYaw = 180;
+// Hunyuan front-view exports face -Z}); the comment is then reused as a fact
+and copied into the next tool. Nothing in this workflow puts a
+written explanation back to the test once the symptom goes away. The one wrong
+claim that was revised was revised because its symptom stayed on screen. That
+fixes can carry new defects is well known~\cite{yin2011fixes}; here the more
+lasting product of a fix was its explanation. A cheap safeguard follows: when an
+assistant writes a cause into a comment or a design note, attach the check that
+would confirm it, or mark it as a hypothesis.
+
+\paragraph{Play-testing sees only what is on screen.} Every defect that a player
+could see was found and fixed, mostly within the hour. Everything else shipped:
+an uncompressed texture costs memory, not pixels; a missing normal map looks like
+a stylistic choice; a hairline crack on a small companion passes a play check.
+One of these had even been flagged by an AI review and was deferred without a
+recorded reason. For assistant-built pipelines, where the developer's main check
+is to run the game and look, the gap between what is visible and what ships is
+where a pre-import or pre-build check earns its keep.
 
 \paragraph{A pre-import checklist.} Derived from this case and not validated on
 other projects.
@@ -30,21 +52,11 @@ other projects.
 \item \emph{Animated contact.} For rigged assets, evaluate every clip offline and
   compare its lowest vertex with the bind pose and with the clip used for
   placement.
-\item \emph{Topology.} Closedness and manifoldness were never the problem here,
-  but they are cheap to count, and our own tool was the one that broke them.
+\item \emph{Explanations.} Treat a cause written by the assistant as a hypothesis
+  until a measurement backs it, and keep that measurement next to the comment.
 \end{enumerate}
 Items 1 and 3 restate existing guidance on real-world scale and
 origin~\cite{khronos3dc2025guidelines} and on welding before
 simplification~\cite{meshopt}, and texture memory is a familiar
-concern~\cite{unity_mobileart}; what this case
-adds is where the violations actually came from and which ones a developer did
-not notice.
-
-\paragraph{Counting and looking.} Our earlier audit of an LLM-generated quiz
-bank found that the defects that mattered were invisible one item at a time and
-obvious when counted across the set~\cite{zhao2026countingwhat}. Here counting
-found the uniform size convention, the torn companion and the texture budget,
-but two findings needed a picture or a simulation: the front, which took a
-render in a known coordinate frame, and the hover, which took evaluating the
-animation. A useful pre-import check for generated geometry includes a small
-render and a short animation pass, not only statistics.
+concern~\cite{unity_mobileart}; what this case adds is where the violations came
+from, which ones went unnoticed, and how their explanations went wrong.
