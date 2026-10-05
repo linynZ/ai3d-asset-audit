@@ -25,11 +25,15 @@ clips were not checked in play. The boss is one rig.
 developer accepted, not what it would say if asked; the conversations of the
 development period no longer exist, so we cannot tell which claims the developer
 challenged, and effort is counted in commits and hours, not turns. Extraction and
-judging were done by AI agents with a written rule and author sign-off; the two
+judging were done by AI agents under written rules, reviewed by the author; the two
 judges agreed on 76\,\% of claims before resolution, and the wrong-claim share is
 20\,\% under the resolved verdicts and 31\,\% under the second judge's alone.
-Nearly half of the claims could not be tested, mostly those about engine-side
-readings we did not reproduce. One assistant, one developer and one game.
+Nearly half of the claims could not be tested: about 15 concern tool outputs we
+did not measure, about 16 concern generation inputs, identities or appearance,
+and nine concern engine-side readings we did not reproduce. The final verdicts
+follow the first judge, which is the assistant itself, on 77 of 83 claims; the
+second judge's stricter verdicts are reported alongside. The ``assistant'' is
+three Claude models used over the period; one developer and one game.
 
 \paragraph{Appearance.} Visual fidelity to the input image was not scored. The
 colour error in B4 uses the nearest original vertex and only the base colour map.
@@ -57,8 +61,9 @@ trusting the author or the assistant.
   outcome (Section~\ref{sec:history}). The reviewer added an \emph{origin} field
   and the fix/feature split, neither of which was in the plan.
 \item C and D follow a second plan (\texttt{63b4a34}) written after the first
-  results were known and before any claim was extracted; the judges' resolution
-  rule was written before resolving. Two measurements were added for judging
+  results were known and before any claim was extracted. The resolution rules are
+  recorded with the verdicts in \texttt{scripts/report\_cd.py}; extraction, judging
+  and resolution were committed together. Two measurements were added for judging
   claims, both listed in that plan in advance.
 \item The plan's B3 metric was bytes as uploaded; we report bytes as stored in the
   file, then what the build stored.

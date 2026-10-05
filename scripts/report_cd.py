@@ -39,10 +39,10 @@ RESOLUTIONS = {
 REVISED = {        # id -> (True/False, evidence), checked with git grep / git log at 87fdd16
     "C003": (False, "no later commit or comment states that the origin is at the base"),
     "C010": (False, "87fdd16 NPCModelSetupTool.cs:34 still says 'Hunyuan front-view exports face -Z'"),
-    "C063": (False, "87fdd16 FinaleBossModelTool.cs:96 extends it: 'Hunyuan exports face -Z (NPC-pipeline finding)'"),
+    "C063": (False, "never withdrawn; the related boss-tool comment (claim C022, FinaleBossModelTool.cs:96) cites the -Z facing as an 'NPC-pipeline finding'"),
     "C011": (False, "no later text attributes the facing to the importer"),
     "C029": (False, "89c36d7's conclusion is never withdrawn; GroundSnap keeps loop sampling without comment on it"),
-    "C041": (False, "87fdd16 xuanji design note line 27 still says 'converged at 105,820'"),
+    "C041": (True, "37e5b4e, 36 minutes later, states the actual result 497,850 -> 82,829 (claim C043); the design note's 'converged at 105,820' was left unchanged"),
     "C042": (False, "87fdd16 tools/decimate_xuanji.py:76 still says 'UV seam islands are the hard floor'"),
     "C053": (True, "288327d and XuanjiModelTool comments replace -90 with +90"),
 }

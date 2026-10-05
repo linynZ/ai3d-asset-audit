@@ -10,31 +10,34 @@ stored each asset's texture uncompressed, mostly with a CPU copy, and dropped
 two of its three maps. Our simplification tore the companion. An animation
 lifted the boss off the ground. Of these, only the size normalisation and the
 animation belong to the generator; the rest belong to the pipeline built around
-it, most of it written by the assistant.
+it: a third-party importer and tools the assistant wrote.
 
-\paragraph{Explanations are where the assistant went wrong.} The assistant was
-mostly right when it read numbers off files and less reliable when it explained
-them. Most of its wrong explanations had a direction: they named the newest and
-most conspicuous component, the generator, as the cause of what an older component, the importer
-or our own script, had done. They also had a life. A causal sentence in a commit
-message becomes a comment above the line it justifies (\texttt{\_faceYaw = 180;
-// Hunyuan front-view exports face -Z}); the comment is then reused as a fact
-and copied into the next tool. Nothing in this workflow puts a
-written explanation back to the test once the symptom goes away. The one wrong
-claim that was revised was revised because its symptom stayed on screen. That
-fixes can carry new defects is well known~\cite{yin2011fixes}; here the more
-lasting product of a fix was its explanation. A cheap safeguard follows: when an
-assistant writes a cause into a comment or a design note, attach the check that
-would confirm it, or mark it as a hypothesis.
+\paragraph{Where the explanations went wrong.} The assistant was
+mostly right when it read numbers off files and less reliable when it related an
+asset to the pipeline. Four of its eight wrong claims named the newest and most
+conspicuous component, the generator, as the cause of what an older one, the
+importer or our own script, had done. One of them shows how such an explanation
+lives on. Written as the comment on the line it justifies
+(\texttt{\_faceYaw = 180f; // Hunyuan front-view exports face -Z}), it was cited
+two weeks later in another tool as an ``NPC-pipeline finding'' and became an
+expectation in a third tool's design note. Of the wrong claims that were
+revised, one was revised after its symptom appeared on screen and the other only
+in a later commit message, leaving the design note unchanged. That fixes can
+carry new defects is well known~\cite{yin2011fixes}; here a fix also carried an
+explanation that outlived it. A cheap safeguard follows: when an assistant
+writes a cause into a comment or a design note, attach the check that would
+confirm it, or mark it as a hypothesis.
 
-\paragraph{Play-testing sees only what is on screen.} Every defect that a player
-could see was found and fixed, mostly within the hour. Everything else shipped:
-an uncompressed texture costs memory, not pixels; a missing normal map looks like
-a stylistic choice; a hairline crack on a small companion passes a play check.
-One of these had even been flagged by an AI review and was deferred without a
-recorded reason. For assistant-built pipelines, where the developer's main check
-is to run the game and look, the gap between what is visible and what ships is
-where a pre-import or pre-build check earns its keep.
+\paragraph{Play-testing sees only what is on screen.} Every defect a player could
+clearly see was fixed, apart from an idle bob that was reported and accepted.
+Of the defects not visible on screen, all but one shipped: an uncompressed
+texture costs memory, not pixels; a missing normal map looks like a stylistic
+choice; a hairline crack on a small companion passes a play check. The exception,
+a normal map imported with the wrong type, was caught by the assistant's
+pre-release code review, a check that does not depend on looking. The
+uncompressed textures had been flagged by an AI review and were not acted on,
+with no reason recorded. Where the developer's main check is to run the game and
+look, non-visual checks of this kind are what cover the gap.
 
 \paragraph{A pre-import checklist.} Derived from this case and not validated on
 other projects.

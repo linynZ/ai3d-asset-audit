@@ -1,7 +1,7 @@
 """C step 4: verdicts drafted by the AI assistant (judge 1), each with the evidence
 it rests on. Evidence must be a file in results/ (or a fact already reported in the
 paper before extraction began). Judge 2 (an independent agent) re-judges without
-seeing these; scripts/claims_compare.py merges both.
+seeing these; scripts/report_cd.py merges both.
 
 Usage: python scripts/claims_verdicts.py
 """

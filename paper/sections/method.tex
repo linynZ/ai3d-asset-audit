@@ -102,8 +102,11 @@ assistant and, independently, by a second AI judge as \texttt{CONFIRMED},
 magnitude off by more than $2\times$) or \texttt{UNTESTABLE}, using only this
 study's measurements and two measurements listed in the plan in advance (the
 origin after UniGLTF's import; what MeshLab's loader does with the root node).
-Disagreements were resolved under a rule written before resolving; the author
-signed off. \textbf{H6:} at least 20\,\% of testable claims are contradicted or
+The first judge is the assistant itself. Disagreements were resolved by the
+assistant under two rules: a verdict needs a measurement of the asset concerned,
+and claims about engine-side readings we did not reproduce are untestable.
+Extraction, judging and resolution were committed together, so their order is
+not separately recorded in git; the author reviewed the final verdicts. \textbf{H6:} at least 20\,\% of testable claims are contradicted or
 partly wrong. \textbf{H7:} most contradicted claims are never revised before the
 final build. \textbf{H8} (exploratory): causal claims are wrong more often than
 property claims.

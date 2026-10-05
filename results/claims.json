@@ -1742,8 +1742,8 @@
   },
   "verdict": "CONTRADICTED",
   "resolution": "judges agree",
-  "revised_later": false,
-  "revised_evidence": "87fdd16 xuanji design note line 27 still says 'converged at 105,820'"
+  "revised_later": true,
+  "revised_evidence": "37e5b4e, 36 minutes later, states the actual result 497,850 -> 82,829 (claim C043); the design note's 'converged at 105,820' was left unchanged"
  },
  {
   "id": "C042",
@@ -2702,7 +2702,7 @@
   "verdict": "PARTLY",
   "resolution": "consistency across assets is true (same root rotation, all fronts at +Z), the -Z cause is wrong: rule PARTLY = right observation, wrong cause",
   "revised_later": false,
-  "revised_evidence": "87fdd16 FinaleBossModelTool.cs:96 extends it: 'Hunyuan exports face -Z (NPC-pipeline finding)'"
+  "revised_evidence": "never withdrawn; the related boss-tool comment (claim C022, FinaleBossModelTool.cs:96) cites the -Z facing as an 'NPC-pipeline finding'"
  },
  {
   "id": "C064",

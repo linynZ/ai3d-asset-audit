@@ -3,70 +3,76 @@
 
 \begin{table*}[t]
 \caption{The eight testable claims about the generated assets that the measurements contradict or
-only partly support. All were written by the AI coding assistant in commit messages, code comments or
-design notes during development. ``Revised'' = a later commit, comment or note up to the final build
-(87fdd16) states the corrected version; $^\dagger$ = still written in the final build's code or notes.}
+only partly support. All were written in commit messages, code comments or design notes by the AI
+assistant (Claude Opus 4.8 for the first four, Claude Fable 5 for the rest). Quotes in Chinese are
+translated (tr.). Revised: a later commit, comment or note up to the final build (87fdd16) states the
+corrected version; $^\dagger$ = the claim is still written in the final build's code or notes.}
 \label{tab:claims}
 \small
 \begin{tabularx}{\textwidth}{@{}lYlYc@{}}
 \toprule
-& Claim (verbatim, abridged) & Verdict & Measurement & Revised \\
+& Claim (abridged) & Verdict & Measurement & Revised \\
 \midrule
 C010 & ``Hunyuan front-view exports face -Z.'' (tool comment, 06-23) & contradicted & all 15 NPC fronts at glTF $+Z$; the importer reverses $Z$ & no$^\dagger$ \\
-C011 & historian showed its back because ``Hunyuan front-view exports face -Z'' & partly & effect real, cause is the importer & no$^\dagger$ \\
-C063 & the $-Z$ facing is ``consistent across the same Hunyuan pipeline'' & partly & consistent, but not $-Z$; copied into the boss tool as an ``NPC-pipeline finding'' & no$^\dagger$ \\
+C011 & the historian showed its back because ``Hunyuan front-view exports face -Z'' & partly & effect real, cause is the importer & no$^\dagger$ \\
+C063 & the $-Z$ facing is ``consistent across the same Hunyuan pipeline'' & partly & consistent, but the front is $+Z$ & no \\
 C003 & ``AI pivots are not at the feet'' & contradicted & origin at the base for 25/25, before and after import & no \\
-C029 & the idle loop's minimum ``differed \ldots by only 0.04 (bob was NOT the cause)'' & contradicted & idle bob 0.22\,m at game scale (0.041 in the FBX's own units) & no \\
-C041 & simplification ``converged at 105,820 faces'' after three rounds & contradicted & the shipped run stopped at 82,829 by its round limit & no$^\dagger$ \\
-C042 & Hunyuan's ``fragmented UV seam islands are a hard floor'', 50k unreachable & contradicted & 31,116 triangles in one pass, welded or not & no$^\dagger$ \\
+C029 & the loop minimum ``differed from the single frame by only 0.04 (bob was NOT the cause)'' & contradicted & the idle bob alone is 0.22\,m at game scale, the size of the residual hover & no \\
+C041 & simplification ``converged at 105,820 faces'' after three rounds (tr.) & contradicted & the shipped run stopped at 82,829 by its round limit & yes$^\dagger$ \\
+C042 & ``Hunyuan's fragmented UV seam islands are a hard floor; 50k is unreachable'' (tr.) & contradicted & 31,116 triangles in one pass, welded or not & no$^\dagger$ \\
 C053 & ``FacePitch -90'' stands the companion upright & contradicted & root rotation is $+90^\circ$; $-90$ turns it head-down & yes \\
 \bottomrule
 \end{tabularx}
 \end{table*}
 
 The two extractors found 83 distinct claims about the generated assets, 62 of
-them independently. Judge agreement before resolution was 76\,\% (Cohen's
-$\kappa = 0.64$); all 20 disagreements were resolved under a rule fixed in
-advance (a verdict needs a measurement of the asset concerned; inferences from
-other assets go to \texttt{UNTESTABLE}). Forty claims could not be tested
-against this study's measurements and four concerned non-generated models. Of
-the 39 testable claims, 31 were confirmed and eight were contradicted or only
-partly supported (20.5\,\%), so H6, set at 20\,\%, is met narrowly; under the
-second judge's verdicts alone the share is 31\,\% (16 of 51).
+them independently. The two judges agreed on 76\,\% of claims before resolution
+(Cohen's $\kappa = 0.64$). The 20 disagreements were resolved by the assistant
+under two rules: a verdict needs a measurement of the asset the claim is about,
+and claims about engine-side readings we did not reproduce are
+\texttt{UNTESTABLE}. Fourteen of the 20 went the first judge's way (the first
+judge is the assistant itself), and the final verdicts equal the first judge's on
+77 of 83 claims, so we also report the second judge's verdicts alone. Forty claims
+could not be tested and four concerned non-generated models. Of the 39 testable
+claims, 31 were confirmed and eight were contradicted or only partly supported
+(20.5\,\%), so H6, set at 20\,\%, is met narrowly; under the second judge's
+verdicts alone the share is 31\,\% (16 of 51).
 
-The pattern is clearer than the rate (Table~\ref{tab:claims}). The confirmed
-claims are mostly numbers read off a file: triangle counts, texture sizes,
-bounding boxes, the root rotation. The wrong ones are mostly explanations, and
-the two wrong numbers were offered as explanations too: a face count at which
-simplification had supposedly ``converged'', and a 0.04 that ruled out a cause. Five of the
-eight blame the generator for something the pipeline did: the importer reversed
-the front, our script's round limit stopped the simplification, and the origin
-was where glTF puts it. The other three are a face count the shipped script
-never produced, a pitch with the wrong sign, and the dismissal of the idle bob.
-The ``0.04'' that ruled out the bob matches the bob in the FBX's own units
-(0.041), while the hover it was compared with was in scene units, where the bob
-is 0.22\,m; the development logs that would show which numbers were compared no
-longer exist, so this is our reading, not an established fact.
+The confirmed claims are mostly readings off a file: triangle counts, texture
+sizes, bounding boxes, the root rotation. The wrong ones concern how an asset
+relates to the pipeline around it (Table~\ref{tab:claims}). Four blame the
+generator for something the pipeline did, three of them being the same $-Z$
+explanation (the importer reversed the front) and one the ``hard floor'' (our
+script's round limit stopped the simplification). One describes the generator's
+output wrongly (the origin is at the base). The other three are a face count at
+which simplification had supposedly converged, a pitch with the wrong sign, and
+the dismissal of the idle bob. That dismissal rests on an engine reading of
+0.04 that we cannot check; offline, the bob alone is 0.22\,m at the game's scale,
+the size of the residual hover the developer reported, so the conclusion does not
+hold unless the engine scaled the boss differently. The wrong claims split evenly
+between the two main models, four each.
 
-Wrong explanations were not corrected; they were reused. Five of the six
-contradicted claims were never revised (H7), and three of them, with both
-partly-wrong ones, are still written in the final build's tool comments, a script
-and a design note. The ``$-Z$'' explanation travelled: from the NPC
-import tool (June 23) to the boss tool, whose comment calls it an
-``NPC-pipeline finding'' (July 9), and to the companion's design note as an
-expectation (July 15). Only one wrong claim, the companion's pitch, was revised,
-after its effect (a fox standing on its head) appeared on screen five minutes
-later. By kind, two of five testable causal claims were wrong against three of 14
-property claims and two of 14 magnitudes (H8, exploratory; the counts are too
-small to separate).
+Four of the six contradicted claims were never revised (H7). The one that was
+copied furthest is the $-Z$ explanation: written into the NPC import tool on
+June 23, cited in the boss tool's comment as an ``NPC-pipeline finding'' on
+July 9, and repeated as an expectation in the companion's design note on July 15,
+written by the other model; it is still in the final build's code.
+Of the two revised claims, the pitch was corrected after its effect (a fox
+standing on its head) appeared on screen five minutes later, and the face count
+36 minutes later, when a commit reported the actual 82,829, although the design
+note still says the simplification converged. By kind, two of five testable
+causal claims were wrong against three of 14 property claims and two of 14
+magnitudes (H8, exploratory); the counts are too small to separate.
 
-\subsection{Defect lifecycles: what is seen is fixed, what is not seen ships}
+\subsection{Defect lifecycles}
 \label{sec:lifecycle}
 
 \begin{table}[t]
-\caption{Lifecycle of the defects involving generated assets (game history up to
-the final build). Channel: who first described the symptom. Hours: introduced to
-observed, observed to fixed. ``--'' = not fixed.}
+\caption{Defects involving generated assets, from git up to the final build.
+Channel: who first described the symptom. Obs.: hours from introduction to the
+first commit or note describing it; Fix: hours from that description to the
+fixing commit (reports themselves were not recorded). A preventive shader change
+with no symptom is omitted.}
 \label{tab:life}
 \small
 \begin{tabularx}{\columnwidth}{@{}Ylrrc@{}}
@@ -79,29 +85,32 @@ Magenta material & import & 22 & 0 & no \\
 Companion on its back (2 fixes) & play-test & 0.4 & 0.1 & no \\
 Boss double turn & play-test & 0.3 & 0 & no \\
 Boss hover (5 fixes) & play-test & 52 & 0.4 & no \\
-\quad fix 1 no-op; fix 4 sank 1.5\,m & play-test & 0.2 & 0 & no \\
+\quad fix 1 no effect; fix 4 sank 1.5\,m & play-test & 0.1 & 0 & no \\
 Boss normal-map type & assistant & 43 & 0 & no \\
 Idle bob 0.22\,m & play-test & 52 & -- & yes \\
 Base maps uncompressed & AI review & 560 & -- & yes \\
 Normal/MR maps dropped & this audit & 2{,}513 & -- & yes \\
 CPU-readable copies & this audit & 2{,}513 & -- & yes \\
 Companion torn & this audit & 1{,}953 & -- & yes \\
-Other clips sink (latent) & this audit & -- & -- & latent \\
+Other clips sink & this audit & -- & -- & latent \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-Table~\ref{tab:life} is the defect record of the generated assets. H9 holds:
-every defect clearly visible in normal play was fixed, each within an hour of
-being reported, and every defect not visible on screen is in the final build. The boss's hover took five commits in 26 minutes, and two of them
-introduced defects of their own (a fix that changed nothing, and one that sank
-the boss 1.5\,m into its platform). The idle bob was reported once and accepted.
+Table~\ref{tab:life} is the defect record of the generated assets. H9 holds with
+two qualifications. Every defect clearly visible in normal play was fixed except the
+idle bob, which was reported once and accepted; each fixing commit came within an
+hour of the first commit describing the symptom (the reports themselves were not
+recorded). Every defect not visible on screen shipped except one, the boss's
+normal-map import type, which the assistant caught in a pre-release code review.
+The boss's hover took five commits in 26 minutes: the first had no effect and the
+fourth sank the boss 1.5\,m into its platform before the fifth settled it.
 
-Two of the shipped defects had been seen. On July 15 an external AI review of
-the project, committed to the repository, estimated each of the 24 GLBs at
-``about 89\,MB uncompressed'' in the build and proposed compressing their
-textures; the commit that adopted the review's fixes the same day did not adopt
-this one, and no later commit did. The companion's cracks passed a play check
-recorded as ``Play-verified''. The other clips' predicted sinking is latent: no
-script in the final build fires the boss's attack, hit or leap triggers, so only
-the idle loop ever plays.
+One shipped defect had been flagged in writing. On July 15 an external AI review of
+the project, committed to the repository, estimated each of the 24 GLBs at about
+89\,MB uncompressed in the build and proposed compressing their textures (tr.);
+the commit that adopted the review's other fixes the same day did not adopt this
+one, no later commit did, and no reason was recorded. The companion's cracks
+passed a play check recorded only as ``Play-verified''. The other clips'
+predicted sinking is latent: no script in the final build fires the boss's
+attack, hit or leap triggers, so only the idle loop ever plays.

@@ -5,18 +5,20 @@ minute or two~\cite{zhao2025hunyuan3d20,xiang2025trellis}, and AI coding
 assistants write much of the code that imports, converts and places those meshes.
 A solo developer can now build a complete game this way. The game studied here,
 ChronoTraveler, has 15 non-player characters and nine props that each came from
-one drawing, and 410 of its 484 commits were co-authored by an assistant.
+one drawing, and 410 of its 484 commits were co-authored by an assistant (three
+Claude models over the period, two of them for nearly all commits).
 
 Generated meshes are usually judged by how they look. Engine readiness depends on
 other properties: size and orientation, origin, closed and manifold surfaces,
 memory, whether the mesh survives simplification, and, once rigged, where the
 feet are when it moves. When something goes wrong, a second question follows:
-whose fault is it, the generator's or the pipeline's? In an assistant-built game
-that question is usually answered by the assistant, in a commit message or a code
-comment, and the answer then shapes the next fix.
+whose fault is it, the generator's or the pipeline's? In this game that
+question was usually answered by the assistant, in a commit message or a code
+comment, and the answer then shaped the next fix.
 
 This paper audits the generated meshes of the completed game against those
-properties, and then audits the assistant's explanations. We committed an
+properties, and then audits the assistant's explanations. We speak of ``the
+assistant'' for the models together, and name the model where it matters. We committed an
 analysis plan before writing any audit script, measured every generated asset,
 compared them with the game's purchased meshes, read the textures the shipped
 build actually stores, simplified each mesh under several inputs and tools, and
@@ -27,11 +29,11 @@ each defect's history from git. Internal fact-checks and a review of the first
 draft led to further measurements, which we mark as such.
 
 Most of what went wrong came from the pipeline, not the generator, and several
-of the assistant's explanations said the opposite. Its wrong claims were
-mostly explanations rather than readings; most blamed the generator; they were written
-into tool comments, copied to other tools and never revised. Defects that showed
-on screen were fixed within the hour; defects that did not, from uncompressed
-textures to a torn mesh, shipped.
+of the assistant's explanations said the opposite. One of them, that the
+generator's characters face $-Z$, was written into a tool comment, cited in the
+next tool as a finding and never revised. Defects that showed on screen were
+fixed, mostly within the hour; defects that did not, from uncompressed textures
+to a torn mesh, shipped.
 
 Contributions: (1) an audit of every generated mesh in a completed game, with
 scripts, measurements and review reports released; (2) an attribution audit of
