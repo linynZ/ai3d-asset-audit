@@ -1,0 +1,47 @@
+\section{Limitations}
+
+\paragraph{Scope.} One generator, one version, one game: 24 assets from one
+setting plus two from other routes. Hunyuan 3D's web service is closed and
+changes over time; another generator, or this one a few months later, may differ
+on every property we measured. The 50k-face setting and 4096$^2$ textures were the
+defaults we used, not a sweep.
+
+\paragraph{No frame-time measurements.} Memory figures are estimates from texel
+counts and formats; the one in-game cross-check is a scene-level total that
+includes other content. We did not profile draw calls, frame time or GPU memory
+per asset, and the game's benchmarks never isolated these assets.
+
+\paragraph{Labelling.} The 156 history labels were drafted by two AI labellers
+and reviewed by the AI assistant, with the author signing off; there was no second
+human rater. Commit messages describe what the developer believed at the time, so
+root causes inherit their mistakes (for example, a fix attributed to idle ``bob''
+that the next commit disproved). Keyword search misses commits that never used
+the words.
+
+\paragraph{Grounding.} Ground truth comes from Blender's evaluation of the FBX,
+not from the engine. The Unity-side scaling ambiguity is reported from the commit
+record and was not reproduced. The boss is one rig with four animations.
+
+\paragraph{Quality not scored.} We did not measure visual fidelity to the input
+image, texture quality, or how players perceived any of the assets.
+
+\paragraph{Authorship.} The author developed the game with an AI coding
+assistant, and the same assistant helped design and run this audit and draft the
+paper. Plan, scripts, outputs and labels are public so that the numbers can be
+checked without trusting either.
+
+\section{Deviations from the Plan}
+\label{sec:deviations}
+\begin{itemize}
+\item B4 was planned with one with-UV condition. After B2 found the shipped
+  companion torn, the with-UV condition was run on two input representations
+  (seam-split \emph{S}, welded \emph{W}); both are reported.
+\item B5 labels were drafted by two AI labellers splitting the commits in half,
+  rather than one; the reviewer added an \emph{origin} field not in the plan and
+  changed one \texttt{precheck} value (the boss hover, from ``none'' to per-frame
+  animation, because E1 shows an offline check finds it). Both are recorded with
+  reasons in \texttt{results/history\_labels.json}.
+\item The scene-memory consistency check (Section~\ref{sec:cost}) was not planned.
+\item The GLB reader and the hygiene script were run before the B4 script was
+  written; no hypothesis or threshold was changed after any result was seen.
+\end{itemize}

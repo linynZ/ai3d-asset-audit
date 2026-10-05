@@ -1,0 +1,2402 @@
+[
+ {
+  "id": "npc_china_artisan",
+  "group": "npc",
+  "file_bytes": 33297520,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 38262,
+  "triangles": 49772,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.21455,
+   0.0,
+   -0.36048
+  ],
+  "bbox_max": [
+   0.24048,
+   1.10631,
+   0.20754
+  ],
+  "extent_xyz": [
+   0.45503,
+   1.10631,
+   0.56801
+  ],
+  "largest_extent": 1.10631,
+  "height_y": 1.10631,
+  "pivot_frac_xyz": [
+   0.4715,
+   -0.0,
+   0.6346
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 7166523,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 16427746,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 8178261,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1523016,
+   "texture_container_bytes": 31772530,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_china_guardian",
+  "group": "npc",
+  "file_bytes": 37478512,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 38497,
+  "triangles": 49684,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.31716,
+   0.0,
+   -0.30899
+  ],
+  "bbox_max": [
+   0.29571,
+   0.99261,
+   0.21484
+  ],
+  "extent_xyz": [
+   0.61287,
+   0.99261,
+   0.52384
+  ],
+  "largest_extent": 0.99261,
+  "height_y": 0.99261,
+  "pivot_frac_xyz": [
+   0.5175,
+   -0.0,
+   0.5899
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 6873021,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 15384489,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 13689018,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1530008,
+   "texture_container_bytes": 35946528,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_china_historian",
+  "group": "npc",
+  "file_bytes": 29550180,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 35827,
+  "triangles": 49818,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.27273,
+   0.0,
+   -0.17745
+  ],
+  "bbox_max": [
+   0.25467,
+   1.151,
+   0.16146
+  ],
+  "extent_xyz": [
+   0.52739,
+   1.151,
+   0.33891
+  ],
+  "largest_extent": 1.151,
+  "height_y": 1.151,
+  "pivot_frac_xyz": [
+   0.5171,
+   -0.0,
+   0.5236
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 5268974,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 14805768,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 8028099,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1445372,
+   "texture_container_bytes": 28102841,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_egypt_guardian",
+  "group": "npc",
+  "file_bytes": 40459300,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 36992,
+  "triangles": 49880,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.4598,
+   -0.0,
+   -0.24452
+  ],
+  "bbox_max": [
+   0.363,
+   1.03564,
+   0.22929
+  ],
+  "extent_xyz": [
+   0.8228,
+   1.03564,
+   0.4738
+  ],
+  "largest_extent": 1.03564,
+  "height_y": 1.03564,
+  "pivot_frac_xyz": [
+   0.5588,
+   0.0,
+   0.5161
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 7146875,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 17758360,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 14069076,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1483024,
+   "texture_container_bytes": 38974311,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_egypt_priest",
+  "group": "npc",
+  "file_bytes": 34710136,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 35683,
+  "triangles": 49774,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.34807,
+   0.0,
+   -0.3818
+  ],
+  "bbox_max": [
+   0.30411,
+   0.98915,
+   0.17001
+  ],
+  "extent_xyz": [
+   0.65219,
+   0.98915,
+   0.55181
+  ],
+  "largest_extent": 0.98915,
+  "height_y": 0.98915,
+  "pivot_frac_xyz": [
+   0.5337,
+   -0.0,
+   0.6919
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 5421199,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 14631029,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 13215436,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1440500,
+   "texture_container_bytes": 33267664,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_egypt_scribe",
+  "group": "npc",
+  "file_bytes": 35840740,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 36645,
+  "triangles": 49656,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.31801,
+   0.0,
+   -0.2952
+  ],
+  "bbox_max": [
+   0.29569,
+   1.00922,
+   0.27703
+  ],
+  "extent_xyz": [
+   0.6137,
+   1.00922,
+   0.57222
+  ],
+  "largest_extent": 1.00922,
+  "height_y": 1.00922,
+  "pivot_frac_xyz": [
+   0.5182,
+   -0.0,
+   0.5159
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 5790530,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 16165446,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 12412218,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1470576,
+   "texture_container_bytes": 34368194,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_greece_guardian",
+  "group": "npc",
+  "file_bytes": 41334708,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 37883,
+  "triangles": 49900,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.42277,
+   -0.0,
+   -0.27859
+  ],
+  "bbox_max": [
+   0.31135,
+   0.98186,
+   0.66592
+  ],
+  "extent_xyz": [
+   0.73412,
+   0.98186,
+   0.94451
+  ],
+  "largest_extent": 0.98186,
+  "height_y": 0.98186,
+  "pivot_frac_xyz": [
+   0.5759,
+   0.0,
+   0.295
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 8031776,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 18362301,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 13427004,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1511656,
+   "texture_container_bytes": 39821081,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_greece_historian",
+  "group": "npc",
+  "file_bytes": 33529012,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 38784,
+  "triangles": 49850,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.30482,
+   -0.0,
+   -0.16184
+  ],
+  "bbox_max": [
+   0.25888,
+   1.13379,
+   0.14341
+  ],
+  "extent_xyz": [
+   0.5637,
+   1.13379,
+   0.30525
+  ],
+  "largest_extent": 1.13379,
+  "height_y": 1.13379,
+  "pivot_frac_xyz": [
+   0.5408,
+   0.0,
+   0.5302
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 6382370,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 18094821,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 7509661,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1540188,
+   "texture_container_bytes": 31986852,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_greece_sage",
+  "group": "npc",
+  "file_bytes": 32470988,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 37302,
+  "triangles": 49832,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.2514,
+   -0.0,
+   -0.17991
+  ],
+  "bbox_max": [
+   0.26422,
+   1.14558,
+   0.24328
+  ],
+  "extent_xyz": [
+   0.51562,
+   1.14558,
+   0.42318
+  ],
+  "largest_extent": 1.14558,
+  "height_y": 1.14558,
+  "pivot_frac_xyz": [
+   0.4876,
+   0.0,
+   0.4251
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 6099832,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 17301426,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 7575105,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1492656,
+   "texture_container_bytes": 30976363,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_rome_engineer",
+  "group": "npc",
+  "file_bytes": 32526860,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 42648,
+  "triangles": 48658,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.22234,
+   -0.0,
+   -0.15258
+  ],
+  "bbox_max": [
+   0.26191,
+   1.14167,
+   0.19318
+  ],
+  "extent_xyz": [
+   0.48425,
+   1.14167,
+   0.34576
+  ],
+  "largest_extent": 1.14167,
+  "height_y": 1.14167,
+  "pivot_frac_xyz": [
+   0.4591,
+   0.0,
+   0.4413
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 5791433,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 17093470,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 7983297,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1656684,
+   "texture_container_bytes": 30868200,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_rome_guardian",
+  "group": "npc",
+  "file_bytes": 39537048,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 38557,
+  "triangles": 50006,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.36603,
+   0.0,
+   -0.19736
+  ],
+  "bbox_max": [
+   0.31389,
+   1.1218,
+   0.40756
+  ],
+  "extent_xyz": [
+   0.67991,
+   1.1218,
+   0.60492
+  ],
+  "largest_extent": 1.1218,
+  "height_y": 1.1218,
+  "pivot_frac_xyz": [
+   0.5383,
+   -0.0,
+   0.3263
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 6551510,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 17367085,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 14082618,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1533860,
+   "texture_container_bytes": 38001213,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_rome_senator",
+  "group": "npc",
+  "file_bytes": 37394340,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 36850,
+  "triangles": 49930,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.24793,
+   0.0,
+   -0.17195
+  ],
+  "bbox_max": [
+   0.24449,
+   1.11545,
+   0.31371
+  ],
+  "extent_xyz": [
+   0.49242,
+   1.11545,
+   0.48566
+  ],
+  "largest_extent": 1.11545,
+  "height_y": 1.11545,
+  "pivot_frac_xyz": [
+   0.5035,
+   -0.0,
+   0.354
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 5982307,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 17182921,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 12748363,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1478780,
+   "texture_container_bytes": 35913591,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_trade_guardian",
+  "group": "npc",
+  "file_bytes": 36190660,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 38607,
+  "triangles": 49676,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.31982,
+   0.0,
+   -0.19911
+  ],
+  "bbox_max": [
+   0.27054,
+   1.13254,
+   0.26638
+  ],
+  "extent_xyz": [
+   0.59036,
+   1.13254,
+   0.46548
+  ],
+  "largest_extent": 1.13254,
+  "height_y": 1.13254,
+  "pivot_frac_xyz": [
+   0.5417,
+   -0.0,
+   0.4277
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 8510689,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 18686913,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 7457603,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1533480,
+   "texture_container_bytes": 34655205,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_trade_leader",
+  "group": "npc",
+  "file_bytes": 32285948,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 38756,
+  "triangles": 49928,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.27299,
+   -0.0,
+   -0.20969
+  ],
+  "bbox_max": [
+   0.25203,
+   1.12451,
+   0.20124
+  ],
+  "extent_xyz": [
+   0.52503,
+   1.12451,
+   0.41092
+  ],
+  "largest_extent": 1.12451,
+  "height_y": 1.12451,
+  "pivot_frac_xyz": [
+   0.52,
+   0.0,
+   0.5103
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 6736253,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 17285361,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 6722598,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1539760,
+   "texture_container_bytes": 30744212,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "npc_trade_monk",
+  "group": "npc",
+  "file_bytes": 31363388,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 37612,
+  "triangles": 49428,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.25286,
+   -0.0,
+   -0.1603
+  ],
+  "bbox_max": [
+   0.24113,
+   1.13973,
+   0.1473
+  ],
+  "extent_xyz": [
+   0.49399,
+   1.13973,
+   0.30761
+  ],
+  "largest_extent": 1.13973,
+  "height_y": 1.13973,
+  "pivot_frac_xyz": [
+   0.5119,
+   0.0,
+   0.5211
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 6356962,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 15842439,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 7661868,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1500152,
+   "texture_container_bytes": 29861269,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "prop_trade_camel_resting",
+  "group": "prop",
+  "file_bytes": 52066468,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 40050,
+  "triangles": 49976,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.56681,
+   0.0,
+   -0.21936
+  ],
+  "bbox_max": [
+   0.51872,
+   0.61293,
+   0.21478
+  ],
+  "extent_xyz": [
+   1.08553,
+   0.61293,
+   0.43414
+  ],
+  "largest_extent": 1.08553,
+  "height_y": 0.61293,
+  "pivot_frac_xyz": [
+   0.5221,
+   -0.0,
+   0.5053
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 15781237,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 23585516,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 11116288,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1581456,
+   "texture_container_bytes": 50483041,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "prop_trade_camel_standing",
+  "group": "prop",
+  "file_bytes": 39219648,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 37188,
+  "triangles": 49998,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.42542,
+   0.0,
+   -0.25057
+  ],
+  "bbox_max": [
+   0.55303,
+   0.93443,
+   0.251
+  ],
+  "extent_xyz": [
+   0.97844,
+   0.93443,
+   0.50158
+  ],
+  "largest_extent": 0.97844,
+  "height_y": 0.93443,
+  "pivot_frac_xyz": [
+   0.4348,
+   -0.0,
+   0.4996
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 9627464,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 18772069,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 9328141,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1490004,
+   "texture_container_bytes": 37727674,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "prop_trade_camel_standing_b",
+  "group": "prop",
+  "file_bytes": 49584084,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 42963,
+  "triangles": 49924,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.53246,
+   -0.0,
+   -0.20191
+  ],
+  "bbox_max": [
+   0.41143,
+   0.77388,
+   0.19799
+  ],
+  "extent_xyz": [
+   0.94388,
+   0.77388,
+   0.39991
+  ],
+  "largest_extent": 0.94388,
+  "height_y": 0.77388,
+  "pivot_frac_xyz": [
+   0.5641,
+   0.0,
+   0.5049
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 14644522,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 23899226,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 9364003,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1674360,
+   "texture_container_bytes": 47907751,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "prop_trade_cart",
+  "group": "prop",
+  "file_bytes": 36217116,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 39300,
+  "triangles": 49998,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.23734,
+   0.0,
+   -0.43299
+  ],
+  "bbox_max": [
+   0.23938,
+   0.50355,
+   0.71418
+  ],
+  "extent_xyz": [
+   0.47672,
+   0.50355,
+   1.14717
+  ],
+  "largest_extent": 1.14717,
+  "height_y": 0.50355,
+  "pivot_frac_xyz": [
+   0.4979,
+   -0.0,
+   0.3774
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 8321053,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 17908419,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 8428083,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1557588,
+   "texture_container_bytes": 34657555,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "prop_trade_horse",
+  "group": "prop",
+  "file_bytes": 35613144,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 39480,
+  "triangles": 49996,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.26242,
+   -0.0,
+   -0.47353
+  ],
+  "bbox_max": [
+   0.26212,
+   0.78499,
+   0.59669
+  ],
+  "extent_xyz": [
+   0.52453,
+   0.78499,
+   1.07022
+  ],
+  "largest_extent": 1.07022,
+  "height_y": 0.78499,
+  "pivot_frac_xyz": [
+   0.5003,
+   0.0,
+   0.4425
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 8202093,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 16580191,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 9265556,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1563336,
+   "texture_container_bytes": 34047840,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "prop_trade_milestone",
+  "group": "prop",
+  "file_bytes": 36982680,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 35754,
+  "triangles": 49726,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.3447,
+   -0.0,
+   -0.41619
+  ],
+  "bbox_max": [
+   0.38243,
+   0.89501,
+   0.37276
+  ],
+  "extent_xyz": [
+   0.72713,
+   0.89501,
+   0.78894
+  ],
+  "largest_extent": 0.89501,
+  "height_y": 0.89501,
+  "pivot_frac_xyz": [
+   0.4741,
+   0.0,
+   0.5275
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 9749375,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 16709887,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 9078963,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1442484,
+   "texture_container_bytes": 35538225,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "prop_trade_silk_bolts",
+  "group": "prop",
+  "file_bytes": 35314000,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 34117,
+  "triangles": 49976,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.33495,
+   -0.0,
+   -0.51575
+  ],
+  "bbox_max": [
+   0.28337,
+   0.62148,
+   0.48148
+  ],
+  "extent_xyz": [
+   0.61832,
+   0.62148,
+   0.99722
+  ],
+  "largest_extent": 0.99722,
+  "height_y": 0.62148,
+  "pivot_frac_xyz": [
+   0.5417,
+   0.0,
+   0.5172
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 7409713,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 18662682,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 7848036,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1391600,
+   "texture_container_bytes": 33920431,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "prop_trade_spice_sacks",
+  "group": "prop",
+  "file_bytes": 43633672,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 32480,
+  "triangles": 49992,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.51256,
+   -0.0,
+   -0.58908
+  ],
+  "bbox_max": [
+   0.52105,
+   0.39146,
+   0.48887
+  ],
+  "extent_xyz": [
+   1.03361,
+   0.39146,
+   1.07795
+  ],
+  "largest_extent": 1.07795,
+  "height_y": 0.39146,
+  "pivot_frac_xyz": [
+   0.4959,
+   0.0,
+   0.5465
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 11142694,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 19173935,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 11975757,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1339312,
+   "texture_container_bytes": 42292386,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "prop_trade_stupa",
+  "group": "prop",
+  "file_bytes": 36563596,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 34070,
+  "triangles": 50124,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.25867,
+   -0.0,
+   -0.26818
+  ],
+  "bbox_max": [
+   0.25855,
+   0.973,
+   0.25568
+  ],
+  "extent_xyz": [
+   0.51722,
+   0.973,
+   0.52387
+  ],
+  "largest_extent": 0.973,
+  "height_y": 0.973,
+  "pivot_frac_xyz": [
+   0.5001,
+   0.0,
+   0.5119
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 10295161,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 16322465,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 8553010,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 1390984,
+   "texture_container_bytes": 35170636,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ },
+ {
+  "id": "xuanji_raw",
+  "group": "companion_raw",
+  "file_bytes": 56573084,
+  "primitives": 1,
+  "materials": 1,
+  "vertices": 306307,
+  "triangles": 497850,
+  "attributes": [
+   "NORMAL",
+   "POSITION",
+   "TEXCOORD_0"
+  ],
+  "bbox_min": [
+   -0.44311,
+   -0.0,
+   -0.30143
+  ],
+  "bbox_max": [
+   0.42935,
+   1.10538,
+   0.22317
+  ],
+  "extent_xyz": [
+   0.87246,
+   1.10538,
+   0.52459
+  ],
+  "largest_extent": 1.10538,
+  "height_y": 1.10538,
+  "pivot_frac_xyz": [
+   0.5079,
+   0.0,
+   0.5746
+  ],
+  "node_transforms": [
+   {
+    "node": 0,
+    "name": "node_0",
+    "rotation": [
+     0.7071068286895752,
+     0,
+     0,
+     0.7071068286895752
+    ]
+   }
+  ],
+  "double_sided": [
+   true
+  ],
+  "alpha_mode": [
+   "OPAQUE"
+  ],
+  "material_extensions": [
+   "KHR_materials_specular"
+  ],
+  "extensions_used": [
+   "KHR_materials_specular"
+  ],
+  "generator": "Khronos glTF Blender I/O v4.0.43",
+  "skins": 0,
+  "animations": 0,
+  "images": [
+   {
+    "name": "texture_pbr_20250901_normal",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 9858528,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 18141123,
+    "width": 4096,
+    "height": 4096
+   },
+   {
+    "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+    "mime": "image/png",
+    "format": "png",
+    "bytes": 12795428,
+    "width": 4096,
+    "height": 4096
+   }
+  ],
+  "cost": {
+   "geometry_bytes_as_stored": 15776024,
+   "texture_container_bytes": 40795079,
+   "texture_rgba8_mip_bytes": 268435456,
+   "texture_bc7_mip_bytes": 67108864,
+   "texture_bc1_mip_bytes": 33554432
+  }
+ }
+]

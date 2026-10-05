@@ -1,0 +1,8 @@
+The design note for that step recorded that simplification ``converged'' near
+106k triangles because the generator's UV islands were a hard floor. The data say
+otherwise: 82,829 is $497{,}850 \times 0.55^3$, the loop's per-round factor
+applied three times, so the script stopped because it ran out of rounds, not
+because it hit a floor. On the welded input the same filter takes the companion
+to 31,116 triangles (6.25\,\%) in one pass with no open edges and a mean error of
+0.014\,\% of the diagonal; the seam-split input reaches the same count with
+34,624 open edges.

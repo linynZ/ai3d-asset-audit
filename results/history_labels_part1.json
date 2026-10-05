@@ -1,0 +1,799 @@
+[
+ {
+  "hash": "8cf17f7",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Battle UI redesign; keyword hit is UI ('floating damage numbers'), no 3D asset involved."
+ },
+ {
+  "hash": "d1961c3",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Imports 2D boss portraits (立绘) as sprites; no meshes."
+ },
+ {
+  "hash": "2e20884",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "UI: 'show player 立绘 in original orientation (no mirror)' — 2D portrait, not a mesh."
+ },
+ {
+  "hash": "0ca4bd9",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "2D NPC dialogue portraits with background removal; no meshes."
+ },
+ {
+  "hash": "f27527d",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Dialogue UI portrait re-anchoring ('pivot bottom-right') — UI pivot, not a mesh."
+ },
+ {
+  "hash": "782f6c7",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "medium",
+  "note": "PMX->FBX + humanoid avatar tooling for licensed hand-made Astraea (MMD bone mapping, 'FBX materials import white under URP'); not a generated asset, feature not fix."
+ },
+ {
+  "hash": "3d42385",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Player controller animator + Mixamo retarget onto licensed Astraea model."
+ },
+ {
+  "hash": "6530b88",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Player controller tuning: 'runBlend to narrow the run's wide stance'."
+ },
+ {
+  "hash": "bf8b555",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "PMX stage importer for scenery ('MMD stages rely on backfaces', fixed scale) — environment asset, not generated."
+ },
+ {
+  "hash": "3a401b5",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Temple .blend->FBX converter + PBR->URP for licensed scene asset."
+ },
+ {
+  "hash": "1fa987b",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Commits licensed temple environment (~0.7M tris, rebuilt URP mats) — purchased/licensed, not generated."
+ },
+ {
+  "hash": "a967457",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "China level layout rework (linear journey, boss gate)."
+ },
+ {
+  "hash": "69f887f",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "China level look: fog, temple scale x1.5/re-centre, portal intensity."
+ },
+ {
+  "hash": "9349302",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Full temple-valley environment pipeline (licensed .blend, trees decimated 0.5, mesh colliders) — not image-to-3D."
+ },
+ {
+  "hash": "9859bb0",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "'ground all China gameplay objects via downward raycast (no more floating)' — placement of orbs/enemies/portal."
+ },
+ {
+  "hash": "c095373",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "'render-diorama's geometry is broken for walking ... floating temple' — licensed environment, clean approach layer."
+ },
+ {
+  "hash": "36182a5",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Spawn point past ramp edge raycast hit safety floor — spawn placement."
+ },
+ {
+  "hash": "6752661",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Side walls + rerun height-creep from colliders intercepting grounding raycasts — level tooling."
+ },
+ {
+  "hash": "952d268",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "'NPCs were sunk (capsule pivot at centre placed at ground)' — placeholder capsules, pre-dates generated NPC meshes."
+ },
+ {
+  "hash": "80aee68",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Cosmetic stair treads + railings on temple path."
+ },
+ {
+  "hash": "2fdd2b8",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Rebuild China from grounded primitives ('stop forcing the render-diorama (floating/clipping/scale mess)')."
+ },
+ {
+  "hash": "d3c0c36",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Hub palace from commercial PMX + portals/atmosphere — licensed environment."
+ },
+ {
+  "hash": "8f8aadf",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "chore: save China level + commercial temple textures."
+ },
+ {
+  "hash": "9311314",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Bilingual i18n; keyword match incidental."
+ },
+ {
+  "hash": "92e9b3b",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Procedural Anomaly shader for enemies ('grown bounds' for vertex displacement) — procedural VFX, not a generated mesh."
+ },
+ {
+  "hash": "6351efb",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "UI localisation phase 2; keyword match incidental."
+ },
+ {
+  "hash": "06b3972",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Battle UI game-feel (screen shake, 'Damage numbers scale') — UI scale."
+ },
+ {
+  "hash": "7c9e364",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "medium",
+  "note": "Checkpoint chore: rb.velocity API rename, MainScene, font atlas, temple prefab (licensed)."
+ },
+ {
+  "hash": "b9bfdfb",
+  "label": "OTHER",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "PerfRecorder sampleSeconds bug — 'float'/time math, unrelated."
+ },
+ {
+  "hash": "0e450b4",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Docs: narrative design spec."
+ },
+ {
+  "hash": "0d61251",
+  "label": "OTHER",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Cutscene JSON audio clip fix."
+ },
+ {
+  "hash": "e2cd174",
+  "label": "OTHER",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Audio volume restore + cutscene try/finally."
+ },
+ {
+  "hash": "91f675a",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Hub portals pentagon + 'rebuilds the invisible walk floor' after palace rescaled ~5x — licensed environment."
+ },
+ {
+  "hash": "0af6efd",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "medium",
+  "note": "Hub floor/spawn derived from portal ring ('spawn landing outside/below the floor'); also UI portrait anchoring (pivot) — no generated mesh."
+ },
+ {
+  "hash": "056aba6",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "chore: Hub floor/fog rescale + CJK atlas."
+ },
+ {
+  "hash": "8a889ef",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "medium",
+  "note": "TrySwapModel placed model at capsule centre, 'leaving feet-at-origin assets (VRM/VRoid exports) floating ~1m' — placement code, predates Hunyuan meshes; a hand-made model hits it equally."
+ },
+ {
+  "hash": "666c3be",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "medium",
+  "note": "ComfyUI outpaint prompt for 2D reference image fed to image-to-3D; upstream of the mesh, no mesh property involved."
+ },
+ {
+  "hash": "e4d88ef",
+  "label": "OTHER",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "medium",
+  "note": "ComfyUI outpaint extra-hands fix in 2D reference image; generation input, not a mesh property."
+ },
+ {
+  "hash": "562fe4d",
+  "label": "OTHER",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "medium",
+  "note": "ComfyUI outpaint body proportions in 2D reference; not a mesh property."
+ },
+ {
+  "hash": "03bb02f",
+  "label": "OTHER",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "medium",
+  "note": "ComfyUI outpaint robe continuation in 2D reference; not a mesh property."
+ },
+ {
+  "hash": "c21ea44",
+  "label": "ASSET",
+  "is_fix": false,
+  "asset_ids": [
+   "npc_china_historian",
+   "all_npc"
+  ],
+  "property": "unit-normalised height (~1.15m), pivot not at feet, facing",
+  "precheck": "scale",
+  "confidence": "high",
+  "note": "Tool added to compensate: 'AI meshes export unit-normalised at ~1.15m', 'AI pivots are not at the feet', face-yaw option; scale/pivot countable from bounds pre-import."
+ },
+ {
+  "hash": "2594401",
+  "label": "ENGINE",
+  "is_fix": true,
+  "asset_ids": [
+   "npc_china_historian"
+  ],
+  "property": "Built-in-RP shader under URP renders magenta",
+  "precheck": null,
+  "confidence": "high",
+  "note": "'ToonOutline ... is a Built-in-RP shader ... does not render under URP' — tool's shader choice; any asset converted to it turns magenta."
+ },
+ {
+  "hash": "f3da6c2",
+  "label": "ASSET",
+  "is_fix": true,
+  "asset_ids": [
+   "npc_china_historian",
+   "all_npc"
+  ],
+  "property": "front faces -Z",
+  "precheck": "facing",
+  "confidence": "high",
+  "note": "'Hunyuan front-view exports face -Z' -> default Face Yaw 180; not detectable from metadata/vertex counts alone, needs a convention probe or render."
+ },
+ {
+  "hash": "267ff39",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [
+   "npc_china_artisan"
+  ],
+  "property": null,
+  "precheck": null,
+  "confidence": "low",
+  "note": "Adds a raw GLB (49,772 tris, '+90deg X stand-up' noted) with no tooling/fix; documents properties but addresses none — not forced into ASSET."
+ },
+ {
+  "hash": "953f004",
+  "label": "ASSET",
+  "is_fix": false,
+  "asset_ids": [
+   "npc_china_historian",
+   "npc_china_artisan"
+  ],
+  "property": "height/facing compensation baked into prefabs",
+  "precheck": "scale",
+  "confidence": "medium",
+  "note": "Tool-built prefabs '(URP/Lit, 1.7m, yaw 180)' apply the scale/facing compensation for generated meshes; also adds missing GLB .meta."
+ },
+ {
+  "hash": "ee25720",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [
+   "npc_china_guardian"
+  ],
+  "property": null,
+  "precheck": null,
+  "confidence": "low",
+  "note": "Adds raw GLB; notes 'normalized bbox height is shorter (0.99) — may need a higher Target Height' (bounds-driven scale issue) but makes no change."
+ },
+ {
+  "hash": "c1ff678",
+  "label": "ASSET",
+  "is_fix": false,
+  "asset_ids": [
+   "npc_china_guardian"
+  ],
+  "property": "height/facing compensation baked into prefab",
+  "precheck": "scale",
+  "confidence": "medium",
+  "note": "Guardian prefab '(URP/Lit, ~1.7m, yaw 180)' applies scale/facing compensation for generated mesh."
+ },
+ {
+  "hash": "2658169",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Docs: CLAUDE.md log of NPC pipeline."
+ },
+ {
+  "hash": "1054587",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Battle Focus balance; keyword match incidental."
+ },
+ {
+  "hash": "4935bac",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Memory HUD UI ('floats a +N toast')."
+ },
+ {
+  "hash": "e10d5e8",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Objective waypoint marker VFX."
+ },
+ {
+  "hash": "d968892",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Waypoint gem polish ('small floating gem')."
+ },
+ {
+  "hash": "3ab9dab",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Waypoint size/height polish."
+ },
+ {
+  "hash": "babf978",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Waypoint 'hovers clearly above the head'."
+ },
+ {
+  "hash": "06d3d7b",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Waypoint hover distance tune."
+ },
+ {
+  "hash": "2103bab",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Docs: Xuanji 2D companion design (3D model deferred)."
+ },
+ {
+  "hash": "3371929",
+  "label": "OTHER",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "medium",
+  "note": "Xuanji 2D visibility gate (timeScale) + environment backdrop bootstrap; no generated mesh."
+ },
+ {
+  "hash": "39212ef",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Procedural OceanIsland ring sea sizing."
+ },
+ {
+  "hash": "9f13543",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Procedural sea level from player feet."
+ },
+ {
+  "hash": "78dac99",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Sea level default tune."
+ },
+ {
+  "hash": "3245990",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Sea level live-tune."
+ },
+ {
+  "hash": "81038c1",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Procedural ambient VFX/post-FX/sky birds/wind sway."
+ },
+ {
+  "hash": "9c8d47a",
+  "label": "OTHER",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "low",
+  "note": "Mainly quest soft-lock backfill; keyword hit is procedural StylizedWater 'Cull Off->Back' (would be LEVEL) — mixed commit, no generated asset."
+ },
+ {
+  "hash": "a6ebe25",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Egypt (CGM pack) placement: 'bounds.min.y was a -12 foundation' — purchased pack."
+ },
+ {
+  "hash": "9779f34",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Add MeshColliders to CGM pack env — purchased pack."
+ },
+ {
+  "hash": "d595071",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Egypt desert ground + dunes + lighting."
+ },
+ {
+  "hash": "532eaf1",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Egypt spawn/placement clamp ('悬空/落屋顶的NPC与敌人') — placement on purchased pack."
+ },
+ {
+  "hash": "edb1d48",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Scale CGM demo env 2.5x + spawn — purchased pack."
+ },
+ {
+  "hash": "c4f4ec1",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Import CGM Egypt Pack + scene (NPCs floating noted) — purchased pack/placement."
+ },
+ {
+  "hash": "aee4345",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Egypt placement anchored on spawn + walkability validation."
+ },
+ {
+  "hash": "702e01a",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Named prompts + third-person 'camera anti-clip' + layout preservation."
+ },
+ {
+  "hash": "d953468",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Return portal + hub spawn + 'ground-snaps every arrival' of the player."
+ },
+ {
+  "hash": "ac91710",
+  "label": "LEVEL",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Rebuilt 30_Egypt scene content."
+ },
+ {
+  "hash": "625b78a",
+  "label": "OTHER",
+  "is_fix": false,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "medium",
+  "note": "Procedural VFX for portals/fragments (code-generated crystal mesh, 'cull-off' material) — no generated asset."
+ },
+ {
+  "hash": "a3c8632",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Fragment colour + China procedural ocean sea level from outer ground."
+ },
+ {
+  "hash": "ad3407f",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Ocean stale negative rise tuning + median ground probe."
+ },
+ {
+  "hash": "448e956",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "'flip annulus winding — water/beach faced DOWN, culled' — procedural OceanIsland mesh."
+ },
+ {
+  "hash": "e62a49c",
+  "label": "LEVEL",
+  "is_fix": true,
+  "asset_ids": [],
+  "property": null,
+  "precheck": null,
+  "confidence": "high",
+  "note": "Procedural shoreline 'no more hovering water edge'."
+ }
+]

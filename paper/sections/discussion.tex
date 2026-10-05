@@ -1,0 +1,44 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{The mesh was the easy part.} We expected generated meshes to fail as
+meshes: holes, non-manifold edges, stray fragments. They did not. The problems
+that cost development time were conventions that a file does not state (size,
+facing), a texture budget set by the generator rather than the user, a processing
+step whose input representation we did not check, and an animation whose pose
+differed from its bind pose. Three of the six fixes repaired our own processing,
+not the generator's output, and the one simplification step we added both tore
+the mesh and rested on a wrong diagnosis: its ``UV floor'' was a loop that ran
+out of rounds. For a developer
+adopting such a pipeline, the lesson is less ``inspect the generator'' than
+``inspect every step you add after it, and the explanation you wrote down for it''.
+
+\paragraph{A pre-import checklist.} Ordered by what each check would have caught
+in this game, at the cost of a script that runs in seconds per asset:
+\begin{enumerate}
+\item \emph{Size and facing.} Read the largest extent and treat it as unitless;
+  supply real size from the design. Facing is not in the file: render one
+  thumbnail from $+Z$, or adopt the generator's convention once and test it on
+  the first asset.
+\item \emph{Texture budget.} Count texels, not triangles. Three 4096$^2$ maps cost
+  64\,MiB in BC7 per asset; most of the half-empty atlas can be dropped by
+  downscaling or re-baking.
+\item \emph{Simplification input.} Weld before simplifying, and check open edges
+  after. A seam-split buffer looks like a mesh and simplifies without error.
+\item \emph{Animated contact.} For rigged assets, evaluate each loop offline and
+  compare its lowest vertex with the bind pose; budget the bob amplitude, or use
+  foot contact handling.
+\item \emph{Topology.} Watertightness and manifoldness were never the problem
+  here, but they are cheap to count and our own tool was the one that broke them.
+\end{enumerate}
+
+\paragraph{Counting versus looking.} Our earlier audit of an LLM-generated quiz
+bank found that the defects that matter were invisible one item at a
+time and obvious when counted across the set~\cite{zhao2026countingwhat}. Generated
+meshes partly reverse this. Counting confirmed that every asset shares the same
+conventions, so one correction serves all of them, and counting found the torn
+companion and the texture budget. But the costliest defects, facing and grounding,
+were found by looking at the game, and could only have been found earlier by
+looking: rendering a view, or evaluating an animation. A useful pre-import check
+for generated geometry is a small render and a short simulation, not only a
+statistic.

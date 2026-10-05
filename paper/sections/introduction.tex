@@ -1,0 +1,38 @@
+\section{Introduction}
+
+Image-to-3D generators now turn a single drawing into a textured mesh in a
+minute or two~\cite{zhao2025hunyuan3d20,xiang2025trellis}. For a solo developer this
+changes what is affordable: the 15 non-player characters and nine props of the game
+studied here came from one drawing each, where hand modelling would have taken
+weeks. Generators are evaluated on how their output looks, against the input image
+or by human preference. A real-time engine judges a mesh on other things: what
+size it is, which way it faces, where its origin is, whether its surface is closed
+and manifold, what it costs in memory, whether it survives simplification, and,
+once rigged, where its feet are when it moves.
+
+This paper audits the generated meshes that shipped in a finished game,
+ChronoTraveler, against those engine-side properties. We ask what such an asset
+needs before it is fit for a game, and which of those needs could be found by
+counting before import rather than discovered in play. The audit plan was
+committed before any audit script was run. The corpus is small (24 assets from one
+pipeline, a simplified companion and a rigged boss) and comes from one generator,
+so this is a case study; what transfers is the checklist and how it was tested.
+
+The findings run against the expectations we wrote down. The raw meshes are clean:
+all 24 are watertight and manifold. The defects that cost the most were either
+invisible to a file inspection (the generator's characters face away from the
+viewer; the rigged boss's idle animation lifts it 0.46--0.68\,m off the ground at
+game scale) or introduced by our own processing. Our simplification of the
+companion tore it into 2,433 pieces, because the simplifier was given the
+seam-split vertex buffer that a glTF loader returns; welding the same input first
+removes every crack. Memory is set by the textures: three 4096$^2$ maps cost
+40--50 times the geometry in BC7, so the ``50k faces'' setting users choose
+controls the cheaper part.
+
+Contributions: (1) a pre-registered audit of generated meshes in a shipped game,
+with every script, metric and commit label released; (2) evidence that, for this
+pipeline, engine readiness is decided by conventions, texture budget,
+simplification input and animation rather than by mesh topology; (3) a short
+pre-import checklist ordered by what each check would have caught here
+(Section~\ref{sec:discussion}). It extends our earlier audits of LLM-generated game
+content~\cite{zhao2026featureorleak,zhao2026countingwhat} from text to geometry.

@@ -1,0 +1,73 @@
+\section{Method}
+\label{sec:method}
+
+The audit plan---metrics, hypotheses and decision rules---was committed and
+pushed to the study repository (commit \texttt{2b0bc54}) before any audit script
+was written. One disclosure: while scoping the study the same day, a read-only
+survey had already parsed the GLB headers and reported triangle counts, texture
+sizes, the double-sided flag, the root rotation and unit-scale heights. The plan
+says so and treats the hypothesis that restates them (H1) as a descriptive
+confirmation, not a test. The hygiene, simplification, history and grounding
+results had not been looked at. Deviations are listed in
+Section~\ref{sec:deviations}.
+
+\paragraph{B1 Conventions.} A small GLB reader (no glTF library, so the numbers
+come from the same bytes the importer reads) applies each file's node chain and
+records the bounding box, the largest extent, the pivot as a fraction of the box
+on each axis, node transforms, material flags and extensions, and each embedded
+image's format and pixel size.
+\textbf{H1:} every raw asset is scale-normalised (largest extent 0.9--1.2 units),
+carries a non-identity root rotation and is double-sided.
+
+\paragraph{B2 Geometry hygiene.} Topology is measured after welding vertices with
+identical positions, since a UV seam is not a hole: connected components,
+boundary and non-manifold edges, non-manifold vertices, degenerate and duplicate
+faces, self-intersecting faces (MeshLab~\cite{cignoni2008meshlab} via
+PyMeshLab~\cite{muntoni2021pymeshlab}), and genus. UV charts are counted on the
+unwelded mesh, where seams separate them; UV coverage is the union of the UV
+triangles rasterised at 2048$^2$.
+\textbf{H2:} a majority of the 24 raw assets fail at least one of watertight,
+edge-manifold, or single component.
+
+\paragraph{B3 Cost.} Geometry bytes as stored (vertex attributes plus indices) and
+texture bytes for three GPU formats, each with a full mip chain ($\times 4/3$):
+uncompressed RGBA8 (4\,B/pixel), BC7 (1\,B/pixel) and BC1 (0.5\,B/pixel).
+\textbf{H3:} texture memory exceeds geometry memory at least tenfold for every
+raw asset under every format.
+
+\paragraph{B4 Simplification.} Quadric edge collapse~\cite{garland1997qem},
+in its texture-aware form~\cite{garland1998colorqem,hoppe1999newqem}, as
+implemented in MeshLab, with quality threshold 0.3 and boundary preservation off,
+at 50, 25, 12.5 and 6.25\,\% of the original face count, up to three passes.
+The plan named a with-UV and a no-UV condition. Because B2 showed that the shipped
+companion had been torn (Section~\ref{sec:hygiene}), the with-UV condition was run
+on two input representations of the same file: \emph{S}, the seam-split vertex
+buffer that MeshLab's glTF loader returns (what our companion pipeline used), and
+\emph{W}, the same mesh with exact duplicates welded and UVs kept per corner.
+\emph{N} is welded with no UVs. For each run we record faces reached, open edges
+after welding, components, and sampled Hausdorff distance~\cite{cignoni1998metro}
+in both directions as a percentage of the bounding-box diagonal.
+\textbf{H4:} with UVs preserved, a majority of assets cannot reach 6.25\,\%
+within three passes, while the no-UV control can.
+
+\paragraph{B5 History.} All non-merge commits in the game repository up to the
+shipped version (484) were searched with a pre-registered case-insensitive
+pattern of 25 terms (scale, pivot, ground, clip, cull, bounds, glb, decimat, \ldots).
+Each of the 156 matches was labelled from its message and diff as
+\texttt{ASSET} (root cause is a property of a generated asset),
+\texttt{ENGINE} (an engine or tool behaviour any asset would hit),
+\texttt{LEVEL} (level geometry, placement, purchased packs, procedural content)
+or \texttt{OTHER}. Two AI labellers drafted the labels, each taking half; the AI
+assistant reviewed every \texttt{ASSET}, \texttt{ENGINE} and low-confidence label,
+added an \emph{origin} field (did the generator ship the defect, or did our own
+processing introduce it?) and recorded each override with its reason; the author
+signed off. For \texttt{ASSET} fixes we note which B1--B3 check, if any, would
+have flagged the property before import.
+\textbf{H5:} most \texttt{ASSET} fixes concern properties that counting before
+import (B1/B2) would reveal.
+
+\paragraph{E1 Grounding (exploratory).} The boss was mis-grounded five times in
+26 minutes of development. In Blender~5.1 we evaluate the skinned mesh at every
+frame of each animation and take the lowest vertex as ground truth, then score
+the estimators the game tried: bind-pose bounds, a single frame, and the shipped
+minimum over ten samples 0.16\,s apart. Errors are reported at game scale (10\,m).

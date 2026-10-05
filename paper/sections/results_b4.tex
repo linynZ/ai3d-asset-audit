@@ -1,0 +1,51 @@
+\subsection{Simplification: the input, not the UVs, decides the damage}
+\label{sec:simplification}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/decimation}
+\caption{Simplifying the 24 raw assets (medians). Left: open edges after welding
+coincident vertices; the inputs have none. Seam-split input (as our companion
+pipeline used) cracks at every target; welded input, with or without UVs, never
+does (the two lines coincide at zero). Right: mean Hausdorff error.}
+\label{fig:decimation}
+\end{figure}
+
+\begin{table}[t]
+\caption{Simplification at 6.25\,\% of the original faces (24 assets): targets
+reached within three passes, assets left with open edges, and Hausdorff error as
+\% of the bounding-box diagonal (median [max]).}
+\label{tab:decimation}
+\small
+\begin{tabularx}{\columnwidth}{@{}Yrrrr@{}}
+\toprule
+Input & Reached & Cracked & Mean err. & Max err. \\
+\midrule
+S: seam-split + UV & 18 & 24 & 0.24 [0.32] & 3.6 [8.3] \\
+W: welded + UV & 23 & 0 & 0.17 [1.40] & 1.4 [9.7] \\
+N: welded, no UV & 24 & 0 & 0.12 [0.20] & 1.6 [5.5] \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+H4 is not supported. With UVs preserved on a welded mesh, 23 of 24 assets
+reached 6.25\,\% of their faces (about 3,100) in a single pass, with no cracks
+(Table~\ref{tab:decimation}). The exception is the asset with the most UV charts
+(3,088), which stalled at 3,896 faces after three passes. Charts constrain where
+the simplifier may collapse, but at these budgets they rarely stop it. What decided the outcome
+was the input representation. MeshLab's glTF loader returns the file's vertex
+buffer, in which every UV seam has already split the surface into separate
+vertices. Given that, texture-aware simplification treats each seam as an open
+boundary and moves its two sides independently: every asset cracked at every
+target, with a median of 13,924 open edges and 954 components already at 50\,\%,
+and six assets could not reach 6.25\,\% at all
+(Figure~\ref{fig:decimation}). Nothing in the filter reports this; the output is a
+valid mesh with the requested face count, and it renders. Welding exact
+duplicates first, one call, removes every crack at the same face budgets, with
+comparable mean error (medians within 0.08\,\% of the diagonal at every target).
+
+This is what happened to the companion. Our pipeline loaded the 497,850-triangle
+GLB directly and simplified it in three passes to 82,829 triangles; the result is
+the torn mesh of Section~\ref{sec:hygiene}. \input{sections/results_b4_xuanji}
+It shipped after a play check in which no one reported a crack; the defect was
+found by this audit.

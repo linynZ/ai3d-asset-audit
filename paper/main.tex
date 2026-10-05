@@ -1,0 +1,49 @@
+\documentclass[sigconf,nonacm]{acmart}
+
+% Build: pdflatex main && bibtex main && pdflatex main && pdflatex main
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\sloppy
+\clubpenalty=10000
+\widowpenalty=10000
+\settopmatter{printacmref=false}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+
+\begin{document}
+
+\title{Fit for the Engine? Auditing Image-to-3D Generated Meshes in a Shipped Game}
+\subtitle{A Pre-Registered Audit of 26 Generated Assets}
+
+\author{Penggan Zhao}
+\affiliation{%
+  \institution{Independent Researcher}
+  \country{China}}
+\email{pgzhao101@gmail.com}
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\keywords{image-to-3D generation, game assets, mesh simplification, real-time rendering, asset pipelines, content audit}
+
+\maketitle
+
+\input{sections/introduction}
+\input{sections/related}
+\input{sections/corpus}
+\input{sections/method}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/limitations}
+
+\begin{acks}
+\input{sections/acks}
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}

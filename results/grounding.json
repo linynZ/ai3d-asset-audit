@@ -1,0 +1,134 @@
+[
+ {
+  "file": "boss_idle.fbx",
+  "frames": 111,
+  "seconds": 1.85,
+  "lowest_point_range_m": 0.224,
+  "sampled_window_s": 1.44,
+  "estimators": {
+   "bind_pose_bounds": {
+    "max_hover_m": 0.684,
+    "max_sink_m": -0.46,
+    "mean_abs_m": 0.573,
+    "share_frames_off_by_more_than_0.1m": 1.0
+   },
+   "single_frame": {
+    "max_hover_m": 0.003,
+    "max_sink_m": 0.222,
+    "mean_abs_m": 0.109,
+    "share_frames_off_by_more_than_0.1m": 0.505
+   },
+   "min_10_samples_0.16s": {
+    "max_hover_m": 0.218,
+    "max_sink_m": 0.006,
+    "mean_abs_m": 0.107,
+    "share_frames_off_by_more_than_0.1m": 0.523
+   },
+   "min_all_frames": {
+    "max_hover_m": 0.224,
+    "max_sink_m": -0.0,
+    "mean_abs_m": 0.113,
+    "share_frames_off_by_more_than_0.1m": 0.541
+   }
+  }
+ },
+ {
+  "file": "boss_attack.fbx",
+  "frames": 161,
+  "seconds": 2.683,
+  "lowest_point_range_m": 1.389,
+  "sampled_window_s": 1.44,
+  "estimators": {
+   "bind_pose_bounds": {
+    "max_hover_m": 1.58,
+    "max_sink_m": -0.192,
+    "mean_abs_m": 0.742,
+    "share_frames_off_by_more_than_0.1m": 1.0
+   },
+   "single_frame": {
+    "max_hover_m": 1.127,
+    "max_sink_m": 0.261,
+    "mean_abs_m": 0.34,
+    "share_frames_off_by_more_than_0.1m": 0.584
+   },
+   "min_10_samples_0.16s": {
+    "max_hover_m": 1.278,
+    "max_sink_m": 0.111,
+    "mean_abs_m": 0.445,
+    "share_frames_off_by_more_than_0.1m": 0.82
+   },
+   "min_all_frames": {
+    "max_hover_m": 1.389,
+    "max_sink_m": -0.0,
+    "mean_abs_m": 0.55,
+    "share_frames_off_by_more_than_0.1m": 0.95
+   }
+  }
+ },
+ {
+  "file": "boss_hitdown.fbx",
+  "frames": 142,
+  "seconds": 2.367,
+  "lowest_point_range_m": 3.268,
+  "sampled_window_s": 1.44,
+  "estimators": {
+   "bind_pose_bounds": {
+    "max_hover_m": 3.649,
+    "max_sink_m": -0.381,
+    "mean_abs_m": 1.98,
+    "share_frames_off_by_more_than_0.1m": 1.0
+   },
+   "single_frame": {
+    "max_hover_m": 3.237,
+    "max_sink_m": 0.032,
+    "mean_abs_m": 1.568,
+    "share_frames_off_by_more_than_0.1m": 0.866
+   },
+   "min_10_samples_0.16s": {
+    "max_hover_m": 3.237,
+    "max_sink_m": 0.032,
+    "mean_abs_m": 1.568,
+    "share_frames_off_by_more_than_0.1m": 0.866
+   },
+   "min_all_frames": {
+    "max_hover_m": 3.268,
+    "max_sink_m": -0.0,
+    "mean_abs_m": 1.599,
+    "share_frames_off_by_more_than_0.1m": 0.887
+   }
+  }
+ },
+ {
+  "file": "boss_leap.fbx",
+  "frames": 221,
+  "seconds": 3.683,
+  "lowest_point_range_m": 3.248,
+  "sampled_window_s": 1.44,
+  "estimators": {
+   "bind_pose_bounds": {
+    "max_hover_m": 2.519,
+    "max_sink_m": 0.729,
+    "mean_abs_m": 1.171,
+    "share_frames_off_by_more_than_0.1m": 0.991
+   },
+   "single_frame": {
+    "max_hover_m": 2.086,
+    "max_sink_m": 1.162,
+    "mean_abs_m": 0.825,
+    "share_frames_off_by_more_than_0.1m": 0.919
+   },
+   "min_10_samples_0.16s": {
+    "max_hover_m": 3.105,
+    "max_sink_m": 0.143,
+    "mean_abs_m": 1.68,
+    "share_frames_off_by_more_than_0.1m": 0.964
+   },
+   "min_all_frames": {
+    "max_hover_m": 3.248,
+    "max_sink_m": -0.0,
+    "mean_abs_m": 1.815,
+    "share_frames_off_by_more_than_0.1m": 0.964
+   }
+  }
+ }
+]

@@ -1,0 +1,42 @@
+\section{Related Work}
+
+\paragraph{Image-to-3D generators.} Feed-forward and diffusion-based systems now
+produce textured meshes from one image in seconds to minutes:
+TripoSR~\cite{tochilkin2024triposr}, InstantMesh~\cite{xu2024instantmesh},
+SF3D~\cite{boss2025sf3d}, TRELLIS~\cite{xiang2025trellis} and the Hunyuan3D
+series~\cite{zhao2025hunyuan3d20,hunyuan2025hunyuan3d21}, whose commercial
+service generated our assets~\cite{tencent2026hunyuan3dapi}. Several describe
+their output as production- or game-ready; Hunyuan3D Studio adds retopology, UV
+unwrapping and rigging for that purpose~\cite{lei2025hunyuan3dstudio}, and our
+boss came from it. These claims are made and checked by the developers of each
+system.
+
+\paragraph{Evaluating generated 3D\@.} Benchmarks such as
+T3Bench~\cite{he2023t3bench}, GPTEval3D~\cite{wu2024gpteval3d} and
+3DGen-Bench~\cite{zhang2025threedgenbench} score rendered views for plausibility,
+prompt alignment and human preference. A second line, from
+MeshGPT~\cite{siddiqui2024meshgpt} to MeshAnything~\cite{chen2025meshanything,chen2024meshanythingv2},
+argues that densely extracted meshes are wasteful for storage and rendering and
+changes the generator's output representation toward artist-like topology. We
+found no independent audit of a generator's output after it enters a real-time
+engine, covering units, axes, pivots, UV efficiency, memory and animation. We
+searched arXiv and the web rather than every venue, so we claim only that such
+work is not prominent.
+
+\paragraph{Mesh processing.} Our measurements use standard tools: quadric error
+simplification~\cite{garland1997qem} and its extensions to appearance
+attributes~\cite{garland1998colorqem,hoppe1999newqem}, texture-aware
+simplification~\cite{sander2001tmpm}, Hausdorff error as computed by
+Metro~\cite{cignoni1998metro}, and MeshLab~\cite{cignoni2008meshlab} through
+PyMeshLab~\cite{muntoni2021pymeshlab}. Attene et al.\ survey mesh defects and
+repair from an application perspective~\cite{attene2013repair}; our hygiene checks
+cover a subset of the defect classes they list. Texture formats and their costs follow standard
+references~\cite{akenine2018rtr4,microsoft_bc7}, and the asset format is
+glTF~2.0~\cite{khronos2021gltf}.
+
+\paragraph{Grounding animated characters.} Keeping feet on the ground during
+playback is usually a per-frame problem, handled by foot-contact cleanup or inverse
+kinematics~\cite{kovar2002footskate}. Engines expose bounds for skinned meshes that
+are not recomputed from the current pose~\cite{unity_localbounds},
+and a pose snapshot API whose scale handling depends on the
+hierarchy~\cite{unity_bakemesh}; both figure in our results.
