@@ -6,6 +6,13 @@ the shipped build), simplification, commit history and animated grounding - and 
 attribution audit of the AI coding assistant's own written explanations of the
 asset problems against those measurements, plus a defect lifecycle record.
 
+**Paper:** *Fit for the Engine? Image-to-3D Meshes, Their Pipeline, and an AI
+Assistant's Explanations in a Completed Unity Game* — preprint on Zenodo,
+[doi:10.5281/zenodo.23228592](https://doi.org/10.5281/zenodo.23228592)
+(PDF also at `paper/`; Chinese summary: `paper/summary_zh.md`).
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23228592.svg)](https://doi.org/10.5281/zenodo.23228592)
+
 - `PLAN.md` - analysis plan, committed before any audit script existed (2b0bc54).
 - `PLAN_v2.md` - second plan for the attribution audit and defect lifecycles, committed before any claim was extracted (63b4a34).
 - `scripts/` - every measurement (GLB reader, hygiene, baseline, build readout,
